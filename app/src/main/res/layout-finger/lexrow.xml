@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="6dip"
+    android:descendantFocusability="blocksDescendants"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/hiddenLid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="0dip"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="9sp"
+        android:visibility="visible"
+        android:width="0dip" />
+
+    <TextView
+        android:id="@+id/hiddenCid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="0dip"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="9sp"
+        android:visibility="visible"
+        android:width="0dip" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:layout_marginRight="0dip"
+       
+        />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dip"
+        android:layout_weight="1"
+        android:layout_height="fill_parent">
+        <TextView
+            android:id="@+id/toptext"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+        android:paddingLeft="10dip" android:textSize="14sp" android:textStyle="bold" android:textColor="@color/BLACK"/>
+
+        <TextView
+            android:id="@+id/subTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall" android:paddingLeft="10dip"/>
+       
+    </LinearLayout>
+ <LinearLayout
+        android:id="@+id/reorderWrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+
+        <ImageButton
+            android:id="@+id/reorderUp"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:focusable="false" 
+            android:background="@drawable/reorder_up_image_button"/>
+
+
+        <ImageButton
+            android:id="@+id/reorderDown"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:focusable="false" 
+            android:background="@drawable/reorder_down_image_button"/>
+
+    </LinearLayout>
+    
+    
+    <ToggleButton
+        android:id="@+id/hideButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:background="@drawable/hide_toggle_btn_bg" 
+        android:layout_gravity="center_horizontal" 
+        android:visibility="visible"
+        android:focusable="false" android:textOff="@string/HIDE_TOGGLE_OFF" android:textOn="@string/HIDE_TOGGLE_ON"/>
+
+</LinearLayout>

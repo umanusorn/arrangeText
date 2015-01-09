@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="DEBUG1">#FF0000</color>
+    <color name="DEBUG2">#00FF00</color>
+    <color name="GRAY_66">#666666</color>
+    <color name="GREEN_ANDROID">#A5CB39</color>
+    <color name="PINK_CHULA">#FFBAD6</color>
+    <color name="BLACK">#000000</color>
+    
+    <color name="list_default">#000000</color>
+    <color name="list_press">#ffcc00</color>
+</resources>

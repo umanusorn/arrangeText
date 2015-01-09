@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="3dip">
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="65dip"
+        android:layout_height="65dip"
+        android:layout_marginRight="6dip"
+
+        />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dip"
+        android:layout_weight="1"
+        android:layout_height="fill_parent">
+        <RelativeLayout
+            android:id="@+id/widget01"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1">
+
+        <TextView android:text="@+id/TextView01" android:id="@+id/toptext" 
+        android:layout_width="240dip" android:layout_height="25dip" android:textSize="18sp" android:paddingLeft="3dip" android:textStyle="bold">
+        </TextView>
+<Button android:layout_height="wrap_content"  android:layout_width="wrap_content" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_below="@+id/toptext" android:id="@+id/downloadDL_button"></Button>
+</RelativeLayout>
+    </LinearLayout>
+</LinearLayout><!-- From: file:/Q:/Android/androidWorkspace/slsatl-chula-aac-on-android/app/src/main/res/layout-finger/downloadrow.xml -->

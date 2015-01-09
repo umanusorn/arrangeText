@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+android:id="@+id/downloadLayout"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:orientation="vertical"
+xmlns:android="http://schemas.android.com/apk/res/android" android:background="#FFFFFF">
+
+    <LinearLayout
+        android:id="@+id/searchDescWrapper"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/PINK_CHULA" android:paddingTop="10dip">
+
+        <ImageView
+            android:id="@+id/searchDescArrow"
+            android:layout_width="32dip"
+            android:layout_height="20dip"
+            android:src="@drawable/arrow_curve_down" android:layout_marginLeft="20dip"/>
+
+        <TextView
+            android:id="@+id/searchDescText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall" android:textColor="@color/BLACK" android:text="@string/TEXT_SEARCH_DESC"/>
+
+    </LinearLayout>
+
+<RelativeLayout
+android:id="@+id/searchLayout"
+android:layout_width="fill_parent"
+android:layout_height="60dip"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:background="@color/PINK_CHULA" android:paddingTop="4dip" android:paddingBottom="10dip">
+<ImageButton
+android:id="@+id/search_button"
+android:layout_width="40dip"
+android:layout_height="40dip"
+android:layout_alignParentTop="true"
+android:layout_toRightOf="@+id/clearSearch_button"
+
+android:background="@drawable/search_button">
+</ImageButton>
+<ImageButton
+android:id="@+id/clearSearch_button"
+android:layout_width="40dip"
+android:layout_height="40dip"
+android:layout_alignParentTop="true"
+android:layout_toRightOf="@+id/search_txt"
+android:background="@drawable/trashcan_button">
+</ImageButton>
+<EditText
+android:id="@+id/search_txt"
+android:layout_width="240dip"
+android:layout_height="40dip"
+android:textSize="18sp"
+
+android:layout_alignParentTop="true"
+android:layout_alignParentLeft="true"
+>
+</EditText>
+</RelativeLayout>
+
+<RelativeLayout
+    android:id="@+id/listWrapper"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:background="@color/PINK_CHULA">
+
+    <ListView
+        android:id="@+id/listViewData"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:choiceMode="singleChoice" android:layout_marginBottom="45dip" android:background="#FFFFFF">
+    </ListView>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+        android:background="@drawable/download_cat_button" android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
+</LinearLayout>
+<!-- From: file:/Q:/Android/androidWorkspace/slsatl-chula-aac-on-android/app/src/main/res/layout-finger/downloadview.xml -->

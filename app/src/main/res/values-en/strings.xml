@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">Chula AAC</string>
+    <string name="YES">Yes</string>
+    <string name="NO">No</string>
+    <string name="OK">OK</string>
+    <string name="CANCEL">Cancel</string>
+    <string name="CONFIRM">Confirm</string>
+    <string name="SAVE">Save</string>
+    <string name="CATAGORIES">Categories</string>
+    <string name="DOWNLOADS">Downloads</string>
+    <string name="SETTINGS">Settings</string>
+    <string name="HELP">Help</string>
+    <string name="CONNECT_INT">The functionality you requested requires an Internet connection. No Internet connection has been found.</string>
+    <string name="SET_LANG">Select language</string>
+        <string name="RESET_DATA">Restore to default</string>
+    <string name="RESET_DATA_QUES">Are you sure you want to restore database to default?</string>
+    <string name="ADD_NEW_CATE">Add new category</string>
+    <string name="CATE">Category:</string>
+    <string name="CAT_NAME">Category name:</string>
+    <string name="SEL_PHOTO">Select picture</string>
+	<string name="DEL_CATE">Delete category</string>
+	<string name="DEL_CATE_QUES">Are you sure you want to this delete category?</string>
+  	<string name="ADD_NEW_VOCAB">Add new vocabulary</string>
+  	<string name="TTS">Text-to-speech</string>
+    <string name="EDIT_VOCAB">Edit vocabulary</string>
+    <string name="CHANGED">Changes have been saved</string>
+    <string name="DEL_VOCAB">Delete vocabulary</string>
+    <string name="DEL_VOCAB_QUES">Are you sure you want to delete this vocabulary?</string>
+    <string name="DOWNLOAD">Download</string>
+    <string name="VOCAB">Vocabulary:</string>
+    <string name="CONN_FAILED">No Internet</string>
+    <string name="DOWNLOAD_RES">Downloading resource...</string>
+    <string name="CHOOSE_VOCAB">Vocabulary</string>
+    <string name="CHOOSE_CATE">Category</string>
+   	<string name="SEARCH_BY">Search by: </string>
+   	<string name="CANTDEL_CATE">This is default category, cannot be deleted</string>
+   	<string name="CANTDEL_VOCAB">This is default vocabulary, cannot be deleted</string>
+	<string name="EXIST_CATE">This category name is already existed, please rename</string>
+	<string name="DL">Download</string>
+	<string name="RESTORING">Processing restore to default...</string>
+	<string name="PLS_DLTYPE">Please choose searching method</string>
+	<string name="CONNECT_SV">Connecting to server...</string>
+	<string name="NOT_FOUND">Not found</string>
+	<string name="DL_EXIST">This category is already existed</string>
+	<string name="PLS_DEL_B4">Please delete vobaulary in the tab before adding new one</string>
+     <string name="DL_NEW_CATE">Downloading new category...</string>
+     <string name="PLS_COMPLETE_ADD">Please add both word and picture</string>
+       <string name="HELP_MAIN"> "AAC on Android Chula application is developed by Eng chula team\n\nTo start speaking,choose Categories and then select vocabulary.\n\nFor changing language and restore to default, choose Settings.\n\nFor more categories and vocabularies, choose Downloads.</string>
+ 	<string name="HELP_CATE">Look at vocabulary in a category: Click at a category\n\nAdd: Click Menu button, select add category, a windows for insert category shows, insert category’s name, select photo for the category, click Save.\n\nDelete: Long press over a category you want to delete, a confirm dialog box shows, click Yes to delete the category. (You can delete only category that is not a default category.</string>   
+ 	 <string name="HELP_VOCAB">"Play voice: After click at a vocabulary you want to play voice, click Play button to play voice\n\nConcatenate vocabulary: Click at next vocabulary after you click the first vocabulary to concatenate it into a sentence. (You can select at most 8 vocabularies to synthesis a speech.)\n\nText-to-speech: Click Menu button, select Text-to-speech, type the word you want to synthesis a speech, click Play button.\n\nAdd: Click Menu button, select add vocabulary, a windows for insert category shows, insert category’s name, select photo for the category, click Save.\n\nDelete: Long press over a vocabulary you want to delete, a confirm dialog box shows, click Yes to delete the vocabulary. (You can delete only vocabulary that is not a default vocabulary.</string>
+<string-array name="SETTING_MENU"> 
+    	<item>Manage Categories/Vocabs</item><item>Set language</item><item>Update</item>
+    	
+    	
+</string-array>
+     <string-array name="CATE_MENU"><item>Delete category</item>
+    	
+</string-array>   	
+   	  <string-array name="VOCAB_MENU"> 
+    	<item>Delete vocabulary</item></string-array>	
+   	<string-array name="LANG_OPTION"> 
+    	<item>Thai</item><item>English</item></string-array>
+   	<string name="DEFAULT_CATE">2</string>
+   	<string name="MANAGE_CATE_VOCAB">Manage Categories and Vocabs</string>
+   	<string name="MAIN_GUIDE_TEXT">Touch the green robot to Compose</string>
+   	<string name="VERSION">1.2.01</string>
+   	<string name="TTS_SPEAK_BUTTON">Speak</string>
+   	<string name="TTS_CLEAR_BUTTON">Clear</string>
+   	<string name="TTS_NO_LANG">The current default TTS does not support the current language.</string>
+   	<string name="TTS_INIT_ERR">TTS initialization fails.</string>
+   	<string name="HIDE_TOGGLE_OFF">Hidden</string>
+   	<string name="HIDE_TOGGLE_ON">Shown</string>
+   	<string name="TOAST_TOP_OF_LIST">The item is already at the top of the list.</string>
+   	<string name="TOAST_END_OF_LIST">The item is already at the end of the list.</string>
+   	<string name="MENU_ITEM_HIDE">hide/show</string>
+   	<string name="MENU_ITEM_REORDER">Rearrange</string>
+   	<string name="ACT_TITLE_CATEGORY_SETTING">Category Settings</string>
+   	<string name="ACT_TITLE_SETTING">Settings</string>
+   	<string name="ACT_TITLE_VOCAB_SETTING">Vocabulary Settings</string>
+   	<string name="BUTTON_SAVE_ORDER">Save Current Arrangement</string>
+   	<string name="TOAST_ORDER_SAVED">Arrangement saved</string>
+   	<string name="TOAST_ORDER_DISCARDED">The current arrangment has not been saved. Do you want to leave this page?</string>
+   	<string name="DIALOG_TITLE_CONFIRM">Please confirm</string>
+   	<string name="ACT_TITLE_HELP">Help</string>
+   	<string name="TAB_TAG_HELP_ABOUT">About</string>
+   	<string name="TAB_TAG_HELP_SETTING">Settings</string>
+   	<string name="TAB_TAG_HELP_COMPOSE">Composing</string>
+   	<string name="AAC">Create message from pictures</string>
+   	<string name="PROGRESS_PREPARE_COMPOSE_PAGE">Preparing data</string>
+   	<string name="TEXT_SEARCH_DESC">Enter search keyword(s)</string>
+   	<string name="ACT_TITLE_DOWNLOAD">Download</string>
+   	<string name="ACT_TITLE_TTS">Text-to-Speech</string>
+   	<string name="DIALOG_TITLE_NO_CAT_CHECKED">No category selected</string>
+   	<string name="DIALOG_MSG_NO_CAT_CHECKED">Check the category you would like to download from the list. </string>
+   	<string name="PROGRESS_SEARCHING">Searching from server</string>
+   	<string name="PROGRESS_ADD_VOCAB">Adding new item</string>
+   	<string name="PROGRESS_ADD_CATE">Adding new category</string>
+   	<string name="CUSTOM_SUBTITLE">Custom category</string>
+   	<string name="CHECK_SERIAL">Validating Serial Number</string>
+</resources>

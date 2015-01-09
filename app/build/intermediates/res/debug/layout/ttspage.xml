@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ttsPageAncestor"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/PINK_CHULA"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <EditText
+                android:id="@+id/TTSInputText"
+                android:layout_width="fill_parent"
+                android:layout_height="120dip"
+                android:layout_weight="1"
+                android:inputType="textMultiLine" android:background="@drawable/tts_bubble"/>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout1"
+                android:layout_width="fill_parent"
+                android:layout_weight="1" android:layout_height="wrap_content" android:layout_below="@id/TTSInputText" android:paddingLeft="10dip" android:paddingRight="10dip" android:paddingTop="0dip" android:paddingBottom="10dip" android:layout_marginTop="-18dip">
+
+                <Button
+                    android:id="@+id/TTSClearButton"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:background="@drawable/trashcan_button"/>
+
+                <Button
+                    android:id="@+id/TTSSpeakButton"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_toRightOf="@+id/TTSSpeakButton"
+                    android:background="@drawable/speak_button" android:width="40dip" android:height="40dip" android:layout_alignParentRight="true"/>
+
+                <ListView
+                    android:id="@+id/TTSHistory"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1" android:layout_below="@id/TTSSpeakButton" android:divider="@color/PINK_CHULA" android:dividerHeight="1dip" android:background="#FFFFFF" android:layout_marginTop="10dip">
+                </ListView>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+<!-- From: file:/Q:/Android/androidWorkspace/slsatl-chula-aac-on-android/app/src/main/res/layout/ttspage.xml -->

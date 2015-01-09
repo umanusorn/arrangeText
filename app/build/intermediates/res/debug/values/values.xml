@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Q:/Android/androidWorkspace/slsatl-chula-aac-on-android/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string-array name="CATE_MENU"><item>ลบหมวดหมู่นี้</item>
+    	
+</string-array>
+    <string-array name="LANG_OPTION"> 
+    	<item>ไทย</item><item>อังกฤษ</item></string-array>
+    <string-array name="SETTING_MENU"> 
+    	<item>จัดการหมวดหมู่/คำศัพท์</item><item>ตัั้งค่าภาษา</item><item>อัพเดต</item>
+    	
+    	
+</string-array>
+    <string-array name="VOCAB_MENU"> 
+    	<item>ลบคำศัพท์</item></string-array>
+    <!-- From: file:/Q:/Android/androidWorkspace/slsatl-chula-aac-on-android/app/src/main/res/values/color.xml -->
+    <eat-comment/>
+    <color name="BLACK">#000000</color>
+    <color name="DEBUG1">#FF0000</color>
+    <color name="DEBUG2">#00FF00</color>
+    <color name="GRAY_66">#666666</color>
+    <color name="GREEN_ANDROID">#A5CB39</color>
+    <color name="PINK_CHULA">#FFBAD6</color>
+    <color name="list_default">#000000</color>
+    <color name="list_press">#ffcc00</color>
+    <!-- From: file:/Q:/Android/androidWorkspace/slsatl-chula-aac-on-android/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="AAC">สร้างข้อความจากภาพ</string>
+    <string name="ACT_TITLE_CATEGORY_SETTING">จัดการหมวดหมู่</string>
+    <string name="ACT_TITLE_DOWNLOAD">ดาวน์โหลดหมวดหมู่</string>
+    <string name="ACT_TITLE_HELP">วิธีใช้โปรแกรม</string>
+    <string name="ACT_TITLE_SETTING">ตั้งค่า</string>
+    <string name="ACT_TITLE_TTS">สังเคราะห์เสียงจากข้อความ</string>
+    <string name="ACT_TITLE_VOCAB_SETTING">จัดการคำศัพท์</string>
+    <string name="ADD_NEW_CATE">เพิ่มหมวดหมู่ใหม่</string>
+    <string name="ADD_NEW_VOCAB">เพิ่มคำศัพท์ใหม่</string>
+    <string name="BUTTON_SAVE_ORDER">บันทึกการเรียงลำดับ</string>
+    <string name="CANCEL">ยกเลิก</string>
+    <string name="CANTDEL_CATE">หมวดหมู่นี้เป็นหมวดหมู่มาตรฐาน ไม่สามารถลบได้</string>
+    <string name="CANTDEL_VOCAB">คำศัพท์นี้เป็นคำศัพท์มาตรฐาน ไม่สามารถลบได้</string>
+    <string name="CATAGORIES">หมวดหมู่ต่างๆ</string>
+    <string name="CAT_NAME">ชื่อหมวดหมู่:</string>
+    <string name="CHANGED">การเปลี่ยนแปลงได้ถูกบันทึกเรียบร้อยแล้ว</string>
+    <string name="CHECK_SERIAL">กำลังตรวจสอบไลเซนส์</string>
+    <string name="CHOOSE_CATE">หมวดหมู่</string>
+    <string name="CHOOSE_VOCAB">คำศัพท์</string>
+    <string name="CONFIRM">ยืนยัน</string>
+    <string name="CONNECT_INT">ต้องการการเชื่อมต่อกับเครือข่ายอินเทอร์เนต โปรดตรวจสอบสถานะการเชื่อมต่อ</string>
+    <string name="CONNECT_SV">กำลังเชื่อมต่อกับเซิฟเวอร์...</string>
+    <string name="CONN_FAILED">ไม่สามารถต่อเชื่อมกับอินเทอร์เน็ต</string>
+    <string name="CUSTOM_SUBTITLE">หมวดหมู่สร้างเอง</string>
+    <string name="DEFAULT_CATE">1</string>
+    <string name="DEL_CATE">ลบหมวดหมู่</string>
+    <string name="DEL_CATE_QUES">คุณแน่ใจว่าต้องการลบหมวดหมู่นี้?</string>
+    <string name="DEL_VOCAB">ลบคำศัพท์</string>
+    <string name="DEL_VOCAB_QUES">คุณแน่ใจว่าต้องการลบคำศัพท์คำนี้</string>
+    <string name="DIALOG_MSG_NO_CAT_CHECKED">เลือกหมวดหมู่ที่ต้องการดาวน์โหลดจากรายการ โดยคลิกที่หมวดหมู่นั้น</string>
+    <string name="DIALOG_TITLE_CONFIRM">โปรดยืนยัน</string>
+    <string name="DIALOG_TITLE_NO_CAT_CHECKED">ยังไม่ได้เลือกหมวดหมู่ที่จะดาวน์โหลด</string>
+    <string name="DL">ดาวน์โหลด</string>
+    <string name="DL_EXIST">มีหมวดหมู่นี้อยู่ในฐานข้อมูลแล้ว</string>
+    <string name="DL_NEW_CATE">กำลังดาวน์โหลดหมวดหมู่ใหม่...</string>
+    <string name="DOWNLOAD">ดาวน์โหลด</string>
+    <string name="DOWNLOADS">ดาวน์โหลด</string>
+    <string name="DOWNLOAD_RES">กำลังดาวน์โหลดฐานข้อมูล...</string>
+    <string name="EDIT_CATE">แก้ไขหมวดหมู่</string>
+    <string name="EDIT_PHOTO">แก้ไขรูปภาพ</string>
+    <string name="EDIT_VOCAB">แก้ไขคำศัพท์</string>
+    <string name="EN">อังกฤษ</string>
+    <string name="EXIST_CATE">ชื่อหมวดหมู่ซ้ำ กรุณาเปลี่ยน</string>
+    <string name="HELP">ช่วยเหลือ</string>
+    <string name="HELP_CATE">ดูคำศัพท์ในหมวดหมู่:เลือก หมวดหมู่ที่ต้องการ\n\nเพิ่มหมวดหมู่ใหม่:กดปุ่ม menuแล้วเลือก เพิ่มหมวดหมู่ใหม่  ใส่รูปภาพกับชื่อหมวดหมู่ที่ต้องการเพิ่ม\n\nลบหมวดหมู่:กดค้างบนหมวดหมู่ที่ต้องการลบ แล้วกด ตกลง
+      <string name="HELP_VOCAB">การออกเสียง:หลังจากเลือกคำศัพท์ที่ต้องการ แล้วกดปุ่มรูปลำโพง\n\nการสร้างข้อความ:เลือกคำศัพท์เพิ่มเติมจากหมวดหมู่นี้ หรือหมวดหมู่อื่นๆ(สามารถเลือกคำศัพท์ได้สูงสุด 8 คำ)\n\nการแต่งข้อความ: กดปุ่ม menu เลือก แต่งข้อความ แล้วพิมพ์ข้อความที่ต้องการลงไปในช่อง หลังจากนั้นกดปุ่มรูปลำโพง\n\nเพิ่มหมวดหมู่ใหม่:กดปุ่ม menu เลือก เพิ่มคำศัพท์ใหม่  ใส่รูปภาพกับชื่อคำศัพท์ที่ต้องการเพิ่ม\n\nลบคำศัพท์: กดค้างบนคำศัพท์ที่ต้องการลบ แล้วกด ตกลง </string>
+
+
+      </string>
+    <string name="HELP_MAIN">AAC on Android Chula พัฒนาโดย นิสิต คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย\n\nออกเสียง:เลือก หมวดหมู่ต่างๆ แล้วเลือกคำศัพท์ที่ต้องการ\n\nเปลี่ยนภาษา:เลือก ตั้งค่า แล้วเลือก ตั้งค่าภาษา\n\nเพิ่มเติมหมวดหมู่:เลือก ดาวน์โหลด</string>
+    <string name="HELP_VOCAB">วิธีใช้</string>
+    <string name="HIDE_TOGGLE_OFF">ซ่อน</string>
+    <string name="HIDE_TOGGLE_ON">แสดง</string>
+    <string name="INTERNET_FN">กรุณาเชื่อมต่ออินเตอร์เนตเพื่อใช้งานฟังชั่นก์นี้</string>
+    <string name="MAIN_GUIDE_TEXT">แตะรูปหุ่นด้านบนเพื่อเลือกคำ</string>
+    <string name="MANAGE_CATE_VOCAB">จัดการหมวดหมู่และคำศัพท์</string>
+    <string name="MENU_ITEM_HIDE">ซ่อน/แสดง</string>
+    <string name="MENU_ITEM_REORDER">จัดเรียง</string>
+    <string name="NO">ยกเลิก</string>
+    <string name="NOT_FOUND">ไม่พบข้อมูล</string>
+    <string name="OK">ตกลง</string>
+    <string name="PLS_COMPLETE_ADD">กรุณาใส่ข้อมูลให้ครบ</string>
+    <string name="PLS_DEL_B4">กรุณาลบคำศัพท์ในช่องก่อนเลือกคำใหม่</string>
+    <string name="PLS_DLTYPE">กรุณาเลือกหมวดการค้นหา</string>
+    <string name="PROCESSING_SV">กำลังติดต่อเซิฟเวอร์เพื่อสังเคราะห์เสียง...</string>
+    <string name="PROCESS_NEW">กำลังสังเคราะห์เสียงคำใหม่จากเซิฟเวอร์...</string>
+    <string name="PROGRESS_ADD_CATE">กำลังเพิ่มรายการ</string>
+    <string name="PROGRESS_ADD_VOCAB">กำลังเพิ่มรายการ</string>
+    <string name="PROGRESS_PREPARE_COMPOSE_PAGE">กำลังเตรียมข้อมูล</string>
+    <string name="PROGRESS_SEARCHING">กำลังค้นหาจากเซิร์ฟเวอร์</string>
+    <string name="RESET_DATA">กลับไปยังค่าเริ่มต้น</string>
+    <string name="RESET_DATA_QUES">คุณแน่ใจว่าต้องการกลับไปยังค่าเริ่มต้น?</string>
+    <string name="RESRT">กลับไปยังค่าเริ่มต้น</string>
+    <string name="RESTORING">กำลังกลับไปยังค่าเริ่มต้น...</string>
+    <string name="SAVE">บันทึก</string>
+    <string name="SEARCH_BY">ค้นหาโดย: </string>
+    <string name="SEL_LANG">เลือกภาษา</string>
+    <string name="SEL_PHOTO">เลือกรูปภาพ</string>
+    <string name="SETTINGS">ตั้งค่า</string>
+    <string name="SET_LANG">ตั้งค่าภาษา</string>
+    <string name="TAB_TAG_HELP_ABOUT">เกี่ยวกับโปรแกรม</string>
+    <string name="TAB_TAG_HELP_COMPOSE">การใช้งาน</string>
+    <string name="TAB_TAG_HELP_SETTING">การตั้งค่า</string>
+    <string name="TEXT_SEARCH_DESC">ใส่คำสำคัญที่ต้องการค้นหา</string>
+    <string name="TH">ไทย</string>
+    <string name="TOAST_END_OF_LIST">อยู่ตำแหน่งสุดท้ายของรายการนี้แล้ว</string>
+    <string name="TOAST_ORDER_DISCARDED">การเรียงลำดับยังไม่ได้รับการบันทึก ยืนยันการออกจากหน้านี้หรือไม่ ?</string>
+    <string name="TOAST_ORDER_SAVED">บันทึกการจัดเรียงเรียบร้อย</string>
+    <string name="TOAST_TOP_OF_LIST">อยู่ตำแหน่งแรกของรายการนี้แล้ว</string>
+    <string name="TTS">สังเคราะห์เสียงจากข้อความ</string>
+    <string name="TTS_CLEAR_BUTTON">ล้างข้อความ</string>
+    <string name="TTS_INIT_ERR">เกิดความผิดพลาดในการเริ่มใช้งานเครื่องสังเคราะห์เสียง</string>
+    <string name="TTS_NO_LANG">เครื่องสังเคราะห์เสียงที่ทำงานขณะนี้ไม่รองรับภาษาไทย</string>
+    <string name="TTS_SPEAK_BUTTON">พูด</string>
+    <string name="VERSION">1.2.01</string>
+    <string name="VOCAB">คำศัพท์:</string>
+    <string name="YES">ตกลง</string>
+    <string name="app_name">จุฬาเอเอซี</string>
+    <string name="logo_description">โลโก้จุฬาเอเอซี</string>
+    <string name="play_button_description">ปุ่มเริ่มต้นการทำงานเอเอซี</string>
+</resources>
