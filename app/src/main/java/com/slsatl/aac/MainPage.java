@@ -1,6 +1,26 @@
 package com.slsatl.aac;
 
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.res.Resources;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
@@ -12,40 +32,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Enumeration;
 import java.util.Locale;
-import java.util.Vector;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 //import com.test.R;
-
-
-
-
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.res.Resources;
-import android.database.Cursor;
-import android.database.SQLException;
-
-import android.net.ConnectivityManager;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
-
-import android.view.View;
-import android.view.Window;
-import android.view.View.OnClickListener;
-
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 	
 public class MainPage extends Activity{
 	PackageInfo packageInfo = null;
@@ -59,114 +49,55 @@ public class MainPage extends Activity{
     ImageButton downloadButton,settingButton,helpButton,ttsButton;
     ImageButton cateButton;
     TextView mainGuideText;
-    
-    /** Called when the activity is first created. */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-                
-        // get resource , context of application
-        r = getResources();
-        context = getApplicationContext();
-           
-        Keeper.myDbHelper = new DataBaseHelper(getBaseContext());
-        
-        try{  Keeper.myDbHelper.createDataBase();
-           } catch (IOException ioe) {
-   	        throw new Error("Unable to create database");
-   	    }try{  Keeper.myDbHelper.openDataBase();
-      	    	Keeper.myDB = DataBaseHelper.myDataBase;
-   	    }catch(SQLException sqle){
-               throw sqle;
-             } 
-                   
-        /*if(!AACUtil.serialIsValidated()){
-           	finish();
-           	launchValidatePage();
-        }*/
-        
-        Keeper.mainPage = this;
-        //set default lang
-        if (Keeper.locale==null){
-        	Keeper.locale = Locale.US;
-        	//Keeper.locale = new Locale("th_TH");
-        }
-        setContentView(R.layout.main);
-        
-        try{
-        	packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-        }catch(Exception e){
-        	e.printStackTrace();
-        }
-        
-        TextView versionText = (TextView)findViewById(R.id.VersionText);
-        if(packageInfo != null){
-        	versionText.setText(packageInfo.versionName);
-        }else{
-        	versionText.setText("Unknown Version");
-        }
-        
-        // set button and text ui
-        cateButton = (ImageButton) findViewById(R.id.cate_button);
-        downloadButton = (ImageButton) findViewById(R.id.download_button);
-        //downloadButton.setVisibility(View.GONE);
-        settingButton = (ImageButton) findViewById(R.id.setting_button);
-        helpButton = (ImageButton) findViewById(R.id.help_button);
-        ttsButton = (ImageButton) findViewById(R.id.tts_button);
-        lockPane  = (LinearLayout) findViewById(R.id.mainpageAncestor);
-        mainGuideText = (TextView) findViewById(R.id.main_guide_text);
-        
-   
-        
-        // check resources for first time installation
-        File dir = new File(Environment.getExternalStorageDirectory() + "/AAConAndroid");
-        if(dir.exists() && dir.isDirectory()) { 
-        }else{
-        	new DownloadResourceTask().execute();
-        	lockPane.setClickable(false);
-        }
-        
-      
-        cateButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {            	
-            	new PrepareComposePage().execute();
-            	lockPane.setClickable(false); 
-            }
-        });
-        downloadButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	launchDownload();
-            }
-        });
-        
-        settingButton.setOnClickListener(new OnClickListener() {
-        	
-            public void onClick(View v) {
-            	  launchSetting();
-            	 
-            }
-        });
-        
-        helpButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	launchHelpPage();
-            }
-        });
-        
-        ttsButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	launchTTSPage();
-            }
-        });
+    //test commit git
 
-        
+	/*@Override
+	public void onDestroy(){
+		Keeper.myDB.close();
+	}*/
+    public static boolean DownloadFile(String fileURL, String fileName) {
+    	Boolean fin =false;
+        try {
+
+            URL u = new URL(fileURL);
+            HttpURLConnection c = (HttpURLConnection) u.openConnection();
+            c.setRequestMethod("GET");
+            c.setDoOutput(true);
+            c.connect();
+            File destinationFile = new File("/sdcard/AAConAndroid/"+fileName);
+            InputStream in = c.getInputStream();
+            BufferedOutputStream buffer = new BufferedOutputStream(new FileOutputStream(destinationFile));
+            byte byt[] = new byte[1024];
+            int i;
+
+           for (long l = 0L; (i = in.read(byt)) != -1; l += i ) {
+                buffer.write(byt, 0, i);
+            }
+       /*     for (long l = 0L; in.read(byt) != -1; l += 1 ) {
+                buffer.write(byt, l, 1);
+            }*/
+
+            buffer.flush();
+            in.close();
+            buffer.close();
+            fin = true;
+
+        } catch (Exception e) {
+            Log.d("Downloader", e.getMessage());
+        }
+        return fin;
     }
-    @Override
-    public void onResume(){
-    	configUI();
-    	super.onResume();
-    	
+
+	/*
+	public void launchCategory() {
+        Intent i = new Intent(this, CategoryPage.class);
+        startActivity(i);
+
+    }*/
+	public void launchCompose() {
+        Intent i = new Intent(getApplicationContext(), ComposePage.class);
+        startActivity(i);
+
     }
     /*
     public void onDestroy(){
@@ -203,45 +134,151 @@ public class MainPage extends Activity{
     }
     */
     
+	public void launchValidatePage() {
+        Intent i = new Intent(getApplicationContext(), ValidatePage.class);
+        startActivity(i);
+
+    }
+    
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        // get resource , context of application
+        r = getResources();
+        context = getApplicationContext();
+
+        Keeper.myDbHelper = new DataBaseHelper(getBaseContext());
+
+        try{  Keeper.myDbHelper.createDataBase();
+           } catch (IOException ioe) {
+   	        throw new Error("Unable to create database");
+   	    }try{  Keeper.myDbHelper.openDataBase();
+      	    	Keeper.myDB = DataBaseHelper.myDataBase;
+   	    }catch(SQLException sqle){
+               throw sqle;
+             }
+
+        /*if(!AACUtil.serialIsValidated()){
+           	finish();
+           	launchValidatePage();
+        }*/
+
+        Keeper.mainPage = this;
+        //set default lang
+        if (Keeper.locale==null){
+        	Keeper.locale = Locale.US;
+        	//Keeper.locale = new Locale("th_TH");
+        }
+        setContentView(R.layout.main);
+
+        try{
+        	packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+        }catch(Exception e){
+        	e.printStackTrace();
+        }
+
+        TextView versionText = (TextView)findViewById(R.id.VersionText);
+        if(packageInfo != null){
+        	versionText.setText(packageInfo.versionName);
+        }else{
+        	versionText.setText("Unknown Version");
+        }
+
+        // set button and text ui
+        cateButton = (ImageButton) findViewById(R.id.cate_button);
+        downloadButton = (ImageButton) findViewById(R.id.download_button);
+        //downloadButton.setVisibility(View.GONE);
+        settingButton = (ImageButton) findViewById(R.id.setting_button);
+        helpButton = (ImageButton) findViewById(R.id.help_button);
+        ttsButton = (ImageButton) findViewById(R.id.tts_button);
+        lockPane  = (LinearLayout) findViewById(R.id.mainpageAncestor);
+        mainGuideText = (TextView) findViewById(R.id.main_guide_text);
+
+
+
+        // check resources for first time installation
+        File dir = new File(Environment.getExternalStorageDirectory() + "/AAConAndroid");
+        if(dir.exists() && dir.isDirectory()) {
+        }else{
+        	new DownloadResourceTask().execute();
+        	lockPane.setClickable(false);
+        }
+
+
+        cateButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	new PrepareComposePage().execute();
+            	lockPane.setClickable(false);
+            }
+        });
+        downloadButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	launchDownload();
+            }
+        });
+
+        settingButton.setOnClickListener(new OnClickListener() {
+
+            public void onClick(View v) {
+            	  launchSetting();
+
+            }
+        });
+
+        helpButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	launchHelpPage();
+            }
+        });
+
+        ttsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	launchTTSPage();
+            }
+        });
+
+
+    }
+	
+    @Override
+    public void onResume(){
+    	configUI();
+    	super.onResume();
+
+    }
+
     public void configUI(){
   	 // cateButton.setText(R.string.CATAGORIES);
      //   downloadButton.setText(R.string.DOWNLOADS);
      //   settingButton.setText(R.string.SETTINGS);
      //   helpButton.setText(R.string.HELP);
     	mainGuideText.setText(R.string.MAIN_GUIDE_TEXT);
-    	
+
 
   }
-    
+
 	public void launchHelpPage(){
 		 Intent i = new Intent(getApplicationContext(), HelpPage.class);
 		 HelpPage.currHelpTabId = "About";
 	     startActivity(i);
 	}
-	
+
 	protected void launchSetting() {
         Intent i = new Intent(getApplicationContext(), SettingPage.class);
         startActivity(i);
-        
+
     }
-	/*
-	public void launchCategory() {
-        Intent i = new Intent(this, CategoryPage.class);
-        startActivity(i);
-    
-    }*/
-	public void launchCompose() {
-        Intent i = new Intent(getApplicationContext(), ComposePage.class);
-        startActivity(i);
-    
-    }
+
 	protected void launchDownload(){
 		String OK = getString(R.string.OK);
 		String internetMS = getString(R.string.CONNECT_INT);
-	     
+
      	if(Keeper.checkInternet()){
      		Intent i = new Intent(getApplicationContext(), DownloadPage.class);
-     		startActivity(i);		
+     		startActivity(i);
      	}else{
      		alertDialog = new AlertDialog.Builder(MainPage.this).create();
      		alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
@@ -249,58 +286,18 @@ public class MainPage extends Activity{
      		alertDialog.setMessage(internetMS);
      		alertDialog.setButton(OK, new DialogInterface.OnClickListener() {
      			public void onClick(DialogInterface dialog, int which) {
- 
+
      			} });
      		alertDialog.show();
-       }		
+       }
 	}
+	
 	protected void launchTTSPage() {
         Intent i = new Intent(getApplicationContext(), TTSPage.class);
         startActivity(i);
-        
-    }
-	public void launchValidatePage() {
-        Intent i = new Intent(getApplicationContext(), ValidatePage.class);
-        startActivity(i);
-    
-    }
-	
-	/*@Override 
-	public void onDestroy(){
-		Keeper.myDB.close();
-	}*/
-    public static boolean DownloadFile(String fileURL, String fileName) {
-    	Boolean fin =false;
-        try {
-        	
-            URL u = new URL(fileURL);
-            HttpURLConnection c = (HttpURLConnection) u.openConnection();
-            c.setRequestMethod("GET");
-            c.setDoOutput(true);
-            c.connect();
-            File destinationFile = new File("/sdcard/AAConAndroid/"+fileName); 
-            InputStream in = c.getInputStream();
-            BufferedOutputStream buffer = new BufferedOutputStream(new FileOutputStream(destinationFile)); 
-            byte byt[] = new byte[1024]; 
-            int i; 
 
-           for (long l = 0L; (i = in.read(byt)) != -1; l += i ) {
-                buffer.write(byt, 0, i); 
-            }
-       /*     for (long l = 0L; in.read(byt) != -1; l += 1 ) {
-                buffer.write(byt, l, 1); 
-            }*/
-
-            buffer.flush();
-            in.close();               
-            buffer.close();
-            fin = true;
-         
-        } catch (Exception e) {
-            Log.d("Downloader", e.getMessage());
-        }
-        return fin;
     }
+
     static void unZipFile(String zipname) throws IOException {
     	ZipFile zipFile;
     	zipFile = new ZipFile("/sdcard/AAConAndroid/"+zipname);
@@ -344,14 +341,6 @@ public class MainPage extends Activity{
 	class DownloadResourceTask extends AsyncTask<String, Void, Void> {
 	    private final ProgressDialog dialog = new ProgressDialog(MainPage.this);
 
-	    // can use UI thread here
-	    protected void onPreExecute() {
-	    	
-	       this.dialog.setMessage(getString(R.string.DOWNLOAD_RES));
-	       this.dialog.show();
-	     
-	    }
-
 	    // automatically done on worker thread (separate from UI thread)
 	    protected Void doInBackground(final String... args) {
 	        String newFolder = "/AAConAndroid";
@@ -370,10 +359,18 @@ public class MainPage extends Activity{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	       
+
 			return null;
-	      
+
+	    }	    // can use UI thread here
+	    protected void onPreExecute() {
+	    	
+	       this.dialog.setMessage(getString(R.string.DOWNLOAD_RES));
+	       this.dialog.show();
+	     
 	    }
+
+
 
 	    // can use UI thread here
 	    protected void onPostExecute(final Void unused) {
