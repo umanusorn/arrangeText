@@ -84,7 +84,6 @@ public void onCreate(Bundle savedInstanceState) {
 	mTts = new TextToSpeech(this, this);
 
 	setContentView(R.layout.main_switch);
-
 	grid_main = (GridView) findViewById(R.id.GridView01);
 	grid_main.setAdapter(new VocabGridAdapter(this));
 

@@ -26,7 +26,7 @@ android:orientation="vertical" android:background="@color/PINK_CHULA">
     </LinearLayout>
 </HorizontalScrollView>
 
-<GridView
+    <GridView
         android:id="@+id/GridView01"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -35,7 +35,7 @@ android:orientation="vertical" android:background="@color/PINK_CHULA">
         android:numColumns="auto_fit"
         android:padding="0dip"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="0dip" android:background="#FFFFFF" android:columnWidth="70dip">
+        android:verticalSpacing="0dip"  android:columnWidth="70dip">
 </GridView>
 
     <LinearLayout
