@@ -22,13 +22,123 @@ android:orientation="vertical" android:background="@color/PINK_CHULA">
 
             <TextView
 
-                android:text="Category1"
+                android:text="อะไร"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/topLevelCatTextColor"
                 android:padding="@dimen/top_level_cat_string_padding"
-                android:id="@+id/c1"/>
+                android:id="@+id/cate1tv"/>
+
+            <TextView
+
+                android:text="ขนาด"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/topLevelCatTextColor"
+                android:padding="@dimen/top_level_cat_string_padding"
+                android:id="@+id/cate2tv"/>
+
+            <TextView
+
+                android:text="ลักษณะ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/topLevelCatTextColor"
+                android:padding="@dimen/top_level_cat_string_padding"
+                android:id="@+id/cate3tv"/>
+
+            <TextView
+
+                android:text="สี"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/topLevelCatTextColor"
+                android:padding="@dimen/top_level_cat_string_padding"
+                android:id="@+id/cate4tv"/>
+
+            <TextView
+
+                android:text="รูปร่าง"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/topLevelCatTextColor"
+                android:padding="@dimen/top_level_cat_string_padding"
+                android:id="@+id/cate5tv"/>
+
+            <TextView
+
+                android:text="อารมณ์"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/topLevelCatTextColor"
+                android:padding="@dimen/top_level_cat_string_padding"
+                android:id="@+id/cate6tv"/>
+
+            <TextView
+
+                android:text="การกระทำ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/topLevelCatTextColor"
+                android:padding="@dimen/top_level_cat_string_padding"
+                android:id="@+id/cate7tv"/>
+
+            <TextView
+
+                android:text="สถานที่"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/topLevelCatTextColor"
+                android:padding="@dimen/top_level_cat_string_padding"
+                android:id="@+id/cate8tv"/>
+
+            <TextView
+
+                android:text="เมื่อไหร่"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/topLevelCatTextColor"
+                android:padding="@dimen/top_level_cat_string_padding"
+                android:id="@+id/cate9tv"/>
+
+            <TextView
+
+                android:text="จำนวน"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/topLevelCatTextColor"
+                android:padding="@dimen/top_level_cat_string_padding"
+                android:id="@+id/cate10tv"/>
+
+            <TextView
+
+                android:text="บรรยากาศ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/topLevelCatTextColor"
+                android:padding="@dimen/top_level_cat_string_padding"
+                android:id="@+id/cate11tv"/>
+
+            <TextView
+
+                android:text="เสียง"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/topLevelCatTextColor"
+                android:padding="@dimen/top_level_cat_string_padding"
+                android:id="@+id/cate12tv"/>
 
         </LinearLayout>
     </HorizontalScrollView>
