@@ -8,10 +8,60 @@ android:layout_height="fill_parent"
 android:orientation="vertical" android:background="@color/PINK_CHULA">
 
 
+    <HorizontalScrollView
+            android:id="@+id/hscroll_master_cate"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" android:layout_gravity="fill_horizontal|center">
+
+        <LinearLayout
+                android:id="@+id/linear_master_cate"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:background="@color/GREEN_ANDROID"
+                android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Category1"
+                android:id="@+id/c1"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Category2"
+                    android:id="@+id/c2"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Category3"
+                    android:id="@+id/c3"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Category4"
+                    android:id="@+id/c4"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Category5"
+                    android:id="@+id/c5"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Large Text"
+                    android:id="@+id/textView2"/>
+        </LinearLayout>
+    </HorizontalScrollView>
 
 
-
-<HorizontalScrollView
+    <HorizontalScrollView
     android:id="@+id/hscroll_cate"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content" android:layout_gravity="fill_horizontal|center">
