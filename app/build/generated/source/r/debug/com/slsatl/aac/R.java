@@ -74,8 +74,8 @@ public final class R {
     }
     public static final class id {
         public static final int EditText04=0x7f070010;
-        public static final int GridPressed=0x7f070049;
-        public static final int GridView01=0x7f07004f;
+        public static final int GridPressed=0x7f07004f;
+        public static final int GridView01=0x7f07004e;
         public static final int LinearLayout01=0x7f070050;
         public static final int OkButton=0x7f070052;
         public static final int TTSClearButton=0x7f070059;
@@ -95,7 +95,7 @@ public final class R {
         public static final int checkBox=0x7f070008;
         public static final int checkWrapper=0x7f070007;
         public static final int clearSearch_button=0x7f070031;
-        public static final int clear_button=0x7f07004c;
+        public static final int clear_button=0x7f07004b;
         public static final int downloadDL_button=0x7f07002a;
         public static final int downloadLayout=0x7f07002b;
         public static final int download_button=0x7f070042;
@@ -108,7 +108,7 @@ public final class R {
         public static final int hiddenLid=0x7f070039;
         public static final int hiddenRowMode=0x7f070019;
         public static final int hideButton=0x7f070020;
-        public static final int hscroll_cate=0x7f07004d;
+        public static final int hscroll_cate=0x7f07004c;
         public static final int icon=0x7f07001a;
         public static final int iconCatExist=0x7f070009;
         public static final int icon_image=0x7f070063;
@@ -119,7 +119,7 @@ public final class R {
         public static final int layout_grid_cate=0x7f070014;
         public static final int linearLayout1=0x7f07005d;
         public static final int linearLayout2=0x7f070002;
-        public static final int linear_cate=0x7f07004e;
+        public static final int linear_cate=0x7f07004d;
         public static final int list=0x7f070021;
         public static final int listViewData=0x7f070034;
         public static final int listWrapper=0x7f070033;
@@ -148,7 +148,7 @@ public final class R {
         public static final int serialLabel=0x7f07005e;
         public static final int setting_button=0x7f070043;
         public static final int showTagList=0x7f07003a;
-        public static final int speak_button=0x7f07004b;
+        public static final int speak_button=0x7f07004a;
         public static final int subTitleText=0x7f07001c;
         public static final int submitButton=0x7f070061;
         public static final int tableLayout2=0x7f070003;
@@ -168,7 +168,7 @@ public final class R {
         public static final int widget01=0x7f070028;
         public static final int widget140=0x7f070012;
         public static final int widget171=0x7f070025;
-        public static final int widget32=0x7f07004a;
+        public static final int widget32=0x7f070049;
         public static final int widget34=0x7f070027;
         public static final int widget35=0x7f070026;
         public static final int widget41=0x7f07003d;

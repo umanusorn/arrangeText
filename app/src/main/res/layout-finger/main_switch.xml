@@ -1,32 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
 android:id="@+id/mainLayout"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
-android:orientation="vertical"
-xmlns:android="http://schemas.android.com/apk/res/android" android:background="@color/PINK_CHULA">
+android:orientation="vertical" android:background="@color/PINK_CHULA">
 
-<GridView
-	android:id="@+id/GridPressed"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-    android:padding="0dip"
-    android:verticalSpacing="0dip"
-    android:horizontalSpacing="0dip"
-    android:numColumns="auto_fit"
-    android:columnWidth="65dip"
-    android:stretchMode="columnWidth"
-    android:background="#FFFFFF"
-    android:gravity="center" android:clickable="false">
-</GridView>
+
 
 <RelativeLayout
-android:id="@+id/widget32"
+xmlns:android="http://schemas.android.com/apk/res/android"
 
+android:id="@+id/widget32"
 android:layout_width="fill_parent"
 android:layout_height="40dip"
-xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_marginTop="0dip">
 <ImageButton
 android:id="@+id/speak_button"
@@ -64,7 +52,7 @@ android:layout_alignParentRight="true" android:background="@drawable/speak_butto
 <GridView
         android:id="@+id/GridView01"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:horizontalSpacing="0dip"
         android:numColumns="auto_fit"
@@ -73,5 +61,17 @@ android:layout_alignParentRight="true" android:background="@drawable/speak_butto
         android:verticalSpacing="0dip" android:background="#FFFFFF" android:columnWidth="70dip">
 </GridView>
 
-
+    <GridView
+            android:id="@+id/GridPressed"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="0dip"
+            android:verticalSpacing="0dip"
+            android:horizontalSpacing="0dip"
+            android:numColumns="auto_fit"
+            android:columnWidth="65dip"
+            android:stretchMode="columnWidth"
+            android:background="#FFFFFF"
+            android:gravity="center" android:clickable="false">
+    </GridView>
 </LinearLayout>
