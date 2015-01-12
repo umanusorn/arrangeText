@@ -191,7 +191,9 @@ android:orientation="vertical" android:background="@color/PINK_CHULA">
                         android:textColor="@color/BLACK"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Word Selected"
-                        android:id="@+id/textView"/>
+                        android:id="@+id/textView"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"/>
 
                 <Button
                         android:layout_width="wrap_content"
@@ -199,6 +201,7 @@ android:orientation="vertical" android:background="@color/PINK_CHULA">
                         android:text="Clear All"
                         android:id="@+id/button"
                         android:layout_alignParentTop="true"
+                        android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"/>
             </RelativeLayout>
         </LinearLayout>
