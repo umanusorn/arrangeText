@@ -9,30 +9,7 @@ android:orientation="vertical" android:background="@color/PINK_CHULA">
 
 
 
-<RelativeLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
 
-android:id="@+id/widget32"
-android:layout_width="fill_parent"
-android:layout_height="40dip"
-android:layout_marginTop="0dip">
-<ImageButton
-android:id="@+id/speak_button"
-android:layout_width="40dip"
-android:layout_height="40dip"
-android:layout_alignParentTop="true"
-android:layout_alignParentRight="true" android:background="@drawable/speak_button">
-</ImageButton><ImageButton
-            android:id="@+id/clear_button"
-            android:layout_width="40dip"
-            android:layout_height="40dip"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/backspace_button" android:layout_toLeftOf="@id/speak_button">
-
-</ImageButton>
-
-
-</RelativeLayout>
 
 <HorizontalScrollView
     android:id="@+id/hscroll_cate"
@@ -61,17 +38,69 @@ android:layout_alignParentRight="true" android:background="@drawable/speak_butto
         android:verticalSpacing="0dip" android:background="#FFFFFF" android:columnWidth="70dip">
 </GridView>
 
-    <GridView
-            android:id="@+id/GridPressed"
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="0dip"
-            android:verticalSpacing="0dip"
-            android:horizontalSpacing="0dip"
-            android:numColumns="auto_fit"
-            android:columnWidth="65dip"
-            android:stretchMode="columnWidth"
-            android:background="#FFFFFF"
-            android:gravity="center" android:clickable="false">
-    </GridView>
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/BLACK"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Word Selected"
+                    android:id="@+id/textView"/>
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clear All"
+                    android:id="@+id/button"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+        <GridView
+                android:id="@+id/GridPressed"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="0dip"
+                android:verticalSpacing="0dip"
+                android:horizontalSpacing="0dip"
+                android:numColumns="auto_fit"
+                android:columnWidth="65dip"
+                android:stretchMode="columnWidth"
+                android:background="#FFFFFF"
+                android:gravity="center" android:clickable="false">
+        </GridView>
+
+    </LinearLayout>
+    <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+
+            android:id="@+id/widget32"
+            android:layout_width="fill_parent"
+            android:layout_height="40dip"
+            android:layout_marginTop="0dip">
+        <ImageButton
+                android:id="@+id/speak_button"
+                android:layout_width="40dip"
+                android:layout_height="40dip"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true" android:background="@drawable/speak_button">
+        </ImageButton><ImageButton
+            android:id="@+id/clear_button"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/backspace_button" android:layout_toLeftOf="@id/speak_button">
+
+    </ImageButton>
+
+    </RelativeLayout>
+
 </LinearLayout>
