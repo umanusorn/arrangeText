@@ -145,7 +145,6 @@ public class MainPage extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         // get resource , context of application
         r = getResources();
         context = getApplicationContext();
