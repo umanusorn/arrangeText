@@ -1,14 +1,11 @@
 package com.slsatl.aac;
 
-import java.io.IOException;
-import java.util.Locale;
-import java.util.Vector;
-import android.database.Cursor;
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,8 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -25,34 +22,38 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.util.Locale;
+import java.util.Vector;
 
-public class ComposePage extends Activity implements TextToSpeech.OnInitListener{
-	GridView grid_main,grid_select;
-	LinearLayout linear_cate;
-	String InputValue;
-	static int currCid;
-	static int currCategoryVariation = 0;
-	static Vector<LexIconAndLabel> vocabShow;
-	static Vector<CatIconAndLabel> cateShow;
-	ImageButton delSelectButton, speakButton, speakEdit_button;
-	static TextToSpeech mTts;
-	static boolean ttsLangOk;
-	static String speech;
-	static int buttonResource;
-	static String THAIspeech;
-	static String delVocab;
-	MenuItem toTtsMItm, helpMItm;
-	
-	
-	ComposePage thisPage;
-	
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		
-		thisPage = this;
-		
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+public class ComposePage extends Activity implements TextToSpeech.OnInitListener {
+GridView grid_main, grid_select;
+LinearLayout linear_cate;
+String       InputValue;
+static int currCid;
+static int currCategoryVariation = 0;
+static Vector<LexIconAndLabel> vocabShow;
+static Vector<CatIconAndLabel> cateShow;
+ImageButton delSelectButton, speakButton, speakEdit_button;
+static TextToSpeech mTts;
+static boolean      ttsLangOk;
+static String       speech;
+static int          buttonResource;
+static String       THAIspeech;
+static String       delVocab;
+MenuItem toTtsMItm, helpMItm;
+
+
+ComposePage thisPage;
+
+@Override
+public void onCreate(Bundle savedInstanceState) {
+	super.onCreate(savedInstanceState);
+
+	thisPage = this;
+
+	requestWindowFeature(Window.FEATURE_NO_TITLE);
 		
 		/*
 		try {
@@ -68,7 +69,8 @@ public class ComposePage extends Activity implements TextToSpeech.OnInitListener
     	      currLocale = "th_TH";
     	}
 		String [] column = {"cid"};
-		Cursor c = Keeper.myDB.query("category", column, "lang ='"+currLocale+"' and enable=1 ", null, null, null, "weight");
+		Cursor c = Keeper.myDB.query("category", column, "lang ='"+currLocale+"' and enable=1 ", null, null, null,
+		"weight");
 		c.moveToFirst();
 		currCid = c.getInt(c.getColumnIndex("cid"));
 		
@@ -78,313 +80,330 @@ public class ComposePage extends Activity implements TextToSpeech.OnInitListener
 			e.printStackTrace();
 		}
 		*/
-		
-		mTts = new TextToSpeech(this, this);
-		
-		setContentView(R.layout.main_switch);
-		
-		grid_main = (GridView) findViewById(R.id.GridView01);
-		grid_main.setAdapter(new VocabGridAdapter(this));
-		
-		grid_select = (GridView) findViewById(R.id.GridPressed);
-		
-		linear_cate = (LinearLayout) findViewById(R.id.linear_cate);
-		// Populate linear_cate by inflating each View instance with R.id.cate_icon_image
-		LayoutInflater li =  (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View [] va = new View[cateShow.size()];
-		for(int position=0;position<cateShow.size();position++){
-			va[position] = li.inflate(R.layout.categridview, null);
-			CatIconAndLabel a = (CatIconAndLabel) ComposePage.cateShow.toArray()[position];
-			ImageView iv = (ImageView)va[position].findViewById(R.id.cate_icon_image);
-			iv.setBackgroundDrawable(a.pic);
-			TextView tv = (TextView)va[position].findViewById(R.id.cate_icon_text);
-			tv.setText(a.word);
-			linear_cate.addView(va[position]);
-			va[position].setOnClickListener(new CateClickListener(a.word,a.cid,this,grid_main));
-		}
-		
-		delSelectButton = (ImageButton) findViewById(R.id.clear_button);
-		speakButton = (ImageButton) findViewById(R.id.speak_button);
-		speakEdit_button = (ImageButton) findViewById(R.id.widget35);
-		
-		
-		// Add onItemClickListener
-		grid_main.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View v,
-					int position, long id) {
-			
-				if (Keeper.selected.size() > 7) {
-					Toast.makeText(getApplicationContext(),
-							R.string.PLS_DEL_B4, Toast.LENGTH_SHORT).show();
-				} else {
-			
-					LexIconAndLabel x = (LexIconAndLabel) parent.getItemAtPosition(position);
-					Drawable selectPic = x.pic;
-					String selectWord = x.word;
-					
-					Log.e("toto", "selectWord = "+selectWord);
-					String[] column = {"voicePath","nextCid"};
-					Cursor c = Keeper.myDB.query("lexicalItem", column, "tag ='"
-							+ selectWord + "' ", null, null,
-							null, null);
-					c.moveToFirst();
-					
-					String getVoice = c.getString(c.getColumnIndex("voicePath"));
-					
-					int nextCid = c.getInt(c.getColumnIndex("nextCid"));
-					if(nextCid==0){
-						String[] catColumn = {"nextCid"};
-						Cursor c2 = Keeper.myDB.query("category", catColumn, "cid ='"
-								+ currCid + "' ", null, null,
-								null, null);
-						c2.moveToFirst();
-						nextCid = c2.getInt(c2.getColumnIndex("nextCid"));
-					}
-					
-					Log.e("toto", "getVoice = "+getVoice);
-					Keeper.selected.add(new VocabSelected(selectPic,
-							selectWord, getVoice));
-					c.close();
-					configureUI2();
-					
-					if(nextCid!=0){
-						currCid = nextCid;
-						try {
-							vocabShow = queryVocabs(currCid,1);
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
-						grid_main.setAdapter(new VocabGridAdapter(thisPage));
-					}
-				}
-			}
 
-		});
-		delSelectButton.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				if (Keeper.selected.size() != 0) {
-					Keeper.selected.remove(Keeper.selected.size() - 1);
+	mTts = new TextToSpeech(this, this);
+
+	setContentView(R.layout.main_switch);
+
+	grid_main = (GridView) findViewById(R.id.GridView01);
+	grid_main.setAdapter(new VocabGridAdapter(this));
+
+	grid_select = (GridView) findViewById(R.id.GridPressed);
+
+	linear_cate = (LinearLayout) findViewById(R.id.linear_cate);
+	// Populate linear_cate by inflating each View instance with R.id.cate_icon_image
+	LayoutInflater li = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	View[] va = new View[cateShow.size()];
+	for (int position = 0; position < cateShow.size(); position++) {
+		va[position] = li.inflate(R.layout.categridview, null);
+		CatIconAndLabel a = (CatIconAndLabel) ComposePage.cateShow.toArray()[position];
+		ImageView iv = (ImageView) va[position].findViewById(R.id.cate_icon_image);
+		iv.setBackgroundDrawable(a.pic);
+		TextView tv = (TextView) va[position].findViewById(R.id.cate_icon_text);
+		tv.setText(a.word);
+		linear_cate.addView(va[position]);
+		va[position].setOnClickListener(new CateClickListener(a.word, a.cid, this, grid_main));
+	}
+
+	delSelectButton = (ImageButton) findViewById(R.id.clear_button);
+	speakButton = (ImageButton) findViewById(R.id.speak_button);
+	speakEdit_button = (ImageButton) findViewById(R.id.widget35);
+
+
+	// Add onItemClickListener
+	grid_main.setOnItemClickListener(new OnItemClickListener() {
+		public void onItemClick(AdapterView<?> parent, View v,
+		                        int position, long id)
+		{
+
+			if (Keeper.selected.size() > 7) {
+				Toast.makeText(getApplicationContext(),
+				               R.string.PLS_DEL_B4, Toast.LENGTH_SHORT).show();
+			}
+			else {
+
+				LexIconAndLabel x = (LexIconAndLabel) parent.getItemAtPosition(position);
+				Drawable selectPic = x.pic;
+				String selectWord = x.word;
+
+				Log.e("toto", "selectWord = " + selectWord);
+				String[] column = {"voicePath", "nextCid"};
+				Cursor c = Keeper.myDB.query("lexicalItem", column, "tag ='"
+				                                                    + selectWord + "' ", null, null,
+				                             null, null);
+				c.moveToFirst();
+
+				String getVoice = c.getString(c.getColumnIndex("voicePath"));
+
+				int nextCid = c.getInt(c.getColumnIndex("nextCid"));
+				if (nextCid == 0) {
+					String[] catColumn = {"nextCid"};
+					Cursor c2 = Keeper.myDB.query("category", catColumn, "cid ='"
+					                                                     + currCid + "' ", null, null,
+					                              null, null);
+					c2.moveToFirst();
+					nextCid = c2.getInt(c2.getColumnIndex("nextCid"));
 				}
-				speech = collectWords(Keeper.selected);
+
+				Log.e("toto", "getVoice = " + getVoice);
+				Keeper.selected.add(new VocabSelected(selectPic,
+				                                      selectWord, getVoice));
+				c.close();
 				configureUI2();
-			}
 
-		});
-		speakButton.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				buttonResource = R.id.speak_button;
-				LaunchTTS();
+				if (nextCid != 0) {
+					currCid = nextCid;
+					try {
+						vocabShow = queryVocabs(currCid, 1);
+					}
+					catch (IOException e) {
+						e.printStackTrace();
+					}
+					grid_main.setAdapter(new VocabGridAdapter(thisPage));
+				}
 			}
-		});
-	}// end of onCreate()
-	
-	@Override
-	public void onInit(int status) {
-		// status can be either TextToSpeech.SUCCESS or TextToSpeech.ERROR.
-		if (status == TextToSpeech.SUCCESS) {
-			// Set preferred language to US english.
-			// Note that a language may not be available, and the result will
-			// indicate this.
-			// **************** write check method for EN or TH********//
-			
-			
-			int result = mTts.setLanguage(Keeper.locale);
-			
-			// int result mTts.setLanguage(Locale.FRANCE);
-			if (result == TextToSpeech.LANG_MISSING_DATA
-					|| result == TextToSpeech.LANG_NOT_SUPPORTED) {
-				// Lanuage data is missing or the language is not supported.
-				Toast.makeText(getApplicationContext(),getApplicationContext().getString(R.string.TTS_NO_LANG)+"("+Keeper.locale.toString()+")", Toast.LENGTH_SHORT).show();
-				//Log.e("TAG", "Language is not available.");
-				ComposePage.ttsLangOk = false;
-			}else{
-				ComposePage.ttsLangOk = true;
-			}
-			
-		} else {
-			// Initialization failed.
-			//Log.e("TAG", "Could not initialize TextToSpeech.");
-			Toast.makeText(getApplicationContext(),getApplicationContext().getString(R.string.TTS_INIT_ERR), Toast.LENGTH_SHORT).show();
 		}
 
+	});
+	delSelectButton.setOnClickListener(new View.OnClickListener() {
+		public void onClick(View v) {
+			if (Keeper.selected.size() != 0) {
+				Keeper.selected.remove(Keeper.selected.size() - 1);
+			}
+			speech = collectWords(Keeper.selected);
+			configureUI2();
+		}
+
+	});
+	speakButton.setOnClickListener(new View.OnClickListener() {
+		public void onClick(View v) {
+			buttonResource = R.id.speak_button;
+			LaunchTTS();
+		}
+	});
+}// end of onCreate()
+
+@Override
+protected void onStart() {
+	super.onStart();
+	configureUI2();
+}
+
+@Override
+protected void onDestroy() {
+	//Close the Text to Speech Library
+	if (mTts != null) {
+
+		mTts.stop();
+		mTts.shutdown();
+		Log.d("", "TTS Destroyed");
 	}
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		
-		int toTtsBtnId = Menu.FIRST;
-		int helpBtnId = Menu.FIRST+1;
-		
-		toTtsMItm = menu.add(Menu.NONE, toTtsBtnId, toTtsBtnId, getString(R.string.TTS));
-		toTtsMItm.setIcon(android.R.drawable.ic_menu_edit);
+	super.onDestroy();
+}
 
-		helpMItm = menu.add(Menu.NONE, helpBtnId, helpBtnId, getString(R.string.HELP));
-		helpMItm.setIcon(android.R.drawable.ic_menu_help);
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
 
-		return super.onCreateOptionsMenu(menu);
+	int toTtsBtnId = Menu.FIRST;
+	int helpBtnId = Menu.FIRST + 1;
 
-	}
-	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
+	toTtsMItm = menu.add(Menu.NONE, toTtsBtnId, toTtsBtnId, getString(R.string.TTS));
+	toTtsMItm.setIcon(android.R.drawable.ic_menu_edit);
+
+	helpMItm = menu.add(Menu.NONE, helpBtnId, helpBtnId, getString(R.string.HELP));
+	helpMItm.setIcon(android.R.drawable.ic_menu_help);
+
+	return super.onCreateOptionsMenu(menu);
+
+}
+
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+	switch (item.getItemId()) {
 		case Menu.FIRST: // go to TTS page
 			launchTTSPage();
 			break;
-		case Menu.FIRST+1: // help
+		case Menu.FIRST + 1: // help
 			launchHelpPage();
 			break;
-		}
-		return true;
 	}
-	
-	@Override
-	protected void onDestroy() {
-	    //Close the Text to Speech Library
-	    if(mTts != null) {
+	return true;
+}
 
-	        mTts.stop();
-	        mTts.shutdown();
-	        Log.d("", "TTS Destroyed");
-	    }
-	    super.onDestroy();
-	}
-	
-	@Override
-	protected void onStart(){
-		super.onStart();
-		configureUI2();
-	}
-	
-	private void configureUI2() {
-		grid_select.setAdapter(new ImageAdapterSelect(this));
-	}
-	
-	protected void launchTTSPage() {
-        Intent i = new Intent(this, TTSPage.class);
-        startActivity(i);
-    }
-	
-	protected void launchHelpPage(){
-		 Intent i = new Intent(this, HelpPage.class);
-		 HelpPage.currHelpTabId = "Compose";
-	     startActivity(i);
-	}
-	
-	public static Vector <LexIconAndLabel> queryVocabs(int cid,int enableMode) throws IOException {
-		Vector <LexIconAndLabel> retrievedLex = new Vector<LexIconAndLabel>();
-		String[] column = { "lid","tag", "picPath","voicePath","nextCid","enable"};
-		Cursor c;
-    	if(enableMode == 1){
-    		c = Keeper.myDB.query("lexicalItem", column, " cid="+cid+" AND enable=1 ", null, null, null, "weight");
-    	}else if(enableMode == 0){
-    		c = Keeper.myDB.query("lexicalItem", column, " cid="+cid+" AND enable=0 ", null, null, null, "weight");
-    	}else{
-    		c = Keeper.myDB.query("lexicalItem", column, " cid="+cid, null, null, null, "weight");
-    	}	
-		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {	
-			int lidIndexColumn = c.getColumnIndex("lid");
-			int tagIndexColumn = c.getColumnIndex("tag");
-			int picPathIndexColumn = c.getColumnIndex("picPath");
-			int voicePathIndexColumn = c.getColumnIndex("voicePath");
-			int nextCidIndexColumn = c.getColumnIndex("nextCid");
-			int enableIndexColumn = c.getColumnIndex("enable");
-			
-			int lid = c.getInt(lidIndexColumn);
-			String tag = c.getString(tagIndexColumn);
-			String voicePath = c.getString(voicePathIndexColumn);
-			int nextCid = c.getInt(nextCidIndexColumn);
-			int enable = c.getInt(enableIndexColumn);
-			String picPath;
-			if(c.getString(picPathIndexColumn)==null||c.getString(picPathIndexColumn).trim().equals("")){
-				picPath = "sdcard/AAConAndroid/aac_system_no_pic.gif";
-			}else{
-				picPath = "sdcard/AAConAndroid/"+c.getString(picPathIndexColumn);
-			}
-			retrievedLex.add(new LexIconAndLabel(lid,cid,tag,picPath,voicePath,nextCid,enable));
-		}
-		c.close();
-		return retrievedLex;
-	}
-	
-	public static Vector <CatIconAndLabel> queryCategory(int enableMode) throws IOException{
-		//ComposePage.cateShow = new Vector <IconAndLabel>();
-		Vector <CatIconAndLabel> retrievedCat = new Vector<CatIconAndLabel>();
-		String [] column = {"cid","title","subtitle","coverPath","variation","nextCid","enable"};
+protected void launchTTSPage() {
+	Intent i = new Intent(this, TTSPage.class);
+	startActivity(i);
+}
 
-    	Locale locale = Keeper.locale;
-    	String currLocale = locale.toString();
-    	if(currLocale.equals("th_th")){
-    	      currLocale = "th_TH";
-    	}
-    	Cursor c;
-    	if(enableMode == 1){
-    		c = Keeper.myDB.query("category",column,"lang ='"+currLocale+"' and enable=1 ",null,null,null,"weight");
-    	}else if(enableMode == 0){
-    		c = Keeper.myDB.query("category",column,"lang ='"+currLocale+"' and enable=0 ",null,null,null,"weight");
-    	}else{
-    		c = Keeper.myDB.query("category",column,"lang ='"+currLocale+"' ",null,null,null,"weight");
-    	}
-    	
-		for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
-			int cidIndexColumn = c.getColumnIndex("cid");
-			int titleIndexColumn = c.getColumnIndex("title");
-			int subtitleIndexColumn = c.getColumnIndex("subtitle");
-			int coverPathIndexColumn = c.getColumnIndex("coverPath");
-			int variationIndexColumn = c.getColumnIndex("variation");
-			int nextCidIndexColumn = c.getColumnIndex("nextCid");
-			int enableIndexColumn = c.getColumnIndex("enable");
-			
-			int cid = c.getInt(cidIndexColumn);
-			String title = c.getString(titleIndexColumn);
-			String subtitle = c.getString(subtitleIndexColumn);
-			int variation = c.getInt(variationIndexColumn);
-			int nextCid = c.getInt(nextCidIndexColumn);
-			int enable = c.getInt(enableIndexColumn);
-			String coverPath;
-			if(c.getString(coverPathIndexColumn)==null||c.getString(coverPathIndexColumn).trim().equals("")){
-				coverPath = "sdcard/AAConAndroid/aac_system_no_pic.gif";
-			}else{
-				coverPath = "sdcard/AAConAndroid/"+c.getString(coverPathIndexColumn);
-			}
-			retrievedCat.add(new CatIconAndLabel(cid,title,subtitle,coverPath,variation,nextCid,enable));			
-		}
-		c.close();
-		return retrievedCat;
-    }
+protected void launchHelpPage() {
+	Intent i = new Intent(this, HelpPage.class);
+	HelpPage.currHelpTabId = "Compose";
+	startActivity(i);
+}
 
-	public static String collectWords(Vector<VocabSelected> a) {
-		int textLegth = a.size();
-		String text = "";
-		for (int i = 0; i < textLegth; i++) {
-			text = text + a.elementAt(i).word + " ";
-		}
-		return text;
+private void configureUI2() {
+	grid_select.setAdapter(new ImageAdapterSelect(this));
+}
+
+public static Vector<LexIconAndLabel> queryVocabs(int cid, int enableMode) throws IOException {
+	Vector<LexIconAndLabel> retrievedLex = new Vector<LexIconAndLabel>();
+	String[] column = {"lid", "tag", "picPath", "voicePath", "nextCid", "enable"};
+	Cursor c;
+	if (enableMode == 1) {
+		c = Keeper.myDB.query("lexicalItem", column, " cid=" + cid + " AND enable=1 ", null, null, null, "weight");
 	}
-	
-	public void LaunchTTS() {
-		if(!ComposePage.ttsLangOk){
-			Toast.makeText(getApplicationContext(),getApplicationContext().getString(R.string.TTS_NO_LANG)+"("+Keeper.locale.toString()+")", Toast.LENGTH_SHORT).show();
-			return;
-		}
-		speech = collectWords(Keeper.selected);
-		convertTospeech(mTts, speech);
+	else if (enableMode == 0) {
+		c = Keeper.myDB.query("lexicalItem", column, " cid=" + cid + " AND enable=0 ", null, null, null, "weight");
 	}
-	
-	public static void convertTospeech(TextToSpeech x, String input) {
-		String currLocale = Keeper.locale.toString();
-		if(currLocale.equals("th_th")){
-			// Remove all whitespaces due to VAJA's bug.
-			input = input.replaceAll("\\s","");
-		}
-		String text = input.trim();
-		//Log.e("TTS",input+" : "+currLocale);
-		x.speak(text, TextToSpeech.QUEUE_FLUSH,null);
+	else {
+		c = Keeper.myDB.query("lexicalItem", column, " cid=" + cid, null, null, null, "weight");
 	}
-	
-	public static String removeSpaces(String s) {
-		String noSpace = s.replaceAll("\\W", "");
-		return noSpace;
+	for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+		int lidIndexColumn = c.getColumnIndex("lid");
+		int tagIndexColumn = c.getColumnIndex("tag");
+		int picPathIndexColumn = c.getColumnIndex("picPath");
+		int voicePathIndexColumn = c.getColumnIndex("voicePath");
+		int nextCidIndexColumn = c.getColumnIndex("nextCid");
+		int enableIndexColumn = c.getColumnIndex("enable");
+
+		int lid = c.getInt(lidIndexColumn);
+		String tag = c.getString(tagIndexColumn);
+		String voicePath = c.getString(voicePathIndexColumn);
+		int nextCid = c.getInt(nextCidIndexColumn);
+		int enable = c.getInt(enableIndexColumn);
+		String picPath;
+		if (c.getString(picPathIndexColumn) == null || c.getString(picPathIndexColumn).trim().equals("")) {
+			picPath = "sdcard/AAConAndroid/aac_system_no_pic.gif";
 		}
-	
+		else {
+			picPath = "sdcard/AAConAndroid/" + c.getString(picPathIndexColumn);
+		}
+		retrievedLex.add(new LexIconAndLabel(lid, cid, tag, picPath, voicePath, nextCid, enable));
+	}
+	c.close();
+	return retrievedLex;
+}
+
+public static String collectWords(Vector<VocabSelected> a) {
+	int textLegth = a.size();
+	String text = "";
+	for (int i = 0; i < textLegth; i++) {
+		text = text + a.elementAt(i).word + " ";
+	}
+	return text;
+}
+
+public void LaunchTTS() {
+	if (!ComposePage.ttsLangOk) {
+		Toast.makeText(getApplicationContext(),
+		               getApplicationContext().getString(R.string.TTS_NO_LANG) + "(" + Keeper.locale.toString() + ")",
+		               Toast.LENGTH_SHORT).show();
+		return;
+	}
+	speech = collectWords(Keeper.selected);
+	convertTospeech(mTts, speech);
+}
+
+public static void convertTospeech(TextToSpeech x, String input) {
+	String currLocale = Keeper.locale.toString();
+	if (currLocale.equals("th_th")) {
+		// Remove all whitespaces due to VAJA's bug.
+		input = input.replaceAll("\\s", "");
+	}
+	String text = input.trim();
+	//Log.e("TTS",input+" : "+currLocale);
+	x.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+}
+
+@Override
+public void onInit(int status) {
+	// status can be either TextToSpeech.SUCCESS or TextToSpeech.ERROR.
+	if (status == TextToSpeech.SUCCESS) {
+		// Set preferred language to US english.
+		// Note that a language may not be available, and the result will
+		// indicate this.
+		// **************** write check method for EN or TH********//
+
+
+		int result = mTts.setLanguage(Keeper.locale);
+
+		// int result mTts.setLanguage(Locale.FRANCE);
+		if (result == TextToSpeech.LANG_MISSING_DATA
+		    || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+			// Lanuage data is missing or the language is not supported.
+			Toast.makeText(getApplicationContext(),
+			               getApplicationContext().getString(R.string.TTS_NO_LANG) + "(" + Keeper.locale.toString() + ")",
+			               Toast.LENGTH_SHORT).show();
+			//Log.e("TAG", "Language is not available.");
+			ComposePage.ttsLangOk = false;
+		}
+		else {
+			ComposePage.ttsLangOk = true;
+		}
+
+	}
+	else {
+		// Initialization failed.
+		//Log.e("TAG", "Could not initialize TextToSpeech.");
+		Toast.makeText(getApplicationContext(),
+		               getApplicationContext().getString(R.string.TTS_INIT_ERR),
+		               Toast.LENGTH_SHORT).show();
+	}
+
+}
+
+public static Vector<CatIconAndLabel> queryCategory(int enableMode) throws IOException {
+	//ComposePage.cateShow = new Vector <IconAndLabel>();
+	Vector<CatIconAndLabel> retrievedCat = new Vector<CatIconAndLabel>();
+	String[] column = {"cid", "title", "subtitle", "coverPath", "variation", "nextCid", "enable"};
+
+	Locale locale = Keeper.locale;
+	String currLocale = locale.toString();
+	if (currLocale.equals("th_th")) {
+		currLocale = "th_TH";
+	}
+	Cursor c;
+	if (enableMode == 1) {
+		c = Keeper.myDB.query("category", column, "lang ='" + currLocale + "' and enable=1 ", null, null, null, "weight");
+	}
+	else if (enableMode == 0) {
+		c = Keeper.myDB.query("category", column, "lang ='" + currLocale + "' and enable=0 ", null, null, null, "weight");
+	}
+	else {
+		c = Keeper.myDB.query("category", column, "lang ='" + currLocale + "' ", null, null, null, "weight");
+	}
+
+	for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+		int cidIndexColumn = c.getColumnIndex("cid");
+		int titleIndexColumn = c.getColumnIndex("title");
+		int subtitleIndexColumn = c.getColumnIndex("subtitle");
+		int coverPathIndexColumn = c.getColumnIndex("coverPath");
+		int variationIndexColumn = c.getColumnIndex("variation");
+		int nextCidIndexColumn = c.getColumnIndex("nextCid");
+		int enableIndexColumn = c.getColumnIndex("enable");
+
+		int cid = c.getInt(cidIndexColumn);
+		String title = c.getString(titleIndexColumn);
+		String subtitle = c.getString(subtitleIndexColumn);
+		int variation = c.getInt(variationIndexColumn);
+		int nextCid = c.getInt(nextCidIndexColumn);
+		int enable = c.getInt(enableIndexColumn);
+		String coverPath;
+		if (c.getString(coverPathIndexColumn) == null || c.getString(coverPathIndexColumn).trim().equals("")) {
+			coverPath = "sdcard/AAConAndroid/aac_system_no_pic.gif";
+		}
+		else {
+			coverPath = "sdcard/AAConAndroid/" + c.getString(coverPathIndexColumn);
+		}
+		retrievedCat.add(new CatIconAndLabel(cid, title, subtitle, coverPath, variation, nextCid, enable));
+	}
+	c.close();
+	return retrievedCat;
+}
+
+public static String removeSpaces(String s) {
+	String noSpace = s.replaceAll("\\W", "");
+	return noSpace;
+}
+
 }
