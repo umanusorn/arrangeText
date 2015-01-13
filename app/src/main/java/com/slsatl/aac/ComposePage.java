@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -36,6 +37,7 @@ static int currCategoryVariation = 0;
 static Vector<LexIconAndLabel> vocabShow;
 static Vector<CatIconAndLabel> cateShow;
 ImageButton delSelectButton, speakButton, speakEdit_button;
+Button clearBtn;
 static TextToSpeech mTts;
 static boolean      ttsLangOk;
 static String       speech;
@@ -47,6 +49,51 @@ MenuItem toTtsMItm, helpMItm;
 
 ComposePage thisPage;
 
+public void LaunchTTS() {
+	if (!ComposePage.ttsLangOk) {
+		Toast.makeText(getApplicationContext(),
+		               getApplicationContext().getString(R.string.TTS_NO_LANG) + "(" + Keeper.locale.toString() + ")",
+		               Toast.LENGTH_SHORT).show();
+		return;
+	}
+	speech = collectWords(Keeper.selected);
+	convertTospeech(mTts, speech);
+}
+
+public static String collectWords(Vector<VocabSelected> a) {
+	int textLegth = a.size();
+	String text = "";
+	for (int i = 0; i < textLegth; i++) {
+		text = text + a.elementAt(i).word + " ";
+	}
+	return text;
+}
+
+public static void convertTospeech(TextToSpeech x, String input) {
+	String currLocale = Keeper.locale.toString();
+	if (currLocale.equals("th_th")) {
+		// Remove all whitespaces due to VAJA's bug.
+		input = input.replaceAll("\\s", "");
+	}
+	String text = input.trim();
+	//Log.e("TTS",input+" : "+currLocale);
+	x.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+}
+
+public void onClickClear() {
+	for (int i = 0; i < Keeper.selected.size(); i++) {
+		onClickdelBtn();
+	}
+}
+
+public void onClickdelBtn() {
+	if (Keeper.selected.size() != 0) {
+		Keeper.selected.remove(Keeper.selected.size() - 1);
+	}
+	speech = collectWords(Keeper.selected);
+	configureUI2();
+}
+
 @Override
 public void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
@@ -54,7 +101,7 @@ public void onCreate(Bundle savedInstanceState) {
 	thisPage = this;
 
 	requestWindowFeature(Window.FEATURE_NO_TITLE);
-		
+
 		/*
 		try {
 			ComposePage.cateShow = queryCategory(1);
@@ -62,7 +109,7 @@ public void onCreate(Bundle savedInstanceState) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		Locale locale = Keeper.locale;
     	String currLocale = locale.toString();
     	if(currLocale.equals("th_th")){
@@ -73,7 +120,7 @@ public void onCreate(Bundle savedInstanceState) {
 		"weight");
 		c.moveToFirst();
 		currCid = c.getInt(c.getColumnIndex("cid"));
-		
+
 		try {
 			vocabShow = queryVocabs(currCid,1);
 		} catch (IOException e) {
@@ -104,9 +151,16 @@ public void onCreate(Bundle savedInstanceState) {
 		va[position].setOnClickListener(new CateClickListener(a.word, a.cid, this, grid_main));
 	}
 
-	delSelectButton = (ImageButton) findViewById(R.id.clear_button);
+	delSelectButton = (ImageButton) findViewById(R.id.delBtnComposeActivity);
 	speakButton = (ImageButton) findViewById(R.id.speak_button);
 	speakEdit_button = (ImageButton) findViewById(R.id.widget35);
+	clearBtn = (Button) findViewById(R.id.clearAllBtn);
+
+	clearBtn.setOnClickListener(new View.OnClickListener() {
+		@Override public void onClick(View view) {
+			onClickClear();
+		}
+	});
 
 
 	// Add onItemClickListener
@@ -166,11 +220,7 @@ public void onCreate(Bundle savedInstanceState) {
 	});
 	delSelectButton.setOnClickListener(new View.OnClickListener() {
 		public void onClick(View v) {
-			if (Keeper.selected.size() != 0) {
-				Keeper.selected.remove(Keeper.selected.size() - 1);
-			}
-			speech = collectWords(Keeper.selected);
-			configureUI2();
+			onClickdelBtn();
 		}
 
 	});
@@ -242,76 +292,6 @@ protected void launchHelpPage() {
 
 private void configureUI2() {
 	grid_select.setAdapter(new ImageAdapterSelect(this));
-}
-
-public static Vector<LexIconAndLabel> queryVocabs(int cid, int enableMode) throws IOException {
-	Vector<LexIconAndLabel> retrievedLex = new Vector<LexIconAndLabel>();
-	String[] column = {"lid", "tag", "picPath", "voicePath", "nextCid", "enable"};
-	Cursor c;
-	if (enableMode == 1) {
-		c = Keeper.myDB.query("lexicalItem", column, " cid=" + cid + " AND enable=1 ", null, null, null, "weight");
-	}
-	else if (enableMode == 0) {
-		c = Keeper.myDB.query("lexicalItem", column, " cid=" + cid + " AND enable=0 ", null, null, null, "weight");
-	}
-	else {
-		c = Keeper.myDB.query("lexicalItem", column, " cid=" + cid, null, null, null, "weight");
-	}
-	for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-		int lidIndexColumn = c.getColumnIndex("lid");
-		int tagIndexColumn = c.getColumnIndex("tag");
-		int picPathIndexColumn = c.getColumnIndex("picPath");
-		int voicePathIndexColumn = c.getColumnIndex("voicePath");
-		int nextCidIndexColumn = c.getColumnIndex("nextCid");
-		int enableIndexColumn = c.getColumnIndex("enable");
-
-		int lid = c.getInt(lidIndexColumn);
-		String tag = c.getString(tagIndexColumn);
-		String voicePath = c.getString(voicePathIndexColumn);
-		int nextCid = c.getInt(nextCidIndexColumn);
-		int enable = c.getInt(enableIndexColumn);
-		String picPath;
-		if (c.getString(picPathIndexColumn) == null || c.getString(picPathIndexColumn).trim().equals("")) {
-			picPath = "sdcard/AAConAndroid/aac_system_no_pic.gif";
-		}
-		else {
-			picPath = "sdcard/AAConAndroid/" + c.getString(picPathIndexColumn);
-		}
-		retrievedLex.add(new LexIconAndLabel(lid, cid, tag, picPath, voicePath, nextCid, enable));
-	}
-	c.close();
-	return retrievedLex;
-}
-
-public static String collectWords(Vector<VocabSelected> a) {
-	int textLegth = a.size();
-	String text = "";
-	for (int i = 0; i < textLegth; i++) {
-		text = text + a.elementAt(i).word + " ";
-	}
-	return text;
-}
-
-public void LaunchTTS() {
-	if (!ComposePage.ttsLangOk) {
-		Toast.makeText(getApplicationContext(),
-		               getApplicationContext().getString(R.string.TTS_NO_LANG) + "(" + Keeper.locale.toString() + ")",
-		               Toast.LENGTH_SHORT).show();
-		return;
-	}
-	speech = collectWords(Keeper.selected);
-	convertTospeech(mTts, speech);
-}
-
-public static void convertTospeech(TextToSpeech x, String input) {
-	String currLocale = Keeper.locale.toString();
-	if (currLocale.equals("th_th")) {
-		// Remove all whitespaces due to VAJA's bug.
-		input = input.replaceAll("\\s", "");
-	}
-	String text = input.trim();
-	//Log.e("TTS",input+" : "+currLocale);
-	x.speak(text, TextToSpeech.QUEUE_FLUSH, null);
 }
 
 @Override
@@ -398,6 +378,45 @@ public static Vector<CatIconAndLabel> queryCategory(int enableMode) throws IOExc
 	}
 	c.close();
 	return retrievedCat;
+}
+
+public static Vector<LexIconAndLabel> queryVocabs(int cid, int enableMode) throws IOException {
+	Vector<LexIconAndLabel> retrievedLex = new Vector<LexIconAndLabel>();
+	String[] column = {"lid", "tag", "picPath", "voicePath", "nextCid", "enable"};
+	Cursor c;
+	if (enableMode == 1) {
+		c = Keeper.myDB.query("lexicalItem", column, " cid=" + cid + " AND enable=1 ", null, null, null, "weight");
+	}
+	else if (enableMode == 0) {
+		c = Keeper.myDB.query("lexicalItem", column, " cid=" + cid + " AND enable=0 ", null, null, null, "weight");
+	}
+	else {
+		c = Keeper.myDB.query("lexicalItem", column, " cid=" + cid, null, null, null, "weight");
+	}
+	for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+		int lidIndexColumn = c.getColumnIndex("lid");
+		int tagIndexColumn = c.getColumnIndex("tag");
+		int picPathIndexColumn = c.getColumnIndex("picPath");
+		int voicePathIndexColumn = c.getColumnIndex("voicePath");
+		int nextCidIndexColumn = c.getColumnIndex("nextCid");
+		int enableIndexColumn = c.getColumnIndex("enable");
+
+		int lid = c.getInt(lidIndexColumn);
+		String tag = c.getString(tagIndexColumn);
+		String voicePath = c.getString(voicePathIndexColumn);
+		int nextCid = c.getInt(nextCidIndexColumn);
+		int enable = c.getInt(enableIndexColumn);
+		String picPath;
+		if (c.getString(picPathIndexColumn) == null || c.getString(picPathIndexColumn).trim().equals("")) {
+			picPath = "sdcard/AAConAndroid/aac_system_no_pic.gif";
+		}
+		else {
+			picPath = "sdcard/AAConAndroid/" + c.getString(picPathIndexColumn);
+		}
+		retrievedLex.add(new LexIconAndLabel(lid, cid, tag, picPath, voicePath, nextCid, enable));
+	}
+	c.close();
+	return retrievedLex;
 }
 
 public static String removeSpaces(String s) {

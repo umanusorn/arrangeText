@@ -216,7 +216,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Clear All"
-                        android:id="@+id/button"
+                        android:id="@+id/clearAllBtn"
                         android:layout_alignParentTop="true"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"/>
@@ -290,7 +290,7 @@
                     </ImageButton>
 
                     <ImageButton
-                            android:id="@+id/clear_button"
+                            android:id="@+id/delBtnComposeActivity"
                             android:visibility="gone"
                             android:layout_width="40dip"
                             android:layout_height="40dip"
