@@ -17,7 +17,7 @@ android:orientation="vertical" android:background="@color/PINK_CHULA">
                 android:id="@+id/linear_master_cate"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:background="@color/GREEN_ANDROID"
+                android:background="@color/WHITE"
                 android:orientation="horizontal" >
 
             <TextView
@@ -183,7 +183,9 @@ android:orientation="vertical" android:background="@color/PINK_CHULA">
 
             <RelativeLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+
+                    >
 
                 <TextView
                         android:layout_width="wrap_content"
@@ -192,6 +194,7 @@ android:orientation="vertical" android:background="@color/PINK_CHULA">
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Word Selected"
                         android:id="@+id/textView"
+                        android:padding="10dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"/>
 
@@ -205,44 +208,82 @@ android:orientation="vertical" android:background="@color/PINK_CHULA">
                         android:layout_alignParentRight="true"/>
             </RelativeLayout>
         </LinearLayout>
-
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="15dp"
+                >
         <GridView
                 android:id="@+id/GridPressed"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:padding="0dip"
+                android:padding="10dp"
                 android:verticalSpacing="0dip"
                 android:horizontalSpacing="0dip"
                 android:numColumns="auto_fit"
                 android:columnWidth="65dip"
                 android:stretchMode="columnWidth"
-                android:background="#FFFFFF"
+                android:background="#BBBBBB"
                 android:gravity="center" android:clickable="false">
         </GridView>
-
+</LinearLayout>
     </LinearLayout>
     <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
 
-            android:id="@+id/widget32"
+
             android:layout_width="fill_parent"
             android:layout_height="40dip"
-            android:layout_marginTop="0dip">
-        <ImageButton
-                android:id="@+id/speak_button"
-                android:layout_width="40dip"
-                android:layout_height="40dip"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true" android:background="@drawable/speak_button">
-        </ImageButton><ImageButton
-            android:id="@+id/clear_button"
-            android:layout_width="40dip"
-            android:layout_height="40dip"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/backspace_button" android:layout_toLeftOf="@id/speak_button">
+            android:layout_marginTop="0dip"
 
-    </ImageButton>
+            >
+
 
     </RelativeLayout>
+
+
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        <RelativeLayout
+                android:id="@+id/widget32"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+
+            <TextView
+
+                    android:text="Sentence Answer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/topLevelCatTextColor"
+                    android:padding="@dimen/top_level_cat_string_padding"
+                    android:id="@+id/sentenceAnswerTv"/>
+            <ImageButton
+                    android:id="@+id/speak_button"
+
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true" android:background="@drawable/speak_button">
+            </ImageButton>
+            <ImageButton
+                    android:id="@+id/clear_button"
+                    android:visibility="gone"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/backspace_button" android:layout_toLeftOf="@id/speak_button">
+
+            </ImageButton>
+        </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>
