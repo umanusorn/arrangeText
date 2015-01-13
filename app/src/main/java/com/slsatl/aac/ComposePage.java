@@ -81,7 +81,7 @@ public static void convertTospeech(TextToSpeech x, String input) {
 }
 
 public void onClickClear() {
-	for (int i = 0; i < Keeper.selected.size(); i++) {
+	for (int i = 0; i < 20; i++) {
 		onClickdelBtn();
 	}
 }
