@@ -16,132 +16,139 @@
             android:layout_gravity="fill_horizontal|center">
 
         <LinearLayout
-                android:id="@+id/linear_master_cate"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:background="@color/WHITE"
                 android:orientation="horizontal">
 
-            <TextView
-
-                    android:text="อะไร"
+            <LinearLayout
+                    android:id="@+id/linear_master_cate"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/topLevelCatTextColor"
-                    android:padding="@dimen/top_level_cat_string_padding"
-                    android:id="@+id/cate1tv"/>
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/boundary"
+                    android:orientation="horizontal">
 
-            <TextView
+                <TextView
 
-                    android:text="ขนาด"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/topLevelCatTextColor"
-                    android:padding="@dimen/top_level_cat_string_padding"
-                    android:id="@+id/cate2tv"/>
+                        android:text="อะไร"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/topLevelCatTextColor"
+                        android:padding="@dimen/top_level_cat_string_padding"
+                        android:id="@+id/cate1tv"/>
 
-            <TextView
+                <TextView
 
-                    android:text="ลักษณะ"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/topLevelCatTextColor"
-                    android:padding="@dimen/top_level_cat_string_padding"
-                    android:id="@+id/cate3tv"/>
+                        android:text="ขนาด"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/topLevelCatTextColor"
+                        android:padding="@dimen/top_level_cat_string_padding"
+                        android:id="@+id/cate2tv"/>
 
-            <TextView
+                <TextView
 
-                    android:text="สี"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/topLevelCatTextColor"
-                    android:padding="@dimen/top_level_cat_string_padding"
-                    android:id="@+id/cate4tv"/>
+                        android:text="ลักษณะ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/topLevelCatTextColor"
+                        android:padding="@dimen/top_level_cat_string_padding"
+                        android:id="@+id/cate3tv"/>
 
-            <TextView
+                <TextView
 
-                    android:text="รูปร่าง"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/topLevelCatTextColor"
-                    android:padding="@dimen/top_level_cat_string_padding"
-                    android:id="@+id/cate5tv"/>
+                        android:text="สี"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/topLevelCatTextColor"
+                        android:padding="@dimen/top_level_cat_string_padding"
+                        android:id="@+id/cate4tv"/>
 
-            <TextView
+                <TextView
 
-                    android:text="อารมณ์"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/topLevelCatTextColor"
-                    android:padding="@dimen/top_level_cat_string_padding"
-                    android:id="@+id/cate6tv"/>
+                        android:text="รูปร่าง"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/topLevelCatTextColor"
+                        android:padding="@dimen/top_level_cat_string_padding"
+                        android:id="@+id/cate5tv"/>
 
-            <TextView
+                <TextView
 
-                    android:text="การกระทำ"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/topLevelCatTextColor"
-                    android:padding="@dimen/top_level_cat_string_padding"
-                    android:id="@+id/cate7tv"/>
+                        android:text="อารมณ์"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/topLevelCatTextColor"
+                        android:padding="@dimen/top_level_cat_string_padding"
+                        android:id="@+id/cate6tv"/>
 
-            <TextView
+                <TextView
 
-                    android:text="สถานที่"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/topLevelCatTextColor"
-                    android:padding="@dimen/top_level_cat_string_padding"
-                    android:id="@+id/cate8tv"/>
+                        android:text="การกระทำ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/topLevelCatTextColor"
+                        android:padding="@dimen/top_level_cat_string_padding"
+                        android:id="@+id/cate7tv"/>
 
-            <TextView
+                <TextView
 
-                    android:text="เมื่อไหร่"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/topLevelCatTextColor"
-                    android:padding="@dimen/top_level_cat_string_padding"
-                    android:id="@+id/cate9tv"/>
+                        android:text="สถานที่"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/topLevelCatTextColor"
+                        android:padding="@dimen/top_level_cat_string_padding"
+                        android:id="@+id/cate8tv"/>
 
-            <TextView
+                <TextView
 
-                    android:text="จำนวน"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/topLevelCatTextColor"
-                    android:padding="@dimen/top_level_cat_string_padding"
-                    android:id="@+id/cate10tv"/>
+                        android:text="เมื่อไหร่"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/topLevelCatTextColor"
+                        android:padding="@dimen/top_level_cat_string_padding"
+                        android:id="@+id/cate9tv"/>
 
-            <TextView
+                <TextView
 
-                    android:text="บรรยากาศ"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/topLevelCatTextColor"
-                    android:padding="@dimen/top_level_cat_string_padding"
-                    android:id="@+id/cate11tv"/>
+                        android:text="จำนวน"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/topLevelCatTextColor"
+                        android:padding="@dimen/top_level_cat_string_padding"
+                        android:id="@+id/cate10tv"/>
 
-            <TextView
+                <TextView
 
-                    android:text="เสียง"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textColor="@color/topLevelCatTextColor"
-                    android:padding="@dimen/top_level_cat_string_padding"
-                    android:id="@+id/cate12tv"/>
+                        android:text="บรรยากาศ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/topLevelCatTextColor"
+                        android:padding="@dimen/top_level_cat_string_padding"
+                        android:id="@+id/cate11tv"/>
 
+                <TextView
+
+                        android:text="เสียง"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/topLevelCatTextColor"
+                        android:padding="@dimen/top_level_cat_string_padding"
+                        android:id="@+id/cate12tv"/>
+
+            </LinearLayout>
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -215,6 +222,7 @@
                         android:layout_alignParentRight="true"/>
             </RelativeLayout>
         </LinearLayout>
+
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
@@ -222,76 +230,78 @@
                 android:padding="15dp"
                 android:background="@color/GREY"
                 >
-        <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:background="@color/GREY"
-                >
 
-            <GridView
-                    android:id="@+id/GridPressed"
+            <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:verticalSpacing="0dip"
-                    android:horizontalSpacing="0dip"
-                    android:numColumns="auto_fit"
-                    android:columnWidth="65dip"
-                    android:stretchMode="columnWidth"
-                    android:gravity="center"
-                    android:clickable="false">
-            </GridView>
-
-
-
-        </LinearLayout>
-        <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-            <RelativeLayout
-                    android:id="@+id/widget32"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/boundary"
-                    android:padding="5dp"
+                    android:padding="15dp"
+                    android:background="@color/GREY"
                     >
-                <TextView
 
-                        android:text="Sentence Answer"
-                        android:layout_width="wrap_content"
+                <GridView
+                        android:id="@+id/GridPressed"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textColor="@color/topLevelCatTextColor"
-                        android:padding="@dimen/top_level_cat_string_padding"
-                        android:id="@+id/sentenceAnswerTv"/>
+                        android:padding="10dp"
+                        android:verticalSpacing="0dip"
+                        android:horizontalSpacing="0dip"
+                        android:numColumns="auto_fit"
+                        android:columnWidth="65dip"
+                        android:stretchMode="columnWidth"
+                        android:gravity="center"
+                        android:clickable="false">
+                </GridView>
 
-                <ImageButton
-                        android:id="@+id/speak_button"
-                        android:layout_width="40dip"
-                        android:layout_height="40dip"
-                        android:layout_alignParentRight="true"
 
-                        android:layout_centerVertical="true"
-                        android:background="@drawable/speak_button">
-                </ImageButton>
-
-                <ImageButton
-                        android:id="@+id/clear_button"
-                        android:visibility="gone"
-                        android:layout_width="40dip"
-                        android:layout_height="40dip"
-                        android:layout_alignParentTop="true"
-                        android:background="@drawable/backspace_button"
-                        android:layout_toLeftOf="@id/speak_button">
-
-                </ImageButton>
-            </RelativeLayout>
-        </LinearLayout>
             </LinearLayout>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                <RelativeLayout
+                        android:id="@+id/widget32"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/boundary"
+                        android:padding="5dp"
+                        >
+
+                    <TextView
+
+                            android:text="Sentence Answer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textColor="@color/topLevelCatTextColor"
+                            android:padding="@dimen/top_level_cat_string_padding"
+                            android:id="@+id/sentenceAnswerTv"/>
+
+                    <ImageButton
+                            android:id="@+id/speak_button"
+                            android:layout_width="40dip"
+                            android:layout_height="40dip"
+                            android:layout_alignParentRight="true"
+
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/speak_button">
+                    </ImageButton>
+
+                    <ImageButton
+                            android:id="@+id/clear_button"
+                            android:visibility="gone"
+                            android:layout_width="40dip"
+                            android:layout_height="40dip"
+                            android:layout_alignParentTop="true"
+                            android:background="@drawable/backspace_button"
+                            android:layout_toLeftOf="@id/speak_button">
+
+                    </ImageButton>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
