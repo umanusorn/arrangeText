@@ -190,6 +190,7 @@
             <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:padding="5dp"
 
                     >
 
@@ -256,6 +257,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/boundary"
+                    android:padding="5dp"
                     >
                 <TextView
 
@@ -269,11 +271,11 @@
 
                 <ImageButton
                         android:id="@+id/speak_button"
-
                         android:layout_width="40dip"
                         android:layout_height="40dip"
-                        android:layout_alignParentTop="true"
                         android:layout_alignParentRight="true"
+
+                        android:layout_centerVertical="true"
                         android:background="@drawable/speak_button">
                 </ImageButton>
 
