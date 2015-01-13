@@ -22,11 +22,12 @@ public final class R {
         public static final int DEBUG2=0x7f050002;
         public static final int GRAY_66=0x7f050003;
         public static final int GREEN_ANDROID=0x7f050004;
-        public static final int PINK_CHULA=0x7f050005;
-        public static final int WHITE=0x7f050006;
-        public static final int list_default=0x7f050007;
-        public static final int list_press=0x7f050008;
-        public static final int topLevelCatTextColor=0x7f050009;
+        public static final int GREY=0x7f050005;
+        public static final int PINK_CHULA=0x7f050006;
+        public static final int WHITE=0x7f050007;
+        public static final int list_default=0x7f050008;
+        public static final int list_press=0x7f050009;
+        public static final int topLevelCatTextColor=0x7f05000a;
     }
     public static final class dimen {
         public static final int top_level_cat_string_padding=0x7f060000;

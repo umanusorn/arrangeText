@@ -6,6 +6,7 @@
     <color name="GREEN_ANDROID">#A5CB39</color>
     <color name="PINK_CHULA">#FFBAD6</color>
     <color name="BLACK">#000000</color>
+    <color name="GREY">#d2d2d2</color>
     <color name="WHITE">#FFFFFF</color>
     <color name="topLevelCatTextColor">#000000</color>
     <color name="list_default">#000000</color>
