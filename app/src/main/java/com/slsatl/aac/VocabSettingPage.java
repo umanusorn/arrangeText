@@ -439,13 +439,13 @@ public class VocabSettingPage extends ListActivity {
 		initialValues.put("nextCid",0);
 		initialValues.put("voicePath","");
 		initialValues.put("weight",0);
-		Keeper.myDB.insert("lexicalItem", null, initialValues);
+		Keeper.myDB.insert("NewLexicalItem", null, initialValues);
 	}
 	
 	public int getMinAvailableCustomLid(){
 		String[] column = {"lid"};
 		boolean [] lidCheck = new boolean[2000];
-		Cursor c = Keeper.myDB.query("lexicalItem", column, "lid >= 10001 AND lid <= 12000", null, null,null, null);
+		Cursor c = Keeper.myDB.query("NewLexicalItem", column, "lid >= 10001 AND lid <= 12000", null, null,null, null);
 		for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
 			int lid = c.getInt(c.getColumnIndex("lid"));
 			lidCheck[lid-10001] = true;

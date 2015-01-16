@@ -399,6 +399,7 @@ public class MainPage extends Activity{
 
 	    // automatically done on worker thread (separate from UI thread)
 	    protected Void doInBackground(final String... args) {
+
 	    	try {
 				ComposePage.cateShow = ComposePage.queryCategory(1);
 			} catch (IOException e) {

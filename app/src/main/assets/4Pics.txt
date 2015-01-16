@@ -1,0 +1,7 @@
+﻿
+[N, ADJ, ADJ, V]
+[N, ADJ, V, ADV]
+[N, V, ADV, ADJ]
+[N, ADJ, V, N]
+[N, V, N, ADV]
+[N, V, N, ADJ]

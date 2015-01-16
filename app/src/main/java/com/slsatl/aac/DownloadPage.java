@@ -631,7 +631,7 @@ public class DownloadPage extends Activity{
 	    				String coverPath = category_nested.getString("coverPath");
 	    				String lang = category_nested.getString("lang");
 	    				String nextCid = category_nested.getString("nextCid");
-	    				String sql ="insert or replace into category (enable,core,nextCid,variation,subtitle,cid,version,weight,title,coverPath,lang) values("+enable+","+core+","+nextCid+","+variation+","+"'"+subtitle+"',"+cid+","+version+","+weight+",'"+title+"','"+coverPath+"','"+lang+"')";
+	    				String sql ="insert or replace into NewCategory (enable,core,nextCid,variation,subtitle,cid,version,weight,title,coverPath,lang) values("+enable+","+core+","+nextCid+","+variation+","+"'"+subtitle+"',"+cid+","+version+","+weight+",'"+title+"','"+coverPath+"','"+lang+"')";
         				Log.d("database",sql);
 	    				db.execSQL(sql);
         				sql = "delete from lexicalItem where cid="+cid;
@@ -653,7 +653,7 @@ public class DownloadPage extends Activity{
 		    				String weight_l=lexical_row.getString("weight");
 		    				String enable_l=lexical_row.getString("enable");
 		    				
-		    				sql ="insert into lexicalItem (lid,tag,picPath,voicePath,cid,nextCid,core,weight,enable) values("+lid_l+",'"+tag_l+"','"+picPath_l+"','"+voicePath_l+"',"+cid_l+","+nextCid_l+","+core_l+","+weight_l+","+enable_l+")";
+		    				sql ="insert into NewLexicalItem (lid,tag,picPath,voicePath,cid,nextCid,core,weight,enable) values("+lid_l+",'"+tag_l+"','"+picPath_l+"','"+voicePath_l+"',"+cid_l+","+nextCid_l+","+core_l+","+weight_l+","+enable_l+")";
 		    				Log.d("database",sql);
 		    				db.execSQL(sql);
 	    				}

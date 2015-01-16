@@ -15,9 +15,10 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 	 
     //The Android's default system path of your application database.
     private static String DB_PATH = "/data/data/com.slsatl.aac/databases/";
- 
+
     private static String DB_NAME = "aac_1_03.sqlite3";
- 
+
+
     public static SQLiteDatabase myDataBase; 
  
     private final Context myContext;

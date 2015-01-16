@@ -1,0 +1,11 @@
+﻿
+[N, ADJ, ADJ, ADJ, V]
+[N, ADJ, ADJ, V, ADV]
+[N, ADJ, V, ADV, ADJ]
+[N, V, ADV, ADJ, ADJ]
+[N, V, N, ADV, ADJ]
+[N, V, N, ADJ, ADV]
+[N, V, N, ADJ, ADJ]
+[N, ADJ, V, N, ADJ]
+[N, ADJ, V, N, ADV]
+[N, ADJ, ADJ, V, N]
