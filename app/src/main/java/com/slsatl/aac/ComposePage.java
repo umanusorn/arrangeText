@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -44,6 +45,7 @@ static String       speech;
 static int          buttonResource;
 static String       THAIspeech;
 static String       delVocab;
+
 MenuItem toTtsMItm, helpMItm;
 
 
@@ -137,6 +139,8 @@ public void onCreate(Bundle savedInstanceState) {
 	grid_select = (GridView) findViewById(R.id.GridPressed);
 
 	linear_cate = (LinearLayout) findViewById(R.id.linear_cate);
+	TextView wordSelected = (TextView)findViewById(R.id.wordSelectedTv);
+	wordSelected.setTypeface(null, Typeface.BOLD);
 	// Populate linear_cate by inflating each View instance with R.id.cate_icon_image
 	LayoutInflater li = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	View[] va = new View[cateShow.size()];

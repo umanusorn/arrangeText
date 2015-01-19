@@ -178,7 +178,6 @@ public final class R {
         public static final int tableLayout2=0x7f080003;
         public static final int tableRow5=0x7f080004;
         public static final int taglist=0x7f08003b;
-        public static final int textView=0x7f08005a;
         public static final int textView1=0x7f080071;
         public static final int topPanel=0x7f080022;
         public static final int topPanelInner=0x7f080023;
@@ -200,6 +199,7 @@ public final class R {
         public static final int widget44=0x7f080074;
         public static final int widget76=0x7f08000f;
         public static final int widget77=0x7f08000a;
+        public static final int wordSelectedTv=0x7f08005a;
     }
     public static final class layout {
         public static final int adapter_listview=0x7f030000;

@@ -205,9 +205,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/BLACK"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Word Selected"
-                        android:id="@+id/textView"
+                        android:id="@+id/wordSelectedTv"
                         android:padding="10dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"/>
