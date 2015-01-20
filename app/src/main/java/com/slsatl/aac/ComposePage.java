@@ -101,7 +101,6 @@ public void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
 
 	thisPage = this;
-
 	requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		/*
@@ -129,16 +128,14 @@ public void onCreate(Bundle savedInstanceState) {
 			e.printStackTrace();
 		}
 		*/
-
+//
 	mTts = new TextToSpeech(this, this);
 
 	setContentView(R.layout.main_switch);
 	grid_main = (GridView) findViewById(R.id.GridView01);
 	grid_main.setAdapter(new VocabGridAdapter(this));
-
-	grid_select = (GridView) findViewById(R.id.GridPressed);
-
-	linear_cate = (LinearLayout) findViewById(R.id.linear_cate);
+  grid_select = (GridView) findViewById(R.id.GridPressed);
+  linear_cate = (LinearLayout) findViewById(R.id.linear_cate);
 	TextView wordSelected = (TextView)findViewById(R.id.wordSelectedTv);
 	wordSelected.setTypeface(null, Typeface.BOLD);
 	// Populate linear_cate by inflating each View instance with R.id.cate_icon_image

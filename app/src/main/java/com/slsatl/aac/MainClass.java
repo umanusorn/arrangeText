@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
-
 public class MainClass {
     String strSetImg = "";
     String strSetPOS = "";
@@ -129,13 +128,14 @@ public class MainClass {
 //				}
 
 
+
+//      subclass,pos,tag,class
         imgWord.add("VERB2,V,เตะ,MOVEMENT");
         imgWord.add("SPORT,N,ฟุตบอล,WHAT");
         imgWord.add("SIZE,ADJ,ใหญ่,SIZE");
         imgWord.add("FAMILY,N,ปู่,WHAT");
 
         System.out.println(imgWord);
-
         PermutationAndReadGrammar.ImgPermutation(imgWord, 0);
 
         ansSentence.clear();

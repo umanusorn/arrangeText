@@ -73,7 +73,7 @@ public static boolean DownloadFile(String fileURL, String fileName) {
 		for (long l = 0L; (i = in.read(byt)) != -1; l += i) {
 			buffer.write(byt, 0, i);
 		}
-	     /*     for (long l = 0L; in.read(byt) != -1; l += 1 ) {
+		   /*     for (long l = 0L; in.read(byt) != -1; l += 1 ) {
                 buffer.write(byt, l, 1);
             }*/
 
@@ -210,6 +210,7 @@ public void onCreate(Bundle savedInstanceState) {
 
 	// check resources for first time installation
 	File dir = new File(Environment.getExternalStorageDirectory() + "/AAConAndroid");
+
 	if (dir.exists() && dir.isDirectory()) {
 	}
 	else {

@@ -8,7 +8,6 @@
         android:orientation="vertical"
         android:background="@color/PINK_CHULA">
 
-
     <HorizontalScrollView
             android:id="@+id/hscroll_master_cate"
             android:layout_width="fill_parent"

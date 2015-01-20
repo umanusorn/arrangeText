@@ -44,13 +44,10 @@ public class PermutationAndReadGrammar {
 
 			}
 			if(arrWord.size()==6){
-				
 				readGrammar("6Pics.txt", arrWord);
 				//System.out.println(arrWord.toString());
 			}
-			
 		}
-		
 	}
 
 	// -------------------------- readGrammar------------------------
