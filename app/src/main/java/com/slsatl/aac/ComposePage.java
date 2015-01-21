@@ -134,9 +134,9 @@ public void onCreate(Bundle savedInstanceState) {
 	setContentView(R.layout.main_switch);
 	grid_main = (GridView) findViewById(R.id.GridView01);
 	grid_main.setAdapter(new VocabGridAdapter(this));
-  grid_select = (GridView) findViewById(R.id.GridPressed);
-  linear_cate = (LinearLayout) findViewById(R.id.linear_cate);
-	TextView wordSelected = (TextView)findViewById(R.id.wordSelectedTv);
+	grid_select = (GridView) findViewById(R.id.GridPressed);
+	linear_cate = (LinearLayout) findViewById(R.id.linear_cate);
+	TextView wordSelected = (TextView) findViewById(R.id.wordSelectedTv);
 	wordSelected.setTypeface(null, Typeface.BOLD);
 	// Populate linear_cate by inflating each View instance with R.id.cate_icon_image
 	LayoutInflater li = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
