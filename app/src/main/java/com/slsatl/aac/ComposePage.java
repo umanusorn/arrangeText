@@ -189,7 +189,7 @@ public void onCreate(Bundle savedInstanceState) {
 
 				Log.e("toto", "selectWord = " + selectWord);
 				String[] column = {"voicePath", "nextCid"};
-				Cursor c = Keeper.myDB.query("lexicalItem", column, "tag ='"
+				Cursor c = Keeper.myDB.query("NewLexicalItem", column, "tag ='"
 				                                                    + selectWord + "' ", null, null,
 				                             null, null);
 				c.moveToFirst();
@@ -394,13 +394,13 @@ public static Vector<LexIconAndLabel> queryVocabs(int cid, int enableMode) throw
 	String[] column = {"lid", "tag", "picPath", "voicePath", "nextCid", "enable"};
 	Cursor c;
 	if (enableMode == 1) {
-		c = Keeper.myDB.query("lexicalItem", column, " cid=" + cid + " AND enable=1 ", null, null, null, "weight");
+		c = Keeper.myDB.query("NewLexicalItem", column, " cid=" + cid + " AND enable=1 ", null, null, null, "weight");
 	}
 	else if (enableMode == 0) {
-		c = Keeper.myDB.query("lexicalItem", column, " cid=" + cid + " AND enable=0 ", null, null, null, "weight");
+		c = Keeper.myDB.query("NewLexicalItem", column, " cid=" + cid + " AND enable=0 ", null, null, null, "weight");
 	}
 	else {
-		c = Keeper.myDB.query("lexicalItem", column, " cid=" + cid, null, null, null, "weight");
+		c = Keeper.myDB.query("NewLexicalItem", column, " cid=" + cid, null, null, null, "weight");
 	}
 	for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
 		int lidIndexColumn = c.getColumnIndex("lid");

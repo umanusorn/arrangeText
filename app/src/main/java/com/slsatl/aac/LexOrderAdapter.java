@@ -104,7 +104,7 @@ class HideLexToggleClickHandler implements View.OnClickListener {
 			cv.put("enable", 0);
 			o.enable = 0;
 		}
-		int numAffected = Keeper.myDB.update("lexicalItem", cv, "lid =" + o.lid, null);
+		int numAffected = Keeper.myDB.update("NewLexicalItem", cv, "lid =" + o.lid, null);
 	}
 
 }
