@@ -1,7 +1,10 @@
 package com.slsatl.aac;
 
+import android.os.Environment;
+
 import java.io.BufferedReader;
 import java.io.DataInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -105,7 +108,13 @@ public class PermutationAndReadGrammar {
 			POSGrammar = setOfPOS.toString();
 			//System.out.println("POSGrammar: "+POSGrammar);
 
-			fstream = new FileInputStream(filename);
+
+			String newFolder = "/AAConAndroid";
+			String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+			File myNewFolder = new File(extStorageDirectory + newFolder);
+			File file = new File(myNewFolder, filename);
+
+			fstream = new FileInputStream(file);
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			String strLine = null;

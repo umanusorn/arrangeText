@@ -1,5 +1,7 @@
 package com.slsatl.aac;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -23,6 +25,7 @@ public class SortingScore {
 	}
 	
 	public static List<String> AnswerSentence(){
+		Log.d("",allScore+"viewAllScore");
 		System.out.println(allScore+"-------------------");
 		Collections.sort(allScore);
 		return allScore;

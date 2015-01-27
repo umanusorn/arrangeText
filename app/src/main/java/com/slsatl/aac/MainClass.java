@@ -15,9 +15,7 @@ import java.util.Hashtable;
 import java.util.List;
 
 public class MainClass {
-
 static String TAG = "MainClass";
-
 String strSetImg      = "";
 String strSetPOS      = "";
 String strSetClass    = "";
@@ -53,8 +51,6 @@ public static void main(String[] args) {
 
 	Log.d(TAG, "pass1");
 
-
-
 /*
 
 //Read text from file
@@ -87,7 +83,6 @@ public static void main(String[] args) {
 
 			for (int j = 0; j < parts.length; j++) {
 				strLineWord = parts[0] + "," + parts[1];
-				Log.d(TAG, strLineWord);
 				hashtable_Word.put(strLineWord, parts[2]);
 			}
 		}
@@ -179,6 +174,8 @@ public static void main(String[] args) {
 	imgWord.add("SPORT,N,ฟุตบอล,WHAT");
 	imgWord.add("SIZE,ADJ,ใหญ่,SIZE");
 	imgWord.add("FAMILY,N,ปู่,WHAT");
+
+
 	Log.d(TAG, "pass10");
 	System.out.println(imgWord);
 	Log.d(TAG, "pass11" + imgWord);
@@ -189,6 +186,9 @@ public static void main(String[] args) {
 		ansSentence.add(SortingScore.allScore.get(j));
 
 	}
+
+//	Log.d(TAG+"view Answer",ansSentence.get(0));
+
 	Log.d(TAG, "pass13" + imgWord);
 	imgWord.clear();
 
@@ -220,6 +220,8 @@ public static void main(String[] args) {
 	double elapsedSeconds = tDelta / 1000.0;
 	Log.d(TAG, "pass14" + imgWord + "Using times: " + elapsedSeconds);
 	System.out.println("Using times: " + elapsedSeconds);
+
+
 
 }
 }
