@@ -82,6 +82,13 @@ public static void convertTospeech(TextToSpeech x, String input) {
 	x.speak(text, TextToSpeech.QUEUE_FLUSH, null);
 }
 
+public static String onClickCallAlgor(){
+	String sortedOrder = "";
+	String[] testAlgor = {"ddd","ssdsf"};
+	MainClass.main(testAlgor);
+	return sortedOrder;
+}
+
 public void onClickClear() {
 	for (int i = 0; i < 20; i++) {
 		onClickdelBtn();
@@ -229,6 +236,7 @@ public void onCreate(Bundle savedInstanceState) {
 		public void onClick(View v) {
 			buttonResource = R.id.speak_button;
 			LaunchTTS();
+			onClickCallAlgor();
 		}
 	});
 }// end of onCreate()

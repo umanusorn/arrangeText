@@ -2,6 +2,8 @@ package com.slsatl.aac; /**
  * Created by Worasa on 16/1/2558.
  */
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileReader;
@@ -11,6 +13,9 @@ import java.util.Hashtable;
 import java.util.List;
 
 public class MainClass {
+
+		static String TAG = "MainClass";
+
     String strSetImg = "";
     String strSetPOS = "";
     String strSetClass = "";
@@ -44,6 +49,8 @@ public class MainClass {
         imgWord = new ArrayList<String>();
         ansSentence = new ArrayList<String>();
 
+	    Log.d(TAG,"pass1");
+
         try {
 
             BufferedReader readerWordGram = new BufferedReader(
@@ -58,8 +65,12 @@ public class MainClass {
                 }
             }
 
+	        Log.d(TAG,"pass2");
+
             BufferedReader readerPOSGram = new BufferedReader(
                     new FileReader("POS_Score.txt"));
+
+	        Log.d(TAG,"pass3");
             String strLinePOS = "";
             while ((linePOS = readerPOSGram.readLine()) != null) {
                 String[] parts = linePOS.split(",,");
@@ -69,10 +80,12 @@ public class MainClass {
                     hashtable_POS.put(strLinePOS, parts[1]);
                 }
             }
-
+	        Log.d(TAG,"pass4");
             BufferedReader readerSubclassGram = new BufferedReader(
                     new FileReader("Subclass_Score.txt"));
             String strLineSubclass = "";
+
+	        Log.d(TAG,"pass5");
             while ((lineSubclass = readerSubclassGram.readLine()) != null) {
                 String[] parts = lineSubclass.split(",");
 
@@ -81,10 +94,11 @@ public class MainClass {
                     hashtable_Subclass.put(strLineSubclass, parts[2]);
                 }
             }
-
+	        Log.d(TAG,"pass6");
             BufferedReader readerClassGram = new BufferedReader(
                     new FileReader("Class_Score.txt"));
             String strLineClass = "";
+	        Log.d(TAG,"pass7");
             while ((lineClass = readerClassGram.readLine()) != null) {
                 String[] parts = lineClass.split(",");
 
@@ -94,7 +108,7 @@ public class MainClass {
                 }
             }
 
-
+	        Log.d(TAG,"pass8");
 //check hash table elements
 //			Set set = hashtable_Class.entrySet();
 //		    Iterator it = set.iterator();
@@ -110,6 +124,8 @@ public class MainClass {
 
 //------------------------------------------Already Created Hash table---------------------------------------------//
         long tStart = System.currentTimeMillis();
+
+	    Log.d(TAG,"pass9");
 //		try {
 //
 //			fstream = new FileInputStream("test4word.txt");
@@ -130,20 +146,22 @@ public class MainClass {
 
 
 //      subclass,pos,tag,class
+
         imgWord.add("VERB2,V,เตะ,MOVEMENT");
         imgWord.add("SPORT,N,ฟุตบอล,WHAT");
         imgWord.add("SIZE,ADJ,ใหญ่,SIZE");
         imgWord.add("FAMILY,N,ปู่,WHAT");
-
+	    Log.d(TAG,"pass10");
         System.out.println(imgWord);
+	    Log.d(TAG,"pass11"+imgWord);
         PermutationAndReadGrammar.ImgPermutation(imgWord, 0);
-
+	    Log.d(TAG,"pass12"+imgWord);
         ansSentence.clear();
         for (int j = 0; j < SortingScore.allScore.size(); j++) {
             ansSentence.add(SortingScore.allScore.get(j));
 
         }
-
+	    Log.d(TAG,"pass13"+imgWord);
         imgWord.clear();
 
         //	}
@@ -172,7 +190,7 @@ public class MainClass {
         long tEnd = System.currentTimeMillis();
         long tDelta = tEnd - tStart;
         double elapsedSeconds = tDelta / 1000.0;
-
+	    Log.d(TAG,"pass14"+imgWord + "Using times: "+ elapsedSeconds);
         System.out.println("Using times: "+ elapsedSeconds);
 
     }
