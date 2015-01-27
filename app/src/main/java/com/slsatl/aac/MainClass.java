@@ -2,9 +2,11 @@ package com.slsatl.aac; /**
  * Created by Worasa on 16/1/2558.
  */
 
+import android.os.Environment;
 import android.util.Log;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -51,16 +53,50 @@ public class MainClass {
 
 	    Log.d(TAG,"pass1");
 
+
+
+/*
+
+//Read text from file
+	    StringBuilder text = new StringBuilder();
+
+	    try {
+		    BufferedReader br = new BufferedReader(new FileReader(file));
+		    String line;
+
+		    while ((line = br.readLine()) != null) {
+			    text.append(line);
+			    text.append('\n');
+		    }
+		    br.close();
+	    }
+*/
+
+
         try {
+	        //Find the directory for the SD Card using the API
+//*Don't* hardcode "/sdcard"
+	        //File sdcard = Environment.getExternalStorageDirectory();
+
+//Get the text file
+	        String newFolder = "/AAConAndroid";
+	        String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+	        File myNewFolder = new File(extStorageDirectory + newFolder);
+
+
+	        File file = new File(myNewFolder,"Word_Score.txt");
+
+
 
             BufferedReader readerWordGram = new BufferedReader(
-                    new FileReader("Word_Score.txt"));
+                    new FileReader(file));
             String strLineWord = "";
             while ((lineWord = readerWordGram.readLine()) != null) {
                 String[] parts = lineWord.split(",");
 
                 for (int j = 0; j < parts.length; j++) {
                     strLineWord = parts[0] +","+ parts[1];
+	                Log.d(TAG,strLineWord);
                     hashtable_Word.put(strLineWord, parts[2]);
                 }
             }
