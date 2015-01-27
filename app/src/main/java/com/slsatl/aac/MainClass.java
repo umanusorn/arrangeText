@@ -94,8 +94,9 @@ public static void main(String[] args) {
 
 		Log.d(TAG, "pass2");
 
-		BufferedReader readerPOSGram = new BufferedReader(
-				                                                 new FileReader("POS_Score.txt"));
+
+		file = new File(myNewFolder, "POS_Score.txt");
+		BufferedReader readerPOSGram = new BufferedReader(new FileReader(file));
 
 		Log.d(TAG, "pass3");
 		String strLinePOS = "";
@@ -108,8 +109,8 @@ public static void main(String[] args) {
 			}
 		}
 		Log.d(TAG, "pass4");
-		BufferedReader readerSubclassGram = new BufferedReader(
-				                                                      new FileReader("Subclass_Score.txt"));
+		file = new File(myNewFolder, "Subclass_Score.txt");
+		BufferedReader readerSubclassGram = new BufferedReader(new FileReader(file));
 		String strLineSubclass = "";
 
 		Log.d(TAG, "pass5");
@@ -122,8 +123,8 @@ public static void main(String[] args) {
 			}
 		}
 		Log.d(TAG, "pass6");
-		BufferedReader readerClassGram = new BufferedReader(
-				                                                   new FileReader("Class_Score.txt"));
+		file = new File(myNewFolder, "Class_Score.txt");
+		BufferedReader readerClassGram = new BufferedReader(new FileReader(file));
 		String strLineClass = "";
 		Log.d(TAG, "pass7");
 		while ((lineClass = readerClassGram.readLine()) != null) {
