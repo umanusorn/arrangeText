@@ -412,7 +412,7 @@ class PrepareComposePage extends AsyncTask<String, Void, Void> {
 	// can use UI thread here
 	protected void onPreExecute() {
 		this.dialog.setMessage(getString(R.string.PROGRESS_PREPARE_COMPOSE_PAGE));
-		this.dialog.show();
+	//	this.dialog.show();
 	}
 
 	// automatically done on worker thread (separate from UI thread)
@@ -433,7 +433,7 @@ class PrepareComposePage extends AsyncTask<String, Void, Void> {
 		String[] column = {"cid"};
 		Cursor
 				c =
-				Keeper.myDB.query("category", column, "lang ='" + currLocale + "' and enable=1 ", null, null, null, "weight");
+				Keeper.myDB.query(Constant.TABLE_NEW_CATE, column, "lang ='" + currLocale + "' and enable=1 ", null, null, null, "weight");
 		c.moveToFirst();
 		ComposePage.currCid = c.getInt(c.getColumnIndex("cid"));
 

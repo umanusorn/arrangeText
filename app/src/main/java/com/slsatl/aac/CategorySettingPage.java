@@ -112,13 +112,13 @@ public class CategorySettingPage extends ListActivity {
 		initialValues.put("lang", currLocale);
 		initialValues.put("nextCid",0);
 
-		Keeper.myDB.insert("category", null, initialValues);
+		Keeper.myDB.insert(Constant.TABLE_NEW_CATE, null, initialValues);
 	}
 
 	public int getMinAvailableCustomCid(){
 		String[] column = {"cid"};
 		boolean [] cidCheck = new boolean[2000];
-		Cursor c = Keeper.myDB.query("category", column, "cid >= 10001 AND cid <= 12000", null, null,null, null);
+		Cursor c = Keeper.myDB.query(Constant.TABLE_NEW_CATE, column, "cid >= 10001 AND cid <= 12000", null, null,null, null);
 		for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
 			int cid = c.getInt(c.getColumnIndex("cid"));
 			cidCheck[cid-10001] = true;

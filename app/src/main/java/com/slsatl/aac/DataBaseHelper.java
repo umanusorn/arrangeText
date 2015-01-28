@@ -5,6 +5,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -60,6 +61,7 @@ public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
  */
 public void createDataBase() throws IOException {
 
+
 	boolean dbExist = checkDataBase();
 
 	if (dbExist) {
@@ -97,21 +99,25 @@ private boolean checkDataBase() {
 	try {
 		String myPath = DB_PATH + DB_NAME;
 		checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
-
 	}
 	catch (SQLiteException e) {
 
 		//database does't exist yet.
 
+	}catch (Exception e) {
+// Failed to open database '/data/data/com.slsatl.aac/databases/aac_1_03.sqlite3'.
+		//	android.database.sqlite.SQLiteCantOpenDatabaseException: unknown error (code 14): Could not open database
+		checkDB=null;
 	}
 
+	Log.d("chkDB data=","");
+
+	//Log.d("chkDB data=", checkDB.toString() );
 	if (checkDB != null) {
-
 		checkDB.close();
-
 	}
 
-	return checkDB != null ? true : false;
+	return checkDB != null;
 }
 
 /**
@@ -120,6 +126,8 @@ private boolean checkDataBase() {
  * This is done by transfering bytestream.
  */
 private void copyDataBase() throws IOException {
+
+	Log.d("cpyDB","");
 
 	//Open your local db as the input stream
 	InputStream myInput = myContext.getAssets().open(DB_NAME);

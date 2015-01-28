@@ -187,8 +187,8 @@ public static void main(String[] args) {
 
 	}
 
-//	Log.d(TAG+"view Answer",ansSentence.get(0));
-
+// todo show this string in textView
+	Log.d(TAG+"view Answer",ansSentence.get(0));
 	Log.d(TAG, "pass13" + imgWord);
 	imgWord.clear();
 

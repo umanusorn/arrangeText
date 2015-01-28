@@ -103,7 +103,7 @@ class HideToggleClickHandler implements View.OnClickListener {
 			cv.put("enable", 0);
 			o.enabled = 0;
 		}
-		int numAffected = Keeper.myDB.update("category", cv, "cid =" + o.cid, null);
+		int numAffected = Keeper.myDB.update(Constant.TABLE_NEW_CATE, cv, "cid =" + o.cid, null);
 	}
 
 }

@@ -199,7 +199,7 @@ public void onCreate(Bundle savedInstanceState) {
 				int nextCid = c.getInt(c.getColumnIndex("nextCid"));
 				if (nextCid == 0) {
 					String[] catColumn = {"nextCid"};
-					Cursor c2 = Keeper.myDB.query("category", catColumn, "cid ='"
+					Cursor c2 = Keeper.myDB.query(Constant.TABLE_NEW_CATE, catColumn, "cid ='"
 					                                                     + currCid + "' ", null, null,
 					                              null, null);
 					c2.moveToFirst();
@@ -352,13 +352,13 @@ public static Vector<CatIconAndLabel> queryCategory(int enableMode) throws IOExc
 	}
 	Cursor c;
 	if (enableMode == 1) {
-		c = Keeper.myDB.query("category", column, "lang ='" + currLocale + "' and enable=1 ", null, null, null, "weight");
+		c = Keeper.myDB.query(Constant.TABLE_NEW_CATE, column, "lang ='" + currLocale + "' and enable=1 ", null, null, null, "weight");
 	}
 	else if (enableMode == 0) {
-		c = Keeper.myDB.query("category", column, "lang ='" + currLocale + "' and enable=0 ", null, null, null, "weight");
+		c = Keeper.myDB.query(Constant.TABLE_NEW_CATE, column, "lang ='" + currLocale + "' and enable=0 ", null, null, null, "weight");
 	}
 	else {
-		c = Keeper.myDB.query("category", column, "lang ='" + currLocale + "' ", null, null, null, "weight");
+		c = Keeper.myDB.query(Constant.TABLE_NEW_CATE, column, "lang ='" + currLocale + "' ", null, null, null, "weight");
 	}
 
 	for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
