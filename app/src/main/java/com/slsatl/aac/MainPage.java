@@ -431,11 +431,22 @@ class PrepareComposePage extends AsyncTask<String, Void, Void> {
 			currLocale = "th_TH";
 		}
 		String[] column = {"cid"};
+	/*	Cursor
+				c =
+				Keeper.myDB.query(Constant.TABLE_NEW_CATE, column, "lang ='" + currLocale + "' and enable=1 ", null, null, null, "weight");*/
+
 		Cursor
 				c =
-				Keeper.myDB.query(Constant.TABLE_NEW_CATE, column, "lang ='" + currLocale + "' and enable=1 ", null, null, null, "weight");
+				Keeper.myDB.query(Constant.TABLE_NEW_CATE, column,null, null, null, null,null);
 		c.moveToFirst();
-		ComposePage.currCid = c.getInt(c.getColumnIndex("cid"));
+
+		Log.e(Constant.TABLE_NEW_CATE,c.getColumnName(0));
+		Log.e(Constant.TABLE_NEW_CATE,String.valueOf( c.getCount()));
+
+		if(c==null){
+			Log.e("","cursor == null!!!!!!!!!");
+		}
+		ComposePage.currCid = c.getInt(c.getColumnIndex(c.getColumnName(0)));
 
 		try {
 			ComposePage.vocabShow = ComposePage.queryVocabs(ComposePage.currCid, 1);

@@ -71,6 +71,7 @@ public void createDataBase() throws IOException {
 
 		//By calling this method and empty database will be created into the default system path
 		//of your application so we are gonna be able to overwrite that database with our database.
+		Log.e("","NoDB");
 		this.getWritableDatabase();
 
 		try {
@@ -107,6 +108,8 @@ private boolean checkDataBase() {
 	}catch (Exception e) {
 // Failed to open database '/data/data/com.slsatl.aac/databases/aac_1_03.sqlite3'.
 		//	android.database.sqlite.SQLiteCantOpenDatabaseException: unknown error (code 14): Could not open database
+
+		Log.e("","(2) open(/data/data/com.slsatl.aac/databases/aac_1_03.sqlite3)  \n\n E/SQLiteDatabase﹕ Failed to open database '/data/data/com.slsatl.aac/databases/aac_1_03.sqlite3'.");
 		checkDB=null;
 	}
 
@@ -150,6 +153,8 @@ private void copyDataBase() throws IOException {
 
 	myOutput.close();
 	myInput.close();
+
+	Log.e("","done cptDB");
 
 }
 
