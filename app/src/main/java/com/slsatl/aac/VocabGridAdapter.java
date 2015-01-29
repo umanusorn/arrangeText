@@ -3,6 +3,7 @@ package com.slsatl.aac;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -110,9 +111,12 @@ public View getView(int position, View convertView, ViewGroup parent) {
 	a.pic = new BitmapDrawable(decodeFile(new File(pathHacked)));*/
 //todo set static img here
 	iv.setBackgroundDrawable(a.pic);
+	Log.d("setSubCate",a.toString());
 	//iv.setBackgroundResource(R.drawable.appicon);
 	TextView tv = (TextView) v.findViewById(R.id.icon_text);
 	tv.setText(a.word);
+
+
 	return v;
 }
 

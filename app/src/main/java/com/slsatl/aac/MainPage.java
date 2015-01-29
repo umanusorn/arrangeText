@@ -430,14 +430,15 @@ class PrepareComposePage extends AsyncTask<String, Void, Void> {
 		if (currLocale.equals("th_th")) {
 			currLocale = "th_TH";
 		}
+		currLocale = "th_TH";
 		String[] column = {"cid"};
-	/*	Cursor
-				c =
-				Keeper.myDB.query(Constant.TABLE_NEW_CATE, column, "lang ='" + currLocale + "' and enable=1 ", null, null, null, "weight");*/
-
 		Cursor
 				c =
-				Keeper.myDB.query(Constant.TABLE_NEW_CATE, column,null, null, null, null,null);
+				Keeper.myDB.query(Constant.TABLE_NEW_CATE, column, "lang ='" + currLocale + "' and enable=1 ", null, null, null, "weight");
+
+	/*	Cursor
+				c =
+				Keeper.myDB.query(Constant.TABLE_NEW_CATE, column,null, null, null, null,null);*/
 		c.moveToFirst();
 
 		Log.e(Constant.TABLE_NEW_CATE,c.getColumnName(0));

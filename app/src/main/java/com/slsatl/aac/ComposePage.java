@@ -47,8 +47,6 @@ static String       THAIspeech;
 static String       delVocab;
 
 MenuItem toTtsMItm, helpMItm;
-
-
 ComposePage thisPage;
 
 public void LaunchTTS() {
@@ -148,6 +146,8 @@ public void onCreate(Bundle savedInstanceState) {
 	// Populate linear_cate by inflating each View instance with R.id.cate_icon_image
 	LayoutInflater li = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	View[] va = new View[cateShow.size()];
+
+Log.d("linearCate","cateSize ="+cateShow.size());
 	for (int position = 0; position < cateShow.size(); position++) {
 		va[position] = li.inflate(R.layout.categridview, null);
 		CatIconAndLabel a = (CatIconAndLabel) ComposePage.cateShow.toArray()[position];
@@ -155,6 +155,9 @@ public void onCreate(Bundle savedInstanceState) {
 		iv.setBackgroundDrawable(a.pic);
 		TextView tv = (TextView) va[position].findViewById(R.id.cate_icon_text);
 		tv.setText(a.word);
+
+		Log.d("linearCate","pos="+position);
+
 		linear_cate.addView(va[position]);
 		va[position].setOnClickListener(new CateClickListener(a.word, a.cid, this, grid_main));
 	}
@@ -350,6 +353,8 @@ public static Vector<CatIconAndLabel> queryCategory(int enableMode) throws IOExc
 	if (currLocale.equals("th_th")) {
 		currLocale = "th_TH";
 	}
+
+	currLocale = "th_TH";
 	Cursor c;
 	if (enableMode == 1) {
 		c = Keeper.myDB.query(Constant.TABLE_NEW_CATE, column, "lang ='" + currLocale + "' and enable=1 ", null, null, null, "weight");
