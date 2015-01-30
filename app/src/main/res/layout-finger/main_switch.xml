@@ -171,21 +171,26 @@
         </LinearLayout>
     </HorizontalScrollView>
 
-    <GridView
-            android:id="@+id/GridView01"
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:horizontalSpacing="0dip"
-            android:numColumns="auto_fit"
-            android:padding="3dip"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="0dip"
-            android:layout_margin="5dp"
+            android:layout_height="220dp">
 
-            android:background="@drawable/boundary"
-            android:columnWidth="70dip">
-    </GridView>
+        <GridView
+                android:id="@+id/GridView01"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:horizontalSpacing="5dip"
+                android:numColumns="auto_fit"
+                android:padding="3dip"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="0dip"
+                android:layout_margin="5dp"
+                android:background="@drawable/boundary"
+                android:columnWidth="70dip">
+        </GridView>
+    </LinearLayout>
 
     <LinearLayout
             android:orientation="vertical"
@@ -241,7 +246,7 @@
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="100dp"
                     android:padding="0dp"
                     android:background="@color/GREY"
                     >
