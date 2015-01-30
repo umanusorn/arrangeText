@@ -256,7 +256,7 @@ public void onCreate(Bundle savedInstanceState) {
 		                        int position, long id)
 		{
 
-			if (Keeper.selected.size() > 7) {
+			if (Keeper.selected.size() > 4) {
 				Toast.makeText(getApplicationContext(),
 				               R.string.PLS_DEL_B4, Toast.LENGTH_SHORT).show();
 			}
