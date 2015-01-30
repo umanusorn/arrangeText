@@ -110,6 +110,7 @@ hideAllSubCate();
 
 	int id = view.getId();
 	headerElement[id].setVisibility(View.VISIBLE);
+	setTvHeaderBg2White();
 	tvHeader.get(id).setBackgroundColor(getResources().getColor( R.color.PINK_CHULA));
 
 }
@@ -508,6 +509,9 @@ public void setTvHeaderBg2White(){
 	for (int i = 0; i < tvHeader.size(); i++) {
 
 		tvHeader.get(i).setBackgroundColor(getResources().getColor( R.color.WHITE));
+		Drawable drawable = getResources().getDrawable(R.drawable.boundary);
+		//tvHeader.get(i).setDrawables(drawable,drawable,drawable,drawable);
+		//linear_cate.setBackgroundDrawable(drawable);
 	}
 }
 
