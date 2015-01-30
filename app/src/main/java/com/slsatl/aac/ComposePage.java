@@ -109,8 +109,8 @@ public void onClickHeader(View view){
 hideAllSubCate();
 
 	int id = view.getId();
-
 	headerElement[id].setVisibility(View.VISIBLE);
+	tvHeader.get(id).setBackgroundColor(getResources().getColor( R.color.PINK_CHULA));
 
 }
 
@@ -502,6 +502,10 @@ tvHeader.add((TextView)findViewById(R.id.cate1tv));
 		tvHeader.get(i).setId(i);
 
 	}
+}
+
+public void setTvHeaderBg2White(){
+
 }
 
 }
