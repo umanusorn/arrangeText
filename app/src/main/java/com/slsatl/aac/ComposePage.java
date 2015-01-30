@@ -163,6 +163,8 @@ default:
 	setTvHeaderBg2White();
 	tvHeader.get(id).setBackgroundColor(getResources().getColor(R.color.PINK_CHULA));
 
+	preClick();
+
 }
 
 public void onClickdelBtn() {
@@ -416,6 +418,16 @@ public void onInit(int status) {
 		               Toast.LENGTH_SHORT).show();
 	}
 
+}
+
+public void preClick(){
+
+	for (int i = 0; i < headerElement.length; i++) {
+		if(headerElement[i].getVisibility() == View.VISIBLE){
+			headerElement[i].performClick();
+			break;
+		}
+	}
 }
 
 public static Vector<CatIconAndLabel> queryCategory(int enableMode) throws IOException {
