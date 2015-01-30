@@ -319,6 +319,9 @@ public void onCreate(Bundle savedInstanceState) {
 
 
 	setHeaderBtn();
+	tvHeader.get(0).performClick();
+	headerElement[13].performClick();
+
 }// end of onCreate()
 
 @Override
