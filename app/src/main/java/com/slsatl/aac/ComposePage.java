@@ -85,8 +85,7 @@ public static void convertTospeech(TextToSpeech x, String input) {
 }
 
 
-
-public void hideAllSubCate(){
+public void hideAllSubCate() {
 	for (int i = 0; i < headerElement.length; i++) {
 		headerElement[i].setVisibility(View.GONE);
 	}
@@ -105,13 +104,49 @@ public void onClickClear() {
 	}
 }
 
-public void onClickHeader(View view){
-hideAllSubCate();
+public void onClickHeader(View view) {
+	hideAllSubCate();
 
 	int id = view.getId();
-	headerElement[id].setVisibility(View.VISIBLE);
+
+	switch (id) {
+		case 0:
+			for (int i = 14; i <= 24; i++) {
+				headerElement[i - 1].setVisibility(View.VISIBLE);
+			}
+			break;
+		case 1:
+			headerElement[11].setVisibility(View.VISIBLE);
+			break;
+		case 2:
+			headerElement[9].setVisibility(View.VISIBLE);
+			break;
+		case 3:
+			headerElement[1].setVisibility(View.VISIBLE);
+			break;
+		case 4:
+			headerElement[10].setVisibility(View.VISIBLE);
+			break;
+		case 5:
+			headerElement[2].setVisibility(View.VISIBLE);
+			break;
+		case 6:
+			headerElement[3].setVisibility(View.VISIBLE);
+			headerElement[4].setVisibility(View.VISIBLE);
+			headerElement[5].setVisibility(View.VISIBLE);
+			headerElement[6].setVisibility(View.VISIBLE);
+			break;
+		case 7:
+			break;
+		case 8:
+			break;
+		case 9:
+			break;
+
+
+	}
 	setTvHeaderBg2White();
-	tvHeader.get(id).setBackgroundColor(getResources().getColor( R.color.PINK_CHULA));
+	tvHeader.get(id).setBackgroundColor(getResources().getColor(R.color.PINK_CHULA));
 
 }
 
@@ -264,8 +299,6 @@ public void onCreate(Bundle savedInstanceState) {
 			onClickCallAlgor();
 		}
 	});
-
-
 
 
 	setHeaderBtn();
@@ -481,23 +514,23 @@ public static String removeSpaces(String s) {
 }
 
 public void setHeaderBtn() {
-tvHeader.add((TextView)findViewById(R.id.cate1tv));
-	tvHeader.add((TextView)findViewById(R.id.cate2tv));
-	tvHeader.add((TextView)findViewById(R.id.cate3tv));
-	tvHeader.add((TextView)findViewById(R.id.cate4tv));
-	tvHeader.add((TextView)findViewById(R.id.cate5tv));
-	tvHeader.add((TextView)findViewById(R.id.cate6tv));
-	tvHeader.add((TextView)findViewById(R.id.cate7tv));
-	tvHeader.add((TextView)findViewById(R.id.cate8tv));
-	tvHeader.add((TextView)findViewById(R.id.cate9tv));
-	tvHeader.add((TextView)findViewById(R.id.cate10tv));
-	tvHeader.add((TextView)findViewById(R.id.cate11tv));
-	tvHeader.add((TextView)findViewById(R.id.cate12tv));
+	tvHeader.add((TextView) findViewById(R.id.cate1tv));
+	tvHeader.add((TextView) findViewById(R.id.cate2tv));
+	tvHeader.add((TextView) findViewById(R.id.cate3tv));
+	tvHeader.add((TextView) findViewById(R.id.cate4tv));
+	tvHeader.add((TextView) findViewById(R.id.cate5tv));
+	tvHeader.add((TextView) findViewById(R.id.cate6tv));
+	tvHeader.add((TextView) findViewById(R.id.cate7tv));
+	tvHeader.add((TextView) findViewById(R.id.cate8tv));
+	tvHeader.add((TextView) findViewById(R.id.cate9tv));
+	tvHeader.add((TextView) findViewById(R.id.cate10tv));
+	tvHeader.add((TextView) findViewById(R.id.cate11tv));
+	tvHeader.add((TextView) findViewById(R.id.cate12tv));
 
 	for (int i = 0; i < tvHeader.size(); i++) {
 		tvHeader.get(i).setOnClickListener(new View.OnClickListener() {
 			@Override public void onClick(View view) {
-					onClickHeader(view);
+				onClickHeader(view);
 			}
 		});
 		tvHeader.get(i).setId(i);
@@ -505,10 +538,10 @@ tvHeader.add((TextView)findViewById(R.id.cate1tv));
 	}
 }
 
-public void setTvHeaderBg2White(){
+public void setTvHeaderBg2White() {
 	for (int i = 0; i < tvHeader.size(); i++) {
 
-		tvHeader.get(i).setBackgroundColor(getResources().getColor( R.color.WHITE));
+		tvHeader.get(i).setBackgroundColor(getResources().getColor(R.color.WHITE));
 		Drawable drawable = getResources().getDrawable(R.drawable.boundary);
 		//tvHeader.get(i).setDrawables(drawable,drawable,drawable,drawable);
 		//linear_cate.setBackgroundDrawable(drawable);
