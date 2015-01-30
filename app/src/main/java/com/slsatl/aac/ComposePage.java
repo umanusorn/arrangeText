@@ -84,6 +84,8 @@ public static void convertTospeech(TextToSpeech x, String input) {
 	x.speak(text, TextToSpeech.QUEUE_FLUSH, null);
 }
 
+
+
 public void hideAllSubCate(){
 	for (int i = 0; i < headerElement.length; i++) {
 		headerElement[i].setVisibility(View.GONE);
@@ -91,7 +93,6 @@ public void hideAllSubCate(){
 }
 
 public String onClickCallAlgor() {
-
 	String sortedOrder = "";
 	String[] testAlgor = {"ddd", "ssdsf"};
 	MainClass.main(testAlgor);
@@ -105,6 +106,11 @@ public void onClickClear() {
 }
 
 public void onClickHeader(View view){
+hideAllSubCate();
+
+	int id = view.getId();
+
+	headerElement[id].setVisibility(View.VISIBLE);
 
 }
 
@@ -493,6 +499,8 @@ tvHeader.add((TextView)findViewById(R.id.cate1tv));
 					onClickHeader(view);
 			}
 		});
+		tvHeader.get(i).setId(i);
+
 	}
 }
 
