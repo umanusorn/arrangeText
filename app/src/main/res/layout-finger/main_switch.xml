@@ -186,7 +186,7 @@
                 android:padding="3dip"
                 android:stretchMode="columnWidth"
                 android:verticalSpacing="0dip"
-                android:layout_margin="5dp"
+                android:layout_margin="3dp"
                 android:background="@drawable/boundary"
                 android:columnWidth="70dip">
         </GridView>
@@ -207,8 +207,9 @@
             <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-
+                    android:paddingTop="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
                     >
 
                 <TextView
@@ -288,15 +289,16 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceLarge"
                             android:textColor="@color/topLevelCatTextColor"
-                            android:padding="@dimen/top_level_cat_string_padding"
+                            android:paddingTop="5dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
                             android:id="@+id/sentenceAnswerTv"/>
 
                     <ImageButton
                             android:id="@+id/speak_button"
-                            android:layout_width="40dip"
-                            android:layout_height="40dip"
+                            android:layout_width="35dip"
+                            android:layout_height="35dip"
                             android:layout_alignParentRight="true"
-
                             android:layout_centerVertical="true"
                             android:background="@drawable/speak_button">
                     </ImageButton>
@@ -304,8 +306,8 @@
                     <ImageButton
                             android:id="@+id/delBtnComposeActivity"
                             android:visibility="gone"
-                            android:layout_width="40dip"
-                            android:layout_height="40dip"
+                            android:layout_width="35dip"
+                            android:layout_height="35dip"
                             android:layout_alignParentTop="true"
                             android:background="@drawable/backspace_button"
                             android:layout_toLeftOf="@id/speak_button">
