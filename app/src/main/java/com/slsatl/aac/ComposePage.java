@@ -137,12 +137,27 @@ public void onClickHeader(View view) {
 			headerElement[6].setVisibility(View.VISIBLE);
 			break;
 		case 7:
+			headerElement[26].setVisibility(View.VISIBLE);
+			headerElement[27].setVisibility(View.VISIBLE);
 			break;
 		case 8:
+			headerElement[24].setVisibility(View.VISIBLE);
+			headerElement[25].setVisibility(View.VISIBLE);
 			break;
 		case 9:
-			break;
 
+			headerElement[7].setVisibility(View.VISIBLE);
+			headerElement[8].setVisibility(View.VISIBLE);
+			break;
+		case 10:
+			headerElement[0].setVisibility(View.VISIBLE);
+			break;
+		case 11:
+			headerElement[12].setVisibility(View.VISIBLE);
+			break;
+default:
+	Log.e("Error","unknown cases");
+	break;
 
 	}
 	setTvHeaderBg2White();
