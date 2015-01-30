@@ -47,7 +47,7 @@ static String       speech;
 static int          buttonResource;
 static String       THAIspeech;
 static String       delVocab;
-
+View[] headerElement = new View[cateShow.size()];
 public List<TextView> tvHeader = new ArrayList<TextView>();
 
 MenuItem toTtsMItm, helpMItm;
@@ -85,10 +85,13 @@ public static void convertTospeech(TextToSpeech x, String input) {
 }
 
 public void hideAllSubCate(){
-
+	for (int i = 0; i < headerElement.length; i++) {
+		headerElement[i].setVisibility(View.GONE);
+	}
 }
 
-public static String onClickCallAlgor() {
+public String onClickCallAlgor() {
+
 	String sortedOrder = "";
 	String[] testAlgor = {"ddd", "ssdsf"};
 	MainClass.main(testAlgor);
@@ -157,21 +160,21 @@ public void onCreate(Bundle savedInstanceState) {
 	wordSelected.setTypeface(null, Typeface.BOLD);
 	// Populate linear_cate by inflating each View instance with R.id.cate_icon_image
 	LayoutInflater li = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	View[] va = new View[cateShow.size()];
+
 
 	Log.d("linearCate", "cateSize =" + cateShow.size());
 	for (int position = 0; position < cateShow.size(); position++) {
-		va[position] = li.inflate(R.layout.categridview, null);
+		headerElement[position] = li.inflate(R.layout.categridview, null);
 		CatIconAndLabel a = (CatIconAndLabel) ComposePage.cateShow.toArray()[position];
-		ImageView iv = (ImageView) va[position].findViewById(R.id.cate_icon_image);
+		ImageView iv = (ImageView) headerElement[position].findViewById(R.id.cate_icon_image);
 		iv.setBackgroundDrawable(a.pic);
-		TextView tv = (TextView) va[position].findViewById(R.id.cate_icon_text);
+		TextView tv = (TextView) headerElement[position].findViewById(R.id.cate_icon_text);
 		tv.setText(a.word);
 
 		Log.d("linearCate", "pos=" + position);
 
-		linear_cate.addView(va[position]);
-		va[position].setOnClickListener(new CateClickListener(a.word, a.cid, this, grid_main));
+		linear_cate.addView(headerElement[position]);
+		headerElement[position].setOnClickListener(new CateClickListener(a.word, a.cid, this, grid_main));
 	}
 
 	delSelectButton = (ImageButton) findViewById(R.id.delBtnComposeActivity);
