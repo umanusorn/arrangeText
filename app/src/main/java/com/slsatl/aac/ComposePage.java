@@ -25,6 +25,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Vector;
 
@@ -45,6 +47,8 @@ static String       speech;
 static int          buttonResource;
 static String       THAIspeech;
 static String       delVocab;
+
+public List<TextView> tvHeader = new ArrayList<TextView>();
 
 MenuItem toTtsMItm, helpMItm;
 ComposePage thisPage;
@@ -80,9 +84,13 @@ public static void convertTospeech(TextToSpeech x, String input) {
 	x.speak(text, TextToSpeech.QUEUE_FLUSH, null);
 }
 
-public static String onClickCallAlgor(){
+public void hideAllSubCate(){
+
+}
+
+public static String onClickCallAlgor() {
 	String sortedOrder = "";
-	String[] testAlgor = {"ddd","ssdsf"};
+	String[] testAlgor = {"ddd", "ssdsf"};
 	MainClass.main(testAlgor);
 	return sortedOrder;
 }
@@ -91,6 +99,10 @@ public void onClickClear() {
 	for (int i = 0; i < 20; i++) {
 		onClickdelBtn();
 	}
+}
+
+public void onClickHeader(View view){
+
 }
 
 public void onClickdelBtn() {
@@ -147,7 +159,7 @@ public void onCreate(Bundle savedInstanceState) {
 	LayoutInflater li = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	View[] va = new View[cateShow.size()];
 
-Log.d("linearCate","cateSize ="+cateShow.size());
+	Log.d("linearCate", "cateSize =" + cateShow.size());
 	for (int position = 0; position < cateShow.size(); position++) {
 		va[position] = li.inflate(R.layout.categridview, null);
 		CatIconAndLabel a = (CatIconAndLabel) ComposePage.cateShow.toArray()[position];
@@ -156,7 +168,7 @@ Log.d("linearCate","cateSize ="+cateShow.size());
 		TextView tv = (TextView) va[position].findViewById(R.id.cate_icon_text);
 		tv.setText(a.word);
 
-		Log.d("linearCate","pos="+position);
+		Log.d("linearCate", "pos=" + position);
 
 		linear_cate.addView(va[position]);
 		va[position].setOnClickListener(new CateClickListener(a.word, a.cid, this, grid_main));
@@ -193,7 +205,7 @@ Log.d("linearCate","cateSize ="+cateShow.size());
 				Log.e("toto", "selectWord = " + selectWord);
 				String[] column = {"voicePath", "nextCid"};
 				Cursor c = Keeper.myDB.query("NewLexicalItem", column, "tag ='"
-				                                                    + selectWord + "' ", null, null,
+				                                                       + selectWord + "' ", null, null,
 				                             null, null);
 				c.moveToFirst();
 
@@ -203,7 +215,7 @@ Log.d("linearCate","cateSize ="+cateShow.size());
 				if (nextCid == 0) {
 					String[] catColumn = {"nextCid"};
 					Cursor c2 = Keeper.myDB.query(Constant.TABLE_NEW_CATE, catColumn, "cid ='"
-					                                                     + currCid + "' ", null, null,
+					                                                                  + currCid + "' ", null, null,
 					                              null, null);
 					c2.moveToFirst();
 					nextCid = c2.getInt(c2.getColumnIndex("nextCid"));
@@ -242,6 +254,11 @@ Log.d("linearCate","cateSize ="+cateShow.size());
 			onClickCallAlgor();
 		}
 	});
+
+
+
+
+	setHeaderBtn();
 }// end of onCreate()
 
 @Override
@@ -346,7 +363,8 @@ public void onInit(int status) {
 public static Vector<CatIconAndLabel> queryCategory(int enableMode) throws IOException {
 	//ComposePage.cateShow = new Vector <IconAndLabel>();
 	Vector<CatIconAndLabel> retrievedCat = new Vector<CatIconAndLabel>();
-	String[] column = {"cid", "title", "subtitle", "coverPath", "variation", "nextCid", "enable"};
+	String[] column = {"cid", "title", "subtitle", "coverPath", "variation", "nextCid", "enable", "mainClassID",
+	                   "classTag", "subClassTag"};
 
 	Locale locale = Keeper.locale;
 	String currLocale = locale.toString();
@@ -357,10 +375,24 @@ public static Vector<CatIconAndLabel> queryCategory(int enableMode) throws IOExc
 	currLocale = "th_TH";
 	Cursor c;
 	if (enableMode == 1) {
-		c = Keeper.myDB.query(Constant.TABLE_NEW_CATE, column, "lang ='" + currLocale + "' and enable=1 ", null, null, null, "weight");
+		c =
+				Keeper.myDB.query(Constant.TABLE_NEW_CATE,
+				                  column,
+				                  "lang ='" + currLocale + "' and enable=1 ",
+				                  null,
+				                  null,
+				                  null,
+				                  "weight");
 	}
 	else if (enableMode == 0) {
-		c = Keeper.myDB.query(Constant.TABLE_NEW_CATE, column, "lang ='" + currLocale + "' and enable=0 ", null, null, null, "weight");
+		c =
+				Keeper.myDB.query(Constant.TABLE_NEW_CATE,
+				                  column,
+				                  "lang ='" + currLocale + "' and enable=0 ",
+				                  null,
+				                  null,
+				                  null,
+				                  "weight");
 	}
 	else {
 		c = Keeper.myDB.query(Constant.TABLE_NEW_CATE, column, "lang ='" + currLocale + "' ", null, null, null, "weight");
@@ -436,6 +468,29 @@ public static Vector<LexIconAndLabel> queryVocabs(int cid, int enableMode) throw
 public static String removeSpaces(String s) {
 	String noSpace = s.replaceAll("\\W", "");
 	return noSpace;
+}
+
+public void setHeaderBtn() {
+tvHeader.add((TextView)findViewById(R.id.cate1tv));
+	tvHeader.add((TextView)findViewById(R.id.cate2tv));
+	tvHeader.add((TextView)findViewById(R.id.cate3tv));
+	tvHeader.add((TextView)findViewById(R.id.cate4tv));
+	tvHeader.add((TextView)findViewById(R.id.cate5tv));
+	tvHeader.add((TextView)findViewById(R.id.cate6tv));
+	tvHeader.add((TextView)findViewById(R.id.cate7tv));
+	tvHeader.add((TextView)findViewById(R.id.cate8tv));
+	tvHeader.add((TextView)findViewById(R.id.cate9tv));
+	tvHeader.add((TextView)findViewById(R.id.cate10tv));
+	tvHeader.add((TextView)findViewById(R.id.cate11tv));
+	tvHeader.add((TextView)findViewById(R.id.cate12tv));
+
+	for (int i = 0; i < tvHeader.size(); i++) {
+		tvHeader.get(i).setOnClickListener(new View.OnClickListener() {
+			@Override public void onClick(View view) {
+					onClickHeader(view);
+			}
+		});
+	}
 }
 
 }
