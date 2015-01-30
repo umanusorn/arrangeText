@@ -505,7 +505,10 @@ tvHeader.add((TextView)findViewById(R.id.cate1tv));
 }
 
 public void setTvHeaderBg2White(){
+	for (int i = 0; i < tvHeader.size(); i++) {
 
+		tvHeader.get(i).setBackgroundColor(getResources().getColor( R.color.WHITE));
+	}
 }
 
 }
