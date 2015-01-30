@@ -94,6 +94,8 @@ public void hideAllSubCate() {
 public String onClickCallAlgor() {
 	String sortedOrder = "";
 	String[] testAlgor = {"ddd", "ssdsf"};
+	String speech = collectWords(Keeper.selected);
+	Log.d("selectedText=",speech);
 	MainClass.main(testAlgor);
 	return sortedOrder;
 }
@@ -106,7 +108,7 @@ public void onClickClear() {
 
 public void onClickHeader(View view) {
 	hideAllSubCate();
-
+//s
 	int id = view.getId();
 
 	switch (id) {
@@ -312,8 +314,9 @@ public void onCreate(Bundle savedInstanceState) {
 	speakButton.setOnClickListener(new View.OnClickListener() {
 		public void onClick(View v) {
 			buttonResource = R.id.speak_button;
-			LaunchTTS();
+Log.d("enterSpeakBtn","");
 			onClickCallAlgor();
+			LaunchTTS();
 		}
 	});
 
