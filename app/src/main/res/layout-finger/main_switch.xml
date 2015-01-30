@@ -163,7 +163,9 @@
                 android:id="@+id/linear_cate"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:background="@color/GREEN_ANDROID"
+                android:background="@drawable/boundary"
+                android:padding="5dp"
+                android:layout_margin="10dp"
                 android:orientation="horizontal">
 
         </LinearLayout>
@@ -179,6 +181,8 @@
             android:padding="0dip"
             android:stretchMode="columnWidth"
             android:verticalSpacing="0dip"
+
+            android:background="@drawable/boundary"
             android:columnWidth="70dip">
     </GridView>
 
