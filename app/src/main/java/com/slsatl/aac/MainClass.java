@@ -130,12 +130,12 @@ public static void main(String[] args) {
 				hashtable_Class.put(strLineClass, parts[2]);
 			}
 		}
-
 		Log.d(TAG, "pass8");
 //check hash table elements
 //			Set set = hashtable_Class.entrySet();
 //		    Iterator it = set.iterator();
 //		    while (it.hasNext()) {
+
 //		      Map.Entry entry = (Map.Entry) it.next();
 //		      System.out.println(entry.getKey() + " : " + entry.getValue());
 //		    }
@@ -188,7 +188,7 @@ public static void main(String[] args) {
 	}
 
 // todo show this string in textView
-	Log.d(TAG+"view Answer",ansSentence.get(0));
+	Log.d(TAG + "view Answer", ansSentence.get(0));
 	Log.d(TAG, "pass13" + imgWord);
 	imgWord.clear();
 
@@ -220,7 +220,6 @@ public static void main(String[] args) {
 	double elapsedSeconds = tDelta / 1000.0;
 	Log.d(TAG, "pass14" + imgWord + "Using times: " + elapsedSeconds);
 	System.out.println("Using times: " + elapsedSeconds);
-
 
 
 }

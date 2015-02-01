@@ -10,8 +10,7 @@ public class SearchResult {
 		
 		picPath = picUrl;
 		word = wordResult;
-		
-		
+
 	}
 
 }
