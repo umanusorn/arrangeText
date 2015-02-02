@@ -192,9 +192,34 @@
 <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:background="@color/PINK_CHULA_FADE"
         >
+<LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        >
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boundary_no_bottom"
+            android:padding="3dp"
+            >
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/BLACK"
+                android:background="@color/PINK_CHULA"
+                android:text="Word Selected"
+                android:padding="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"/>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
     <GridView
             android:id="@+id/GridView01"
             android:layout_width="fill_parent"
@@ -206,7 +231,6 @@
             android:stretchMode="columnWidth"
             android:verticalSpacing="0dip"
             android:background="@drawable/boundary"
-
             android:columnWidth="70dip">
     </GridView>
         </LinearLayout>
