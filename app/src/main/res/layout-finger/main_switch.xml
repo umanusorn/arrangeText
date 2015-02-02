@@ -211,8 +211,9 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/BLACK"
                 android:background="@color/PINK_CHULA"
-                android:text="Word Selected"
-                android:padding="10dp"
+                android:text="     SC1     "
+                android:padding="1dp"
+                android:layout_marginTop="3dp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"/>
             </LinearLayout>
