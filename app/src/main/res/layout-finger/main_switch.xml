@@ -158,43 +158,59 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_horizontal|center"
-            android:background="@color/PINK_CHULA"
-            >
 
+            >
+<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/PINK_CHULA"
+
+        android:layout_margin="3dp"
+        >
         <LinearLayout
                 android:id="@+id/linear_cate"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:background="@drawable/boundary"
                 android:padding="5dp"
-                android:layout_margin="5dp"
                 android:orientation="horizontal">
 
         </LinearLayout>
+</LinearLayout>
     </HorizontalScrollView>
 
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
 
-            android:background="@color/PINK_CHULA_FADE"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/WHITE"
 
-        <GridView
-                android:id="@+id/GridView01"
-                android:layout_width="fill_parent"
-                android:layout_height="220dp"
-                android:gravity="center"
-                android:horizontalSpacing="5dip"
-                android:numColumns="auto_fit"
-                android:padding="3dip"
-                android:stretchMode="columnWidth"
-                android:verticalSpacing="0dip"
-                android:layout_margin="3dp"
-                android:background="@drawable/boundary"
+            android:layout_margin="3dp"
+            >
+<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/PINK_CHULA_FADE"
+        >
+    <GridView
+            android:id="@+id/GridView01"
+            android:layout_width="fill_parent"
+            android:layout_height="220dp"
+            android:gravity="center"
+            android:horizontalSpacing="5dip"
+            android:numColumns="auto_fit"
+            android:padding="3dip"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="0dip"
+            android:background="@drawable/boundary"
 
-                android:columnWidth="70dip">
-        </GridView>
+            android:columnWidth="70dip">
+    </GridView>
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -215,8 +231,6 @@
                     android:paddingTop="5dp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-
-                    android:background="@color/PINK_CHULA_FADE"
                     >
 
                 <TextView
