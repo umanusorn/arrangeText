@@ -11,17 +11,29 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        >
 
+        android:background="@drawable/boundary"
+        android:padding="3dp"
+        >
+<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:background="@drawable/boundary"
+        >
     <TextView
 
             android:text="อะไร"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:textColor="@color/topLevelCatTextColor"
             android:padding="@dimen/top_level_cat_string_padding"
-            android:id="@+id/catetvSelected"/>
+            android:id="@+id/catetvSelected"
+            android:background="@color/PINK_CHULA"
+            />
+
+        </LinearLayout>
 
     <HorizontalScrollView
             android:id="@+id/hscroll_master_cate"
@@ -39,8 +51,6 @@
                     android:id="@+id/linear_master_cate"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
-                    android:background="@drawable/boundary"
-                    android:padding="3dp"
                     android:orientation="horizontal">
 
                 <TextView
