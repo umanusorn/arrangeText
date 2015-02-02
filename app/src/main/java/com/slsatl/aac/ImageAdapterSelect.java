@@ -22,9 +22,7 @@ Context mContext;
             R.drawable.chicken
     };*/
 	/*Vocab[] mThumbIds;
-	
 	static Vector<Vocab1> temp;
-	
 	public static  Vector<Vocab1> getVector(){
 		temp = new Vector<Vocab1> ();
 		temp.add(new Vocab1(R.drawable.bread, "Bread"));
