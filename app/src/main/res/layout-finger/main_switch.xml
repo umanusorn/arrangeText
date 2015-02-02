@@ -199,24 +199,33 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
 
+
         >
     <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/boundary_no_bottom"
-            android:padding="3dp"
+            android:background="@color/PINK_CHULA"
             >
-        <TextView
+
+        <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/BLACK"
-                android:background="@color/PINK_CHULA"
-                android:text="               SC1               "
-                android:padding="1dp"
-                android:layout_marginTop="3dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"/>
+                android:background="@drawable/boundary_no_bottom"
+                android:padding="3dp"
+                >
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/BLACK"
+                    android:text="               SC1               "
+                    android:padding="1dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"/>
+        </LinearLayout>
             </LinearLayout>
+
+
 
 
 
@@ -241,13 +250,16 @@
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/PINK_CHULA_FADE"
+            >
 
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="@drawable/boundary"
+                android:padding="3dp"
                 >
 
             <RelativeLayout
