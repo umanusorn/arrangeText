@@ -211,7 +211,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/BLACK"
                 android:background="@color/PINK_CHULA"
-                android:text="     SC1     "
+                android:text="               SC1               "
                 android:padding="1dp"
                 android:layout_marginTop="3dp"
                 android:layout_centerVertical="true"
