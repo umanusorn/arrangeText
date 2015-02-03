@@ -7,178 +7,181 @@
         android:layout_height="fill_parent"
         android:orientation="vertical"
         android:background="@color/WHITE">
-<LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
 
-        android:background="@drawable/boundary"
-        android:padding="3dp"
-        >
-<LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="3dp"
-        android:paddingRight="3dp"
-        android:background="@drawable/boundary"
-        >
-    <TextView
-
-            android:text="อะไร"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/topLevelCatTextColor"
-            android:padding="@dimen/top_level_cat_string_padding"
-            android:id="@+id/catetvSelected"
-            android:background="@color/PINK_CHULA"
-            />
-
-        </LinearLayout>
-
-    <HorizontalScrollView
-            android:id="@+id/hscroll_master_cate"
+    <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="fill_horizontal|center">
+            android:orientation="horizontal"
+
+            android:background="@drawable/boundary"
+            android:padding="3dp"
+            >
 
         <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:background="@color/WHITE"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:background="@drawable/boundary"
+                >
+
+            <TextView
+
+                    android:text="อะไร"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/topLevelCatTextColor"
+                    android:padding="@dimen/top_level_cat_string_padding"
+                    android:id="@+id/catetvSelected"
+                    android:background="@color/PINK_CHULA"
+                    />
+
+        </LinearLayout>
+
+        <HorizontalScrollView
+                android:id="@+id/hscroll_master_cate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal|center">
 
             <LinearLayout
-                    android:id="@+id/linear_master_cate"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
+                    android:background="@color/WHITE"
                     android:orientation="horizontal">
 
-                <TextView
-
-                        android:text="อะไร"
+                <LinearLayout
+                        android:id="@+id/linear_master_cate"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:orientation="horizontal">
 
-                        android:textColor="@color/topLevelCatTextColor"
-                        android:padding="@dimen/top_level_cat_string_padding"
-                        android:id="@+id/cate1tv"/>
+                    <TextView
 
-                <TextView
+                            android:text="อะไร"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                        android:text="ขนาด"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                            android:textColor="@color/topLevelCatTextColor"
+                            android:padding="@dimen/top_level_cat_string_padding"
+                            android:id="@+id/cate1tv"/>
 
-                        android:textColor="@color/topLevelCatTextColor"
-                        android:padding="@dimen/top_level_cat_string_padding"
-                        android:id="@+id/cate2tv"/>
+                    <TextView
 
-                <TextView
+                            android:text="ขนาด"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                        android:text="ลักษณะ"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                            android:textColor="@color/topLevelCatTextColor"
+                            android:padding="@dimen/top_level_cat_string_padding"
+                            android:id="@+id/cate2tv"/>
 
-                        android:textColor="@color/topLevelCatTextColor"
-                        android:padding="@dimen/top_level_cat_string_padding"
-                        android:id="@+id/cate3tv"/>
+                    <TextView
 
-                <TextView
+                            android:text="ลักษณะ"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                        android:text="สี"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                            android:textColor="@color/topLevelCatTextColor"
+                            android:padding="@dimen/top_level_cat_string_padding"
+                            android:id="@+id/cate3tv"/>
 
-                        android:textColor="@color/topLevelCatTextColor"
-                        android:padding="@dimen/top_level_cat_string_padding"
-                        android:id="@+id/cate4tv"/>
+                    <TextView
 
-                <TextView
+                            android:text="สี"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                        android:text="รูปร่าง"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                            android:textColor="@color/topLevelCatTextColor"
+                            android:padding="@dimen/top_level_cat_string_padding"
+                            android:id="@+id/cate4tv"/>
 
-                        android:textColor="@color/topLevelCatTextColor"
-                        android:padding="@dimen/top_level_cat_string_padding"
-                        android:id="@+id/cate5tv"/>
+                    <TextView
 
-                <TextView
+                            android:text="รูปร่าง"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                        android:text="อารมณ์"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                            android:textColor="@color/topLevelCatTextColor"
+                            android:padding="@dimen/top_level_cat_string_padding"
+                            android:id="@+id/cate5tv"/>
 
-                        android:textColor="@color/topLevelCatTextColor"
-                        android:padding="@dimen/top_level_cat_string_padding"
-                        android:id="@+id/cate6tv"/>
+                    <TextView
 
-                <TextView
+                            android:text="อารมณ์"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                        android:text="การกระทำ"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                            android:textColor="@color/topLevelCatTextColor"
+                            android:padding="@dimen/top_level_cat_string_padding"
+                            android:id="@+id/cate6tv"/>
 
-                        android:textColor="@color/topLevelCatTextColor"
-                        android:padding="@dimen/top_level_cat_string_padding"
-                        android:id="@+id/cate7tv"/>
+                    <TextView
 
-                <TextView
+                            android:text="การกระทำ"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                        android:text="สถานที่"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                            android:textColor="@color/topLevelCatTextColor"
+                            android:padding="@dimen/top_level_cat_string_padding"
+                            android:id="@+id/cate7tv"/>
 
-                        android:textColor="@color/topLevelCatTextColor"
-                        android:padding="@dimen/top_level_cat_string_padding"
-                        android:id="@+id/cate8tv"/>
+                    <TextView
 
-                <TextView
+                            android:text="สถานที่"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                        android:text="เมื่อไหร่"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                            android:textColor="@color/topLevelCatTextColor"
+                            android:padding="@dimen/top_level_cat_string_padding"
+                            android:id="@+id/cate8tv"/>
 
-                        android:textColor="@color/topLevelCatTextColor"
-                        android:padding="@dimen/top_level_cat_string_padding"
-                        android:id="@+id/cate9tv"/>
+                    <TextView
 
-                <TextView
+                            android:text="เมื่อไหร่"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                        android:text="จำนวน"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                            android:textColor="@color/topLevelCatTextColor"
+                            android:padding="@dimen/top_level_cat_string_padding"
+                            android:id="@+id/cate9tv"/>
 
-                        android:textColor="@color/topLevelCatTextColor"
-                        android:padding="@dimen/top_level_cat_string_padding"
-                        android:id="@+id/cate10tv"/>
+                    <TextView
 
-                <TextView
+                            android:text="จำนวน"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                        android:text="บรรยากาศ"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                            android:textColor="@color/topLevelCatTextColor"
+                            android:padding="@dimen/top_level_cat_string_padding"
+                            android:id="@+id/cate10tv"/>
 
-                        android:textColor="@color/topLevelCatTextColor"
-                        android:padding="@dimen/top_level_cat_string_padding"
-                        android:id="@+id/cate11tv"/>
+                    <TextView
 
-                <TextView
+                            android:text="บรรยากาศ"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
 
-                        android:text="เสียง"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                            android:textColor="@color/topLevelCatTextColor"
+                            android:padding="@dimen/top_level_cat_string_padding"
+                            android:id="@+id/cate11tv"/>
 
-                        android:textColor="@color/topLevelCatTextColor"
-                        android:padding="@dimen/top_level_cat_string_padding"
-                        android:id="@+id/cate12tv"/>
+                    <TextView
 
+                            android:text="เสียง"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:textColor="@color/topLevelCatTextColor"
+                            android:padding="@dimen/top_level_cat_string_padding"
+                            android:id="@+id/cate12tv"/>
+
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </HorizontalScrollView>
+        </HorizontalScrollView>
 
 
-</LinearLayout>
+    </LinearLayout>
 
 
     <HorizontalScrollView
@@ -188,24 +191,26 @@
             android:layout_gravity="fill_horizontal|center"
 
             >
-<LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/PINK_CHULA"
 
-        android:layout_margin="3dp"
-        >
         <LinearLayout
-                android:id="@+id/linear_cate"
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:background="@drawable/boundary"
-                android:padding="5dp"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/PINK_CHULA"
 
+                android:layout_margin="3dp"
+                >
+
+            <LinearLayout
+                    android:id="@+id/linear_cate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/boundary"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+
+            </LinearLayout>
         </LinearLayout>
-</LinearLayout>
     </HorizontalScrollView>
 
     <LinearLayout
@@ -217,60 +222,62 @@
 
             android:layout_margin="3dp"
             >
-<LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/PINK_CHULA_FADE"
-        >
-<LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-
-
-        >
-    <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/PINK_CHULA"
-            >
 
         <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/boundary_no_bottom"
-                android:padding="3dp"
+                android:orientation="vertical"
+                android:background="@color/PINK_CHULA_FADE"
                 >
-            <TextView
-                    android:layout_width="wrap_content"
+
+            <LinearLayout
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/BLACK"
-                    android:text="               SC1               "
-                    android:padding="1dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentLeft="true"/>
-        </LinearLayout>
+
+
+                    >
+
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/PINK_CHULA"
+                        >
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/boundary_no_bottom"
+                            android:padding="3dp"
+                            >
+
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/BLACK"
+                                android:text="               SC1               "
+                                android:padding="1dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentLeft="true"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
             </LinearLayout>
 
-
-
-
-
-        </LinearLayout>
-    <GridView
-            android:id="@+id/GridView01"
-            android:layout_width="fill_parent"
-            android:layout_height="220dp"
-            android:gravity="center"
-            android:horizontalSpacing="5dip"
-            android:numColumns="auto_fit"
-            android:padding="3dip"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="0dip"
-            android:background="@drawable/boundary"
-            android:columnWidth="70dip">
-    </GridView>
+            <GridView
+                    android:id="@+id/GridView01"
+                    android:layout_width="fill_parent"
+                    android:layout_height="220dp"
+                    android:gravity="center"
+                    android:horizontalSpacing="5dip"
+                    android:numColumns="auto_fit"
+                    android:padding="3dip"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="0dip"
+                    android:background="@drawable/boundary"
+                    android:columnWidth="70dip">
+            </GridView>
         </LinearLayout>
 
     </LinearLayout>
