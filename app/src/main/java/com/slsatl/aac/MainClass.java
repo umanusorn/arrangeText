@@ -36,7 +36,7 @@ static Hashtable hashtable_Class    = new Hashtable();
 static Hashtable hashtable_Subclass = new Hashtable();
 
 
-public static void main(String[] args) {
+public static String main(String[] args) {
 
 	String lineWord = null;
 	String lineSubclass = null;
@@ -222,5 +222,6 @@ public static void main(String[] args) {
 	System.out.println("Using times: " + elapsedSeconds);
 
 
+	return ansSentence.get(0);
 }
 }

@@ -49,6 +49,7 @@ static String       THAIspeech;
 static String       delVocab;
 View[] headerElement = new View[cateShow.size()];
 public List<TextView> tvHeader = new ArrayList<TextView>();
+TextView answerTv ;
 
 MenuItem toTtsMItm, helpMItm;
 ComposePage thisPage;
@@ -61,6 +62,8 @@ public void LaunchTTS() {
 		return;
 	}
 	speech = collectWords(Keeper.selected);
+
+	Log.d("selectedWord",speech);
 	convertTospeech(mTts, speech);
 }
 
@@ -96,7 +99,11 @@ public String onClickCallAlgor() {
 	String[] testAlgor = {"ddd", "ssdsf"};
 	String speech = collectWords(Keeper.selected);
 	Log.d("selectedText=",speech);
-	MainClass.main(testAlgor);
+
+
+
+	answerTv.setText(MainClass.main(testAlgor));
+
 	return sortedOrder;
 }
 
@@ -218,6 +225,7 @@ public void onCreate(Bundle savedInstanceState) {
 	grid_select = (GridView) findViewById(R.id.GridPressed);
 	linear_cate = (LinearLayout) findViewById(R.id.linear_cate);
 	TextView wordSelected = (TextView) findViewById(R.id.wordSelectedTv);
+	answerTv = (TextView)findViewById(R.id.sentenceAnswerTv);
 	wordSelected.setTypeface(null, Typeface.BOLD);
 	// Populate linear_cate by inflating each View instance with R.id.cate_icon_image
 	LayoutInflater li = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
