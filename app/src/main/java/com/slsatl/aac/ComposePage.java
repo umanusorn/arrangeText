@@ -96,10 +96,10 @@ public void hideAllSubCate() {
 
 public String onClickCallAlgor() {
 	String sortedOrder = "";
-	String[] testAlgor = {"ddd", "ssdsf"};
+
 	String speech = collectWords(Keeper.selected);
 	Log.d("selectedText=",speech);
-
+	String[] testAlgor = {"ddd", "ssdsf"};
 
 
 	answerTv.setText(MainClass.main(testAlgor));
@@ -109,7 +109,7 @@ public String onClickCallAlgor() {
 
 public void onClickClear() {
 	for (int i = 0; i < 20; i++) {
-		onClickdelBtn();
+		onClickฏelBtn();
 	}
 }
 
@@ -176,7 +176,7 @@ default:
 
 }
 
-public void onClickdelBtn() {
+public void onClickฏelBtn() {
 	if (Keeper.selected.size() != 0) {
 		Keeper.selected.remove(Keeper.selected.size() - 1);
 	}
@@ -275,6 +275,21 @@ public void onCreate(Bundle savedInstanceState) {
 				String selectWord = x.word;
 
 				Log.e("toto", "selectWord = " + selectWord);
+
+
+
+
+
+
+
+				//todo run algor
+
+
+
+
+
+
+
 				String[] column = {"voicePath", "nextCid"};
 				Cursor c = Keeper.myDB.query("NewLexicalItem", column, "tag ='"
 				                                                       + selectWord + "' ", null, null,
@@ -294,6 +309,7 @@ public void onCreate(Bundle savedInstanceState) {
 				}
 
 				Log.e("toto", "getVoice = " + getVoice);
+				//todo
 				Keeper.selected.add(new VocabSelected(selectPic,
 				                                      selectWord, getVoice));
 				c.close();
@@ -315,7 +331,7 @@ public void onCreate(Bundle savedInstanceState) {
 	});
 	delSelectButton.setOnClickListener(new View.OnClickListener() {
 		public void onClick(View v) {
-			onClickdelBtn();
+			onClickฏelBtn();
 		}
 
 	});

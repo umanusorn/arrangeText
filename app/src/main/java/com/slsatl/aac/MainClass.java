@@ -176,6 +176,8 @@ public static String main(String[] args) {
 	imgWord.add("FAMILY,N,ปู่,WHAT");
 
 
+
+
 	Log.d(TAG, "pass10");
 	System.out.println(imgWord);
 	Log.d(TAG, "pass11" + imgWord);
