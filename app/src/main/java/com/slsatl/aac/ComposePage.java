@@ -187,6 +187,7 @@ public void onClickItem_After(String classStr,String pos,String tag,String subCl
 public void onClickdelBtn() {
 	if (Keeper.selected.size() != 0) {
 		Keeper.selected.remove(Keeper.selected.size() - 1);
+		algorStructures.remove(algorStructures.size()-1);
 	}
 	speech = collectWords(Keeper.selected);
 	configureUI2();

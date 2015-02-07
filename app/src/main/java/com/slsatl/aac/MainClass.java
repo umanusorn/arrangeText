@@ -228,6 +228,9 @@ public static String main(List<AlgorStructure> algorStructures) {
 	Log.d(TAG, "pass14" + imgWord + "Using times: " + elapsedSeconds);
 	System.out.println("Using times: " + elapsedSeconds);
 
+	for (int i = 0; i < algorStructures.size(); i++) {
+		imgWord.clear();
+	}
 
 	return ansSentence.get(0);
 }
