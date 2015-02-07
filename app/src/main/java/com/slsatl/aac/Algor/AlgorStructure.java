@@ -27,6 +27,11 @@ public String getPos() {
 	return pos;
 }
 
+public String getStructuredString(){
+
+	return subClassStr+","+pos+","+tag+","+classStr;
+}
+
 public String getSubClassStr() {
 	return subClassStr;
 }

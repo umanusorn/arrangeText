@@ -104,7 +104,8 @@ public String onClickCallAlgor(String classStr,String pos,String tag,String subC
 	String[] testAlgor = {"ddd", "ssdsf"};
 	algorStructures.add(new AlgorStructure(classStr,pos,tag,subClassStr));
 
-	answerTv.setText(MainClass.main(testAlgor));
+	if(algorStructures.size()>3)
+	answerTv.setText(MainClass.main(algorStructures));
 	return sortedOrder;
 }
 
@@ -180,7 +181,7 @@ default:
 public void onClickItem_After(String classStr,String pos,String tag,String subClassStr){
 
 
-	onClickCallAlgor(classStr,pos,tag,subClassStr);
+	onClickCallAlgor(classStr, pos, tag, subClassStr);
 }
 
 public void onClickdelBtn() {

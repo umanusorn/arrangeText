@@ -5,6 +5,8 @@ package com.slsatl.aac; /**
 import android.os.Environment;
 import android.util.Log;
 
+import com.slsatl.aac.Algor.AlgorStructure;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -36,13 +38,12 @@ static Hashtable hashtable_Class    = new Hashtable();
 static Hashtable hashtable_Subclass = new Hashtable();
 
 
-public static String main(String[] args) {
+public static String main(List<AlgorStructure> algorStructures) {
 
 	String lineWord = null;
 	String lineSubclass = null;
 	String lineClass = null;
 	String linePOS = null;
-
 	FileInputStream fstream;
 
 	imgPOS = new ArrayList<String>();
@@ -170,10 +171,17 @@ public static String main(String[] args) {
 
 //      subclass,pos,tag,class
 
-	imgWord.add("VERB2,V,เตะ,MOVEMENT");
+	for (int i = 0; i < algorStructures.size(); i++) {
+		AlgorStructure word = algorStructures.get(i);
+		String structuredString = word.getStructuredString();
+		Log.d("structuredString = ",structuredString);
+		imgWord.add(structuredString);
+	}
+	
+	/*imgWord.add("VERB2,V,เตะ,MOVEMENT");
 	imgWord.add("SPORT,N,ฟุตบอล,WHAT");
 	imgWord.add("SIZE,ADJ,ใหญ่,SIZE");
-	imgWord.add("FAMILY,N,ปู่,WHAT");
+	imgWord.add("FAMILY,N,ปู่,WHAT");*/
 
 
 
