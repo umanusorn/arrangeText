@@ -24,6 +24,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.slsatl.aac.Algor.AlgorStructure;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,8 +50,9 @@ static int          buttonResource;
 static String       THAIspeech;
 static String       delVocab;
 View[] headerElement = new View[cateShow.size()];
-public List<TextView> tvHeader = new ArrayList<TextView>();
-TextView answerTv ;
+public List<TextView>       tvHeader = new ArrayList<TextView>();
+public List<AlgorStructure> algorStructures = new ArrayList<AlgorStructure>();
+TextView answerTv;
 
 MenuItem toTtsMItm, helpMItm;
 ComposePage thisPage;
@@ -63,7 +66,7 @@ public void LaunchTTS() {
 	}
 	speech = collectWords(Keeper.selected);
 
-	Log.d("selectedWord",speech);
+	Log.d("selectedWord", speech);
 	convertTospeech(mTts, speech);
 }
 
@@ -94,22 +97,20 @@ public void hideAllSubCate() {
 	}
 }
 
-public String onClickCallAlgor() {
+public String onClickCallAlgor(String classStr,String pos,String tag,String subClassStr) {
 	String sortedOrder = "";
-
 	String speech = collectWords(Keeper.selected);
-	Log.d("selectedText=",speech);
+	Log.d("selectedText=", speech);
 	String[] testAlgor = {"ddd", "ssdsf"};
-
+	algorStructures.add(new AlgorStructure(classStr,pos,tag,subClassStr));
 
 	answerTv.setText(MainClass.main(testAlgor));
-
 	return sortedOrder;
 }
 
 public void onClickClear() {
 	for (int i = 0; i < 20; i++) {
-		onClickฏelBtn();
+		onClickdelBtn();
 	}
 }
 
@@ -176,11 +177,13 @@ default:
 
 }
 
-public void onClickItem_After(){
+public void onClickItem_After(String classStr,String pos,String tag,String subClassStr){
 
+
+	onClickCallAlgor(classStr,pos,tag,subClassStr);
 }
 
-public void onClickฏelBtn() {
+public void onClickdelBtn() {
 	if (Keeper.selected.size() != 0) {
 		Keeper.selected.remove(Keeper.selected.size() - 1);
 	}
@@ -286,12 +289,22 @@ public void onCreate(Bundle savedInstanceState) {
 				                   "picPath","nextCid",
 				                   "voicePath",
 				                   "weight"};
+
+
+
+
 				Cursor c = Keeper.myDB.query("NewLexicalItem", column, "tag ='"
 				                                                       + selectWord + "' ", null, null,
 				                             null, null);
 				c.moveToFirst();
 
 				String getVoice = c.getString(c.getColumnIndex("voicePath"));
+
+				String pos = c.getString(c.getColumnIndex("pos"));
+				String classStr = c.getString(c.getColumnIndex("class"));
+				String subClassStr = c.getString(c.getColumnIndex("subclass"));
+
+				Log.d("testGet data  pos,class,subclass",pos+","+classStr+","+subClassStr);
 
 				int nextCid = c.getInt(c.getColumnIndex("nextCid"));
 				if (nextCid == 0) {
@@ -320,10 +333,9 @@ public void onCreate(Bundle savedInstanceState) {
 					}
 					grid_main.setAdapter(new VocabGridAdapter(thisPage));
 				}
+				onClickItem_After(classStr,pos,selectWord,subClassStr);
 			}
 
-
-			onClickItem_After();
 
 
 		}
@@ -331,7 +343,7 @@ public void onCreate(Bundle savedInstanceState) {
 	});
 	delSelectButton.setOnClickListener(new View.OnClickListener() {
 		public void onClick(View v) {
-			onClickฏelBtn();
+			onClickdelBtn();
 		}
 
 	});
@@ -339,7 +351,7 @@ public void onCreate(Bundle savedInstanceState) {
 		public void onClick(View v) {
 			buttonResource = R.id.speak_button;
 Log.d("enterSpeakBtn","");
-			onClickCallAlgor();
+			//onClickCallAlgor(classStr,pos,selectWord,subClassStr);
 			LaunchTTS();
 		}
 	});
