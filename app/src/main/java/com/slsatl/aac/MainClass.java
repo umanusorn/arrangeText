@@ -195,7 +195,12 @@ public static String main(List<AlgorStructure> algorStructures) {
 	}
 
 // todo show this string in textView
-	Log.d(TAG + "view Answer", ansSentence.get(0));
+	try{
+		Log.d(TAG + "view Answer", ansSentence.get(0));
+	}catch (Exception e){
+		return "wrong sentence structure";
+	}
+
 	Log.d(TAG, "pass13" + imgWord);
 	imgWord.clear();
 
