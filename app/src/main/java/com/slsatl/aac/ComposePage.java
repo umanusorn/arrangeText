@@ -64,8 +64,8 @@ public void LaunchTTS() {
 		               Toast.LENGTH_SHORT).show();
 		return;
 	}
-	speech = collectWords(Keeper.selected);
-
+	//speech = collectWords(Keeper.selected);
+	speech = answerTv.getText().toString();
 	Log.d("selectedWord", speech);
 	convertTospeech(mTts, speech);
 }

@@ -183,9 +183,6 @@ public static String main(List<AlgorStructure> algorStructures) {
 	imgWord.add("SIZE,ADJ,ใหญ่,SIZE");
 	imgWord.add("FAMILY,N,ปู่,WHAT");*/
 
-
-
-
 	Log.d(TAG, "pass10");
 	System.out.println(imgWord);
 	Log.d(TAG, "pass11" + imgWord);
