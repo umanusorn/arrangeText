@@ -64,6 +64,7 @@ public void LaunchTTS() {
 		               Toast.LENGTH_SHORT).show();
 		return;
 	}
+
 	//speech = collectWords(Keeper.selected);
 	speech = answerTv.getText().toString();
 	Log.d("selectedWord", speech);
@@ -179,15 +180,13 @@ default:
 }
 
 public void onClickItem_After(String classStr,String pos,String tag,String subClassStr){
-
-
 	onClickCallAlgor(classStr, pos, tag, subClassStr);
 }
 
 public void onClickdelBtn() {
 	if (Keeper.selected.size() != 0) {
 		Keeper.selected.remove(Keeper.selected.size() - 1);
-		algorStructures.remove(algorStructures.size()-1);
+		algorStructures.clear();
 	}
 	speech = collectWords(Keeper.selected);
 	answerTv.setText("");

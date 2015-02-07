@@ -51,7 +51,8 @@ public static String main(List<AlgorStructure> algorStructures) {
 	ansSentence = new ArrayList<String>();
 
 	Log.d(TAG, "pass1");
-
+	imgWord.clear();
+	ansSentence.clear();
 /*
 
 //Read text from file
@@ -89,7 +90,6 @@ public static String main(List<AlgorStructure> algorStructures) {
 		}
 
 		Log.d(TAG, "pass2");
-
 
 		file = new File(myNewFolder, "POS_Score.txt");
 		BufferedReader readerPOSGram = new BufferedReader(new FileReader(file));
@@ -234,10 +234,11 @@ public static String main(List<AlgorStructure> algorStructures) {
 	Log.d(TAG, "pass14" + imgWord + "Using times: " + elapsedSeconds);
 	System.out.println("Using times: " + elapsedSeconds);
 
-	for (int i = 0; i < algorStructures.size(); i++) {
-		imgWord.clear();
-	}
 
-	return ansSentence.get(0);
+	String ans = ansSentence.get(0);
+		imgWord.clear();
+		ansSentence.clear();
+	SortingScore.allScore.clear();
+	return ans;
 }
 }
