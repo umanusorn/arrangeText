@@ -176,6 +176,10 @@ default:
 
 }
 
+public void onClickItem_After(){
+
+}
+
 public void onClickฏelBtn() {
 	if (Keeper.selected.size() != 0) {
 		Keeper.selected.remove(Keeper.selected.size() - 1);
@@ -276,21 +280,12 @@ public void onCreate(Bundle savedInstanceState) {
 
 				Log.e("toto", "selectWord = " + selectWord);
 
-
-
-
-
-
-
 				//todo run algor
 
-
-
-
-
-
-
-				String[] column = {"voicePath", "nextCid"};
+				String[] column = {"cid","lid","core","enable","tag","pos","classTag","class","subClassTag","subClass",
+				                   "picPath","nextCid",
+				                   "voicePath",
+				                   "weight"};
 				Cursor c = Keeper.myDB.query("NewLexicalItem", column, "tag ='"
 				                                                       + selectWord + "' ", null, null,
 				                             null, null);
@@ -326,6 +321,11 @@ public void onCreate(Bundle savedInstanceState) {
 					grid_main.setAdapter(new VocabGridAdapter(thisPage));
 				}
 			}
+
+
+			onClickItem_After();
+
+
 		}
 
 	});
