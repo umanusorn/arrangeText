@@ -104,7 +104,7 @@ public String onClickCallAlgor(String classStr,String pos,String tag,String subC
 	String[] testAlgor = {"ddd", "ssdsf"};
 	algorStructures.add(new AlgorStructure(classStr,pos,tag,subClassStr));
 
-	if(algorStructures.size()>3)
+	//if(algorStructures.size()>3)
 	answerTv.setText(MainClass.main(algorStructures));
 	return sortedOrder;
 }
