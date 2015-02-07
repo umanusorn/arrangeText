@@ -190,6 +190,7 @@ public void onClickdelBtn() {
 		algorStructures.remove(algorStructures.size()-1);
 	}
 	speech = collectWords(Keeper.selected);
+	answerTv.setText("");
 	configureUI2();
 }
 
