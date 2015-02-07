@@ -198,7 +198,8 @@ public static String main(List<AlgorStructure> algorStructures) {
 	try{
 		Log.d(TAG + "view Answer", ansSentence.get(0));
 	}catch (Exception e){
-		return "wrong sentence structure";
+		//todo update text
+		return "คำที่ให้มาผิดหลักไวยกรณ์";
 	}
 
 	Log.d(TAG, "pass13" + imgWord);
