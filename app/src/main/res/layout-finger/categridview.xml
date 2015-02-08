@@ -5,6 +5,7 @@
     android:layout_x="200dip"
     android:layout_y="165dip"
     android:gravity="center_horizontal"
+    android:paddingLeft="10dp"
     android:orientation="vertical" android:minWidth="65dip">
 
     <LinearLayout
