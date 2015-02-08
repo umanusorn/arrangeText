@@ -173,8 +173,11 @@ default:
 
 	}
 	setTvHeaderBg2White();
-	tvHeader.get(id).setBackgroundColor(getResources().getColor(R.color.PINK_CHULA));
-
+	//tvHeader.get(id).setBackgroundColor(getResources().getColor(R.color.PINK_CHULA));
+	showAllHeader();
+	tvHeader.get(id).setVisibility(View.GONE);
+	TextView catetvSelected = (TextView)findViewById(R.id.catetvSelected);
+	catetvSelected.setText(tvHeader.get(id).getText().toString());
 	preClick();
 
 }
@@ -616,6 +619,12 @@ public void setTvHeaderBg2White() {
 		Drawable drawable = getResources().getDrawable(R.drawable.boundary);
 		//tvHeader.get(i).setDrawables(drawable,drawable,drawable,drawable);
 		//linear_cate.setBackgroundDrawable(drawable);
+	}
+}
+
+public void showAllHeader(){
+	for (int i = 0; i < tvHeader.size(); i++) {
+		tvHeader.get(i).setVisibility(View.VISIBLE);
 	}
 }
 
