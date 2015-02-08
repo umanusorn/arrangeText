@@ -134,13 +134,13 @@ public final class R {
         public static final int hiddenLid=0x7f080039;
         public static final int hiddenRowMode=0x7f080019;
         public static final int hideButton=0x7f080020;
-        public static final int hscroll_cate=0x7f080059;
+        public static final int hscroll_cate=0x7f080058;
         public static final int hscroll_master_cate=0x7f08004a;
         public static final int icon=0x7f08001a;
         public static final int iconCatExist=0x7f080009;
         public static final int icon_image=0x7f080077;
         public static final int icon_text=0x7f080078;
-        public static final int imageView=0x7f080058;
+        public static final int imageView=0x7f080059;
         public static final int imageView1=0x7f080001;
         public static final int imageView2=0x7f080046;
         public static final int input_txt=0x7f080068;

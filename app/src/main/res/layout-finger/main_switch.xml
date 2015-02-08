@@ -189,11 +189,7 @@
         android:orientation="vertical"
         >
 
-    <ImageView
-            android:layout_width="50dp"
-            android:layout_height="10dp"
-            android:id="@+id/imageView"
-            android:background="@drawable/arrow"/>
+
 
     <HorizontalScrollView
             android:id="@+id/hscroll_cate"
@@ -206,11 +202,16 @@
         <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:background="@color/PINK_CHULA"
                 android:layout_margin="3dp"
                 >
-
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="10dp"
+                    android:id="@+id/imageView"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/arrow"/>
             <LinearLayout
                     android:id="@+id/linear_cate"
                     android:layout_width="wrap_content"
