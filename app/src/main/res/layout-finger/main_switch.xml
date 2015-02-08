@@ -244,12 +244,7 @@
             android:layout_margin="3dp"
             >
 
-        <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/PINK_CHULA_FADE"
-                >
+
 
             <LinearLayout
                     android:layout_width="fill_parent"
@@ -285,7 +280,12 @@
 
 
             </LinearLayout>
-
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/PINK_CHULA_FADE"
+                >
             <GridView
                     android:id="@+id/GridView01"
                     android:layout_width="fill_parent"
