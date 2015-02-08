@@ -588,6 +588,10 @@ public static String removeSpaces(String s) {
 }
 
 public void setHeaderBtn() {
+
+	TextView catetvSelected = (TextView)findViewById(R.id.catetvSelected);
+	catetvSelected.setTypeface(null, Typeface.BOLD);
+
 	tvHeader.add((TextView) findViewById(R.id.cate1tv));
 	tvHeader.add((TextView) findViewById(R.id.cate2tv));
 	tvHeader.add((TextView) findViewById(R.id.cate3tv));
@@ -608,7 +612,7 @@ public void setHeaderBtn() {
 			}
 		});
 		tvHeader.get(i).setId(i);
-
+		tvHeader.get(i).setTypeface(null, Typeface.BOLD);
 	}
 }
 
