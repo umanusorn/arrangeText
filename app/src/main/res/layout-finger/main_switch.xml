@@ -184,6 +184,7 @@
     </LinearLayout>
 
 
+
     <HorizontalScrollView
             android:id="@+id/hscroll_cate"
             android:layout_width="fill_parent"
@@ -197,7 +198,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:background="@color/PINK_CHULA"
-
                 android:layout_margin="3dp"
                 >
 
@@ -208,6 +208,7 @@
                     android:background="@drawable/boundary"
                     android:padding="5dp"
                     android:orientation="horizontal">
+
 
             </LinearLayout>
         </LinearLayout>
@@ -247,7 +248,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/boundary_no_bottom"
-                            android:padding="3dp"
+                            android:padding="1dp"
                             >
 
                         <TextView
@@ -309,9 +310,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/BLACK"
-                        android:text="WORD SEECTED"
+                        android:text="WORD SELECTED"
                         android:id="@+id/wordSelectedTv"
-                        android:padding="10dp"
+                        android:padding="5dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"/>
 
@@ -321,7 +322,8 @@
                         android:layout_height="wrap_content"
                         android:text="Clear All"
                         android:id="@+id/clearAllBtn"
-                        android:height="10dp"
+                        android:height="8dp"
+
                         android:layout_alignParentTop="true"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"/>
