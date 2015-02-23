@@ -68,6 +68,7 @@ public String getVersion() {
 }
 
 public String getWeight() {
+	int random = ((int) Math.random()*1000000);
 	return this.weight;
 }
 }

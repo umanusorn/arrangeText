@@ -199,7 +199,7 @@ public static String main(List<AlgorStructure> algorStructures) {
 		Log.d(TAG + "view Answer", ansSentence.get(0));
 	}catch (Exception e){
 		//todo update text
-		return "คำที่ให้มาผิดหลักไวยกรณ์";
+		return "คำที่ให้มาผิดหลักไวยากรณ์";
 	}
 
 	Log.d(TAG, "pass13" + imgWord);

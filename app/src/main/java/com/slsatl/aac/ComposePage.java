@@ -54,6 +54,8 @@ public List<TextView>       tvHeader = new ArrayList<TextView>();
 public List<AlgorStructure> algorStructures = new ArrayList<AlgorStructure>();
 TextView answerTv;
 
+TextView sc1tv;
+
 MenuItem toTtsMItm, helpMItm;
 ComposePage thisPage;
 
@@ -107,6 +109,7 @@ public String onClickCallAlgor(String classStr,String pos,String tag,String subC
 
 	//if(algorStructures.size()>3)
 	answerTv.setText(MainClass.main(algorStructures));
+	//sc1tv.setText(classStr);
 	return sortedOrder;
 }
 
@@ -232,6 +235,7 @@ public void onCreate(Bundle savedInstanceState) {
 	mTts = new TextToSpeech(this, this);
 
 	setContentView(R.layout.main_switch);
+	sc1tv = (TextView)findViewById(R.id.sc1tv);
 	grid_main = (GridView) findViewById(R.id.GridView01);
 	grid_main.setAdapter(new VocabGridAdapter(this));
 	grid_select = (GridView) findViewById(R.id.GridPressed);
@@ -241,7 +245,6 @@ public void onCreate(Bundle savedInstanceState) {
 	wordSelected.setTypeface(null, Typeface.BOLD);
 	// Populate linear_cate by inflating each View instance with R.id.cate_icon_image
 	LayoutInflater li = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
 
 	Log.d("linearCate", "cateSize =" + cateShow.size());
 	for (int position = 0; position < cateShow.size(); position++) {
@@ -253,9 +256,9 @@ public void onCreate(Bundle savedInstanceState) {
 		tv.setText(a.word);
 
 		Log.d("linearCate", "pos=" + position);
-
 		linear_cate.addView(headerElement[position]);
-		headerElement[position].setOnClickListener(new CateClickListener(a.word, a.cid, this, grid_main));
+	//	..
+		headerElement[position].setOnClickListener(new CateClickListener(a.word, a.cid, this, grid_main,sc1tv,position));
 	}
 
 	delSelectButton = (ImageButton) findViewById(R.id.delBtnComposeActivity);
