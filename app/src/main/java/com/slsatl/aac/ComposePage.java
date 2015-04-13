@@ -525,7 +525,7 @@ void configureUI2 () {
 
 public void showConfirmDeleteDialog (){
     ConfirmDialog.show (this,
-				"dd",
+				getString( R.string.confirm_delete),
 				new ConfirmDialog.ConfirmListener () {
 
 				    @Override public

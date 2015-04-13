@@ -112,5 +112,8 @@
    	<string name="PROGRESS_ADD_CATE">กำลังเพิ่มรายการ</string>
    	<string name="CUSTOM_SUBTITLE">หมวดหมู่สร้างเอง</string>
    	<string name="CHECK_SERIAL">กำลังตรวจสอบไลเซนส์</string>
-   	
+	<string name="yes">ตกลง</string>
+	<string name="no">ไม่</string>
+	<string name="confirm_delete">คุณต้องการลบคำนี้?</string>
+
 </resources>

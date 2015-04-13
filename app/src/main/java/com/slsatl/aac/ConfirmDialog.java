@@ -17,10 +17,10 @@ public static void show(Context context,String title,final ConfirmListener liste
 //context using getActivity or this
 
 	Builder builder = new AlertDialog.Builder(context);
-	builder.setIcon(R.drawable.launcher_icon);
-	builder.setTitle(context.getString(R.string.app_name));
-	builder.setMessage(title);
-	builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	builder.setIcon ( R.drawable.launcher_icon );
+	builder.setTitle ( title );
+	//builder.setMessage(title);
+	builder.setPositiveButton(context.getString( R.string.yes), new DialogInterface.OnClickListener() {
 
 		public void onClick(DialogInterface dialog, int id) {
 			// HomeFragmentActivity.this.finish();
@@ -29,7 +29,7 @@ public static void show(Context context,String title,final ConfirmListener liste
 			}
 		}
 	});
-	builder.setNegativeButton("NO", null);
+	builder.setNegativeButton(context.getString( R.string.no), null);
 	builder.show();
 }
 

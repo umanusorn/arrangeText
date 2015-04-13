@@ -250,7 +250,7 @@ public final class R {
         public static final int CANTDEL_CATE=0x7f07000b;
         public static final int CANTDEL_VOCAB=0x7f07000c;
         public static final int CATAGORIES=0x7f07000d;
-        public static final int CATE=0x7f070060;
+        public static final int CATE=0x7f070063;
         public static final int CAT_NAME=0x7f07000e;
         public static final int CHANGED=0x7f07000f;
         public static final int CHECK_SERIAL=0x7f070010;
@@ -331,7 +331,10 @@ public final class R {
         public static final int VOCAB=0x7f07005b;
         public static final int YES=0x7f07005c;
         public static final int app_name=0x7f07005d;
-        public static final int logo_description=0x7f07005e;
-        public static final int play_button_description=0x7f07005f;
+        public static final int confirm_delete=0x7f07005e;
+        public static final int logo_description=0x7f07005f;
+        public static final int no=0x7f070060;
+        public static final int play_button_description=0x7f070061;
+        public static final int yes=0x7f070062;
     }
 }
