@@ -30,10 +30,11 @@ public void onClick(View v) {
 
 	try {
 		ComposePage.vocabShow = ComposePage.queryVocabs(ComposePage.currCid, 1);
-		vocabView.setAdapter(new VocabGridAdapter(composePage));
+		vocabView.setAdapter ( new VocabGridAdapter ( composePage ) );
 
-		Log.d("errrrror1","");
-	sc1.setText("               SC"+position+"               ");
+		Log.d ( "errrrror1", "" );
+	//sc1.setText("               SC"+position+"               ");
+	    sc1.setText("     "+word+"     ");
 	}
 	catch (Exception e) {
 		Log.d("errrrror2","");
