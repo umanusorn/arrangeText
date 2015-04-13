@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
 android:id="@+id/mainLayout"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 android:orientation="vertical"
-xmlns:android="http://schemas.android.com/apk/res/android"
 >
 <RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
 android:id="@+id/widget32"
 android:layout_width="fill_parent"
 android:layout_height="40dip"
-xmlns:android="http://schemas.android.com/apk/res/android"
 >
 <ImageButton
 android:id="@+id/speak_button"
@@ -19,7 +19,7 @@ android:layout_width="40dip"
 android:layout_height="40dip"
 android:src="@drawable/icspeak" 
 android:layout_alignParentTop="true"
-android:layout_toRightOf="@+id/clear_button"
+android:layout_toRightOf="@+id/delBtnComposeActivity"
 
 >
 </ImageButton>

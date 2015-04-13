@@ -21,9 +21,18 @@
     <color name="DEBUG2">#00FF00</color>
     <color name="GRAY_66">#666666</color>
     <color name="GREEN_ANDROID">#A5CB39</color>
+    <color name="GREY">#d2d2d2</color>
     <color name="PINK_CHULA">#FFBAD6</color>
+    <color name="PINK_CHULA_FADE">#f9e1f7</color>
+    <color name="PINK_DESIGN1">#fcaad5</color>
+    <color name="PINK_DESIGN2">#fb7ea7</color>
+    <color name="WHITE">#FFFFFF</color>
     <color name="list_default">#000000</color>
     <color name="list_press">#ffcc00</color>
+    <color name="topLevelCatTextColor">#000000</color>
+    <!-- From: file:/Q:/Android/androidWorkspace/slsatl-chula-aac-on-android/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="top_level_cat_string_padding">8dp</dimen>
     <!-- From: file:/Q:/Android/androidWorkspace/slsatl-chula-aac-on-android/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="AAC">สร้างข้อความจากภาพ</string>

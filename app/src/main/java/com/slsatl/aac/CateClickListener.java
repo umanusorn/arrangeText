@@ -19,12 +19,15 @@ public CateClickListener(String word, int cid, ComposePage composePage, GridView
 	this.cid = cid;
 	this.composePage = composePage;
 	this.vocabView = vocabView;
+    this.sc1=sc1;
+    this.position=position;
 }
 
 @Override
 public void onClick(View v) {
 	// TODO Auto-generated method stub
 	ComposePage.currCid = cid;
+
 	try {
 		ComposePage.vocabShow = ComposePage.queryVocabs(ComposePage.currCid, 1);
 		vocabView.setAdapter(new VocabGridAdapter(composePage));
