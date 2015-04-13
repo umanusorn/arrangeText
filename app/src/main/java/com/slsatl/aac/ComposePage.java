@@ -46,6 +46,8 @@ static int currCid;
 
 static int currCategoryVariation = 0;
 
+static ConfirmDialog confirmDialog;
+
 static Vector<LexIconAndLabel> vocabShow;
 
 static Vector<CatIconAndLabel> cateShow;
@@ -239,7 +241,7 @@ void onCreate ( Bundle savedInstanceState ) {
 
     thisPage = this;
     requestWindowFeature ( Window.FEATURE_NO_TITLE );
-
+	confirmDialog = new ConfirmDialog ();
 		/*
 		try {
 			ComposePage.cateShow = queryCategory(1);
@@ -391,7 +393,8 @@ void onCreate ( Bundle savedInstanceState ) {
 		    }
 
 		    Log.e ( "toto", "getVoice = " + getVoice );
-		    //todo
+		    VocabSelected vocabSelected = new VocabSelected ( selectPic,
+											selectWord, getVoice );
 		    Keeper.selected.add ( new VocabSelected ( selectPic,
 									    selectWord, getVoice ) );
 		    c.close ();
@@ -506,7 +509,31 @@ void launchHelpPage () {
 
 private
 void configureUI2 () {
+    grid_select.setOnItemLongClickListener ( new AdapterView.OnItemLongClickListener () {
+
+	  @Override public
+	  boolean onItemLongClick ( AdapterView<?> adapterView, View view, int i, long l ) {
+
+		showConfirmDeleteDialog ();
+		return false;
+	  }
+
+
+    } );
     grid_select.setAdapter ( new ImageAdapterSelect ( this ) );
+}
+
+public void showConfirmDeleteDialog (){
+    ConfirmDialog.show (this,
+				"dd",
+				new ConfirmDialog.ConfirmListener () {
+
+				    @Override public
+				    void onConfirm ( String key ) {
+
+				    }
+				},
+				"key" );
 }
 
 @Override
