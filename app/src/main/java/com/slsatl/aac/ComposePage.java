@@ -395,8 +395,9 @@ void onCreate ( Bundle savedInstanceState ) {
 		    Log.e ( "toto", "getVoice = " + getVoice );
 		    VocabSelected vocabSelected = new VocabSelected ( selectPic,
 											selectWord, getVoice );
-		    Keeper.selected.add ( new VocabSelected ( selectPic,
-									    selectWord, getVoice ) );
+			vocabSelected.pos = Keeper.selected.size ();
+
+		    Keeper.selected.add ( vocabSelected );
 		    c.close ();
 		    configureUI2 ();
 
@@ -531,8 +532,17 @@ public void showConfirmDeleteDialog ( final View view){
 
 				    @Override public
 				    void onConfirm ( String key ) {
+							//todo need to remove via Id which store the position, and remove in algorStructure
+
 							view.setVisibility ( View.GONE );
-				    }
+							//Log.d ( "viewId", String.valueOf ( view.getId () ) );
+							//Keeper.selected.remove ( view.getId ()-1);
+							algorStructures.clear ();
+						}
+					/*speech = collectWords ( Keeper.selected );
+					answerTv.setText ( "" );
+							configureUI2 ();*/
+
 				},
 				"key" );
 }

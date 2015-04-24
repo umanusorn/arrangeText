@@ -20,20 +20,6 @@ import java.io.FileNotFoundException;
 public class VocabGridAdapter extends BaseAdapter {
 Context mContext;
 
-/*    private Integer[] mThumbIds = {
-    		R.drawable.apple, R.drawable.bread,
-            R.drawable.chicken, R.drawable.coffee,
-            R.drawable.egg, R.drawable.icecream,
-            R.drawable.milk, R.drawable.orange,
-            R.drawable.pizza,R.drawable.pork,
-            R.drawable.water
-           
-    };*/
-
-
-//		private Integer[] mThumbIds  ={
-//				R.drawable.icecream50,R.drawable.icecream80,R.drawable.icecream100
-//		};
 public static final int ACTIVITY_CREATE = 10;
 
 public VocabGridAdapter(Context c) {
@@ -91,7 +77,7 @@ public long getItemId(int arg0) {
 public View getView(int position, View convertView, ViewGroup parent) {
 	// TODO Auto-generated method stub
 	View v;
-	ImageView iv;
+	ImageView imageView;
 	if (convertView == null) {
 		LayoutInflater li = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		v = li.inflate(R.layout.vocabview, null);
@@ -101,21 +87,15 @@ public View getView(int position, View convertView, ViewGroup parent) {
 	}
 
 	IconAndLabel a = (IconAndLabel) ComposePage.vocabShow.toArray()[position];
-	iv = (ImageView) v.findViewById(R.id.icon_image);
+	imageView = (ImageView) v.findViewById(R.id.icon_image);
 
-/*	//Uri path = Uri.parse("android.resource://com.segf4ult.test/" + R.drawable.icon);
-	Uri path = Uri.parse("android.resource://com.slsatl.aac/drawable/appicon");
-	String pathHacked = path.toString();
-
-	//a.pic = new BitmapDrawable(decodeFile(new File("drawable://"+R.drawable.appicon)));
-	a.pic = new BitmapDrawable(decodeFile(new File(pathHacked)));*/
 //todo set static img here
-	iv.setBackgroundDrawable(a.pic);
+	imageView.setBackgroundDrawable ( a.pic );
+
+//	imageView.setId ( position );
 	Log.d("setSubCate",a.toString());
-	//iv.setBackgroundResource(R.drawable.appicon);
 	TextView tv = (TextView) v.findViewById(R.id.icon_text);
 	tv.setText(a.word);
-
 
 	return v;
 }
