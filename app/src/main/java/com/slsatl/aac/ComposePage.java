@@ -514,7 +514,7 @@ void configureUI2 () {
 	  @Override public
 	  boolean onItemLongClick ( AdapterView<?> adapterView, View view, int i, long l ) {
 
-		showConfirmDeleteDialog ();
+		showConfirmDeleteDialog (view);
 		return false;
 	  }
 
@@ -523,14 +523,15 @@ void configureUI2 () {
     grid_select.setAdapter ( new ImageAdapterSelect ( this ) );
 }
 
-public void showConfirmDeleteDialog (){
+public void showConfirmDeleteDialog ( final View view){
+
     ConfirmDialog.show (this,
 				getString( R.string.confirm_delete),
 				new ConfirmDialog.ConfirmListener () {
 
 				    @Override public
 				    void onConfirm ( String key ) {
-
+							view.setVisibility ( View.GONE );
 				    }
 				},
 				"key" );
