@@ -2,16 +2,15 @@ package com.slsatl.aac; /**
  * Created by Worasa on 16/1/2558.
  */
 
-import android.os.Environment;
+import android.content.Context;
 import android.util.Log;
 
 import com.slsatl.aac.Algor.AlgorStructure;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -38,7 +37,7 @@ static Hashtable hashtable_Class    = new Hashtable();
 static Hashtable hashtable_Subclass = new Hashtable();
 
 
-public static String main(List<AlgorStructure> algorStructures) {
+public static String main(List<AlgorStructure> algorStructures, Context context) {
 
 	String lineWord = null;
 	String lineSubclass = null;
@@ -73,12 +72,8 @@ public static String main(List<AlgorStructure> algorStructures) {
 
 	try {
 
-		String newFolder = "/AAConAndroid";
-		String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
-		File myNewFolder = new File(extStorageDirectory + newFolder);
-		File file = new File(myNewFolder, "Word_Score.txt");
-
-		BufferedReader readerWordGram = new BufferedReader(new FileReader(file));
+String fileName = "Word_Score.txt";
+		BufferedReader readerWordGram = new BufferedReader(new InputStreamReader ( context.getAssets().open(fileName) ));
 		String strLineWord = "";
 		while ((lineWord = readerWordGram.readLine()) != null) {
 			String[] parts = lineWord.split(",");
@@ -91,8 +86,8 @@ public static String main(List<AlgorStructure> algorStructures) {
 
 		Log.d(TAG, "pass2");
 
-		file = new File(myNewFolder, "POS_Score.txt");
-		BufferedReader readerPOSGram = new BufferedReader(new FileReader(file));
+		fileName= "POS_Score.txt";
+		BufferedReader readerPOSGram = new BufferedReader(new InputStreamReader ( context.getAssets().open(fileName) ));
 
 		Log.d(TAG, "pass3");
 		String strLinePOS = "";
@@ -105,8 +100,8 @@ public static String main(List<AlgorStructure> algorStructures) {
 			}
 		}
 		Log.d(TAG, "pass4");
-		file = new File(myNewFolder, "Subclass_Score.txt");
-		BufferedReader readerSubclassGram = new BufferedReader(new FileReader(file));
+		fileName = "Subclass_Score.txt";
+		BufferedReader readerSubclassGram = new BufferedReader(new InputStreamReader ( context.getAssets().open(fileName) ));
 		String strLineSubclass = "";
 
 		Log.d(TAG, "pass5");
@@ -119,8 +114,9 @@ public static String main(List<AlgorStructure> algorStructures) {
 			}
 		}
 		Log.d(TAG, "pass6");
-		file = new File(myNewFolder, "Class_Score.txt");
-		BufferedReader readerClassGram = new BufferedReader(new FileReader(file));
+
+		fileName="Class_Score.txt";
+		BufferedReader readerClassGram = new BufferedReader(new InputStreamReader ( context.getAssets().open(fileName) ));
 		String strLineClass = "";
 		Log.d(TAG, "pass7");
 		while ((lineClass = readerClassGram.readLine()) != null) {
@@ -186,7 +182,7 @@ public static String main(List<AlgorStructure> algorStructures) {
 	Log.d(TAG, "pass10");
 	System.out.println(imgWord);
 	Log.d(TAG, "pass11" + imgWord);
-	PermutationAndReadGrammar.ImgPermutation(imgWord, 0);
+	PermutationAndReadGrammar.ImgPermutation(imgWord, 0,context);
 	Log.d(TAG, "pass12" + imgWord);
 	ansSentence.clear();
 	for (int j = 0; j < SortingScore.allScore.size(); j++) {

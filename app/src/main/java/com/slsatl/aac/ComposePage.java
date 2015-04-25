@@ -139,7 +139,7 @@ String onClickCallAlgor ( String classStr, String pos, String tag, String subCla
     algorStructures.add ( new AlgorStructure ( classStr, pos, tag, subClassStr ) );
 
     //if(algorStructures.size()>3)
-    answerTv.setText ( MainClass.main ( algorStructures ) );
+    answerTv.setText ( MainClass.main ( algorStructures,getApplicationContext () ) );
     //sc1tv.setText(classStr);
     return sortedOrder;
 }

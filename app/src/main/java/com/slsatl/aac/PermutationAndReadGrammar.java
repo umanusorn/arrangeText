@@ -1,10 +1,8 @@
 package com.slsatl.aac;
 
-import android.os.Environment;
+import android.content.Context;
 
 import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -15,7 +13,8 @@ public class PermutationAndReadGrammar {
 	// -------------------- ImgPermutation-----------------------------
 	// static void ImgPermutation(List<String> arrWord, List<String> arrPOS, int
 	// k) {
-	static void ImgPermutation(List<String> arrWord, int k) {
+
+	static void ImgPermutation(List<String> arrWord, int k,Context context) {
 		String strSetImg = "";
 		String strSetPOS = "";
 		String strSetClass = "";
@@ -23,7 +22,7 @@ public class PermutationAndReadGrammar {
 		
 		for (int i = k; i < arrWord.size(); i++) {
 			java.util.Collections.swap(arrWord, i, k);
-			ImgPermutation(arrWord, k + 1);
+			ImgPermutation(arrWord, k + 1,context);
 			java.util.Collections.swap(arrWord, k, i);
 		}
 
@@ -34,27 +33,27 @@ public class PermutationAndReadGrammar {
 			//readGrammar("newGrammar.txt", arrWord);
 			
 			if(arrWord.size()==2){
-				readGrammar("2Pics.txt", arrWord);
+				readGrammar("2Pics.txt", arrWord,context);
 			}
 			if(arrWord.size()==3){
-				readGrammar("3Pics.txt", arrWord);
+				readGrammar("3Pics.txt", arrWord,context);
 			}
 			if(arrWord.size()==4){
-				readGrammar("4Pics.txt", arrWord);
+				readGrammar("4Pics.txt", arrWord,context);
 			}
 			if(arrWord.size()==5){
-				readGrammar("5Pics.txt", arrWord);
+				readGrammar("5Pics.txt", arrWord,context);
 
 			}
 			if(arrWord.size()==6){
-				readGrammar("6Pics.txt", arrWord);
+				readGrammar("6Pics.txt", arrWord,context);
 				//System.out.println(arrWord.toString());
 			}
 		}
 	}
 
 	// -------------------------- readGrammar------------------------
-	public static void readGrammar(String filename, List<String> setImg) {
+	public static void readGrammar(String filename, List<String> setImg,Context context) {
 		
 		FileInputStream fstream;
 		List<String> setImgCorrectGrammar = new ArrayList<String>();
@@ -108,15 +107,7 @@ public class PermutationAndReadGrammar {
 			POSGrammar = setOfPOS.toString();
 			//System.out.println("POSGrammar: "+POSGrammar);
 
-
-			String newFolder = "/AAConAndroid";
-			String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
-			File myNewFolder = new File(extStorageDirectory + newFolder);
-			File file = new File(myNewFolder, filename);
-
-			fstream = new FileInputStream(file);
-			DataInputStream in = new DataInputStream(fstream);
-			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			BufferedReader br = new BufferedReader(new InputStreamReader ( context.getAssets().open(filename) ));
 			String strLine = null;
 
 			while ((strLine = br.readLine()) != null) {
@@ -129,7 +120,6 @@ public class PermutationAndReadGrammar {
 				//System.out.println(setSubclassCorrectGrammar);
 			}
 
-			in.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.err.println("Error: " + e.getMessage());
