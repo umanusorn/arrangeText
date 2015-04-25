@@ -84,12 +84,12 @@ String fileName = "Word_Score.txt";
 			}
 		}
 
-		Log.d(TAG, "pass2");
+	//	Log.d(TAG, "pass2");
 
 		fileName= "POS_Score.txt";
 		BufferedReader readerPOSGram = new BufferedReader(new InputStreamReader ( context.getAssets().open(fileName) ));
 
-		Log.d(TAG, "pass3");
+	//	Log.d(TAG, "pass3");
 		String strLinePOS = "";
 		while ((linePOS = readerPOSGram.readLine()) != null) {
 			String[] parts = linePOS.split(",,");
@@ -99,12 +99,12 @@ String fileName = "Word_Score.txt";
 				hashtable_POS.put(strLinePOS, parts[1]);
 			}
 		}
-		Log.d(TAG, "pass4");
+		//Log.d(TAG, "pass4");
 		fileName = "Subclass_Score.txt";
 		BufferedReader readerSubclassGram = new BufferedReader(new InputStreamReader ( context.getAssets().open(fileName) ));
 		String strLineSubclass = "";
 
-		Log.d(TAG, "pass5");
+	//	Log.d(TAG, "pass5");
 		while ((lineSubclass = readerSubclassGram.readLine()) != null) {
 			String[] parts = lineSubclass.split(",");
 
@@ -113,7 +113,7 @@ String fileName = "Word_Score.txt";
 				hashtable_Subclass.put(strLineSubclass, parts[2]);
 			}
 		}
-		Log.d(TAG, "pass6");
+	//	Log.d(TAG, "pass6");
 
 		fileName="Class_Score.txt";
 		BufferedReader readerClassGram = new BufferedReader(new InputStreamReader ( context.getAssets().open(fileName) ));
@@ -146,7 +146,7 @@ String fileName = "Word_Score.txt";
 //------------------------------------------Already Created Hash table---------------------------------------------//
 	long tStart = System.currentTimeMillis();
 
-	Log.d(TAG, "pass9");
+	//Log.d(TAG, "pass9");
 //		try {
 //
 //			fstream = new FileInputStream("test4word.txt");
@@ -179,7 +179,7 @@ String fileName = "Word_Score.txt";
 	imgWord.add("SIZE,ADJ,ใหญ่,SIZE");
 	imgWord.add("FAMILY,N,ปู่,WHAT");*/
 
-	Log.d(TAG, "pass10");
+	//Log.d(TAG, "pass10");
 	System.out.println(imgWord);
 	Log.d(TAG, "pass11" + imgWord);
 	PermutationAndReadGrammar.ImgPermutation(imgWord, 0,context);

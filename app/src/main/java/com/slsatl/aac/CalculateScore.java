@@ -150,16 +150,16 @@ public class CalculateScore {
 		// ------------------------------------2-Gram of Subclass-----------------------------------------------
 		for (int j = 0; j < MainClass.imgWord.size() - 1; j++) {
 			imgSubclassGram.add(imgSetCalSubclass[j] +","+ imgSetCalSubclass[j + 1]);
-			System.out.println(imgSetCalSubclass[j] +","+ imgSetCalSubclass[j + 1]+"------------------------------------");
+			//System.out.println(imgSetCalSubclass[j] +","+ imgSetCalSubclass[j + 1]+"------------------------------------");
 			
 			Set setSubclass = MainClass.hashtable_Class.entrySet();
 		    Iterator it_Subclass = setSubclass.iterator();
 		    while (it_Subclass.hasNext()) {
 		    	Map.Entry entry = (Map.Entry) it_Subclass.next();
-		    	System.out.println("imgSubclassGram :"+imgSubclassGram.get(j));
-		    	System.out.println("entry.getKey :"+entry.getKey());
+		    	//System.out.println("imgSubclassGram :"+imgSubclassGram.get(j));
+		    	//System.out.println("entry.getKey :"+entry.getKey());
 		    	if (entry.getKey().equals(imgSubclassGram.get(j))) {
-		    		System.out.println("Fon***********************************************************");
+		    		//System.out.println("Fon***********************************************************");
 					scoreSubclassGram.add("String: " + imgSubclassGram.get(j) + "\t score: " + entry.getValue());
 					totalScoreSubclass = totalScoreSubclass + Float.parseFloat((String) entry.getValue());
 		    	}

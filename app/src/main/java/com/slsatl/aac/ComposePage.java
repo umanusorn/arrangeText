@@ -285,7 +285,7 @@ void onCreate ( Bundle savedInstanceState ) {
 	  li
 	  = ( LayoutInflater ) this.getSystemService ( Context.LAYOUT_INFLATER_SERVICE );
 
-    Log.d ( "linearCate", "cateSize =" + cateShow.size () );
+    //Log.d ( "linearCate", "cateSize =" + cateShow.size () );
     for ( int position = 0 ; position < cateShow.size () ; position++ ) {
 	  headerElement[ position ] = li.inflate ( R.layout.categridview, null );
 	  CatIconAndLabel a = ( CatIconAndLabel ) ComposePage.cateShow.toArray ()[ position ];
@@ -296,7 +296,7 @@ void onCreate ( Bundle savedInstanceState ) {
 	  TextView tv = ( TextView ) headerElement[ position ].findViewById ( R.id.cate_icon_text );
 	  tv.setText ( a.word );
 
-	  Log.d ( "linearCate", "pos=" + position );
+	 // Log.d ( "linearCate", "pos=" + position );
 	  linear_cate.addView ( headerElement[ position ] );
 	  //	..
 	  headerElement[ position ].setOnClickListener ( new CateClickListener ( a.word,
