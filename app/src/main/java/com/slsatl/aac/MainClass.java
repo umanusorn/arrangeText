@@ -181,7 +181,7 @@ String fileName = "Word_Score.txt";
 
 	//Log.d(TAG, "pass10");
 	System.out.println(imgWord);
-	Log.d(TAG, "pass11" + imgWord);
+	Log.d ( TAG, "pass11" + imgWord );
 	PermutationAndReadGrammar.ImgPermutation(imgWord, 0,context);
 	Log.d(TAG, "pass12" + imgWord);
 	ansSentence.clear();
@@ -228,13 +228,14 @@ String fileName = "Word_Score.txt";
 	long tDelta = tEnd - tStart;
 	double elapsedSeconds = tDelta / 1000.0;
 	Log.d(TAG, "pass14" + imgWord + "Using times: " + elapsedSeconds);
-	System.out.println("Using times: " + elapsedSeconds);
+	System.out.println ( "Using times: " + elapsedSeconds );
 
 
 	String ans = ansSentence.get(0);
 		imgWord.clear();
 		ansSentence.clear();
 	SortingScore.allScore.clear();
+	//Log.d ( "answer=",ans );
 	return ans;
 }
 }
