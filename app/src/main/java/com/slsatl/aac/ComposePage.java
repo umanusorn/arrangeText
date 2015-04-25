@@ -139,7 +139,12 @@ String onClickCallAlgor ( String classStr, String pos, String tag, String subCla
     algorStructures.add ( new AlgorStructure ( classStr, pos, tag, subClassStr ) );
 
     //if(algorStructures.size()>3)
-    answerTv.setText ( MainClass.main ( algorStructures,getApplicationContext () ) );
+
+	String s = MainClass.main ( algorStructures, getApplicationContext () );
+char c = 8;
+s=s.replace ( "||","," );
+	s=s.replaceAll(".*,", "");
+    answerTv.setText ( s );
     //sc1tv.setText(classStr);
     return sortedOrder;
 }
@@ -510,7 +515,7 @@ void launchHelpPage () {
 
 private
 void configureUI2 () {
-    grid_select.setOnItemLongClickListener ( new AdapterView.OnItemLongClickListener () {
+    /*grid_select.setOnItemLongClickListener ( new AdapterView.OnItemLongClickListener () {
 
 	  @Override public
 	  boolean onItemLongClick ( AdapterView<?> adapterView, View view, int i, long l ) {
@@ -520,7 +525,7 @@ void configureUI2 () {
 	  }
 
 
-    } );
+    } );*/
     grid_select.setAdapter ( new ImageAdapterSelect ( this ) );
 }
 

@@ -15,6 +15,7 @@ public class SortingScore {
 	public static void Sorting(float totalScore, String sentence, int countCompare){
 		
 		strScore = countCompare+"||"+totalScore+"||"+sentence;
+		Log.d ( "wtf",countCompare+"||"+totalScore+"||"+sentence );
 		//strScore = totalScore+"||"+sentence;
 		//strScore = sentence;
 		allScore.add(strScore);
