@@ -14,9 +14,9 @@ public class SortingScore {
 	
 	public static void Sorting(float totalScore, String sentence, int countCompare){
 		
-		//strScore = countCompare+"||"+totalScore+"||"+sentence;
+		strScore = countCompare+"||"+totalScore+"||"+sentence;
 		//strScore = totalScore+"||"+sentence;
-		strScore = sentence;
+		//strScore = sentence;
 		allScore.add(strScore);
 		AnswerSentence();
 		//Collections.sort(allScore);
