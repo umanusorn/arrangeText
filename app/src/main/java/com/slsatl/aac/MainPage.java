@@ -391,10 +391,10 @@ class DownloadResourceTask extends AsyncTask<String, Void, Void> {
 
 	// can use UI thread here
 	protected void onPostExecute(final Void unused) {
-		if (this.dialog.isShowing()) {
+	/*	if (this.dialog.isShowing()) {
 			this.dialog.dismiss();
 
-		}
+		}*/
 
 
 		lockPane.setClickable(true);

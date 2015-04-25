@@ -194,7 +194,7 @@ public static String main(List<AlgorStructure> algorStructures) {
 
 	}
 
-// todo show this string in textView
+// todo show the answer string in textView
 	try{
 		Log.d(TAG + "view Answer", ansSentence.get(0));
 	}catch (Exception e){
