@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.1"
 
     defaultConfig {
-        applicationId "com.slsatl.aac"
+        applicationId "com.slsatl.aac2"
         minSdkVersion 10
         targetSdkVersion 10
     }
